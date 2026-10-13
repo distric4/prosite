@@ -1,22 +1,24 @@
-/* Отправка заявок с форм на почту через Web3Forms (статический сайт, без своего сервера).
-   Перехватывает submit форм Tilda, блокирует отправку на серверы Tilda и шлёт данные на email. */
+/* Отправка заявок с форм на почту через Web3Forms (статический сайт).
+   Tilda отправляет формы AJAX-ом по клику на кнопку submit — поэтому перехватываем
+   КЛИК по кнопке (а не событие submit), блокируем отправку на серверы Tilda и шлём на email.
+   Плюс сетевой предохранитель: глушим любые запросы к серверу форм Tilda. */
 (function () {
   "use strict";
-  var ACCESS_KEY = "cf3863c7-4967-4e9d-a65a-1d080192c678"; // Web3Forms (публичный ключ, email: aleksey.dianov.1996@gmail.com)
+  var ACCESS_KEY = "cf3863c7-4967-4e9d-a65a-1d080192c678"; // Web3Forms (публичный ключ)
   var ENDPOINT = "https://api.web3forms.com/submit";
 
-  // какие поля не показывать в письме (служебные поля Tilda)
+  // служебные поля Tilda, которые не нужны в письме
   var SKIP = /^(formservices|tildaspec|tranid|form_|form-spec|_|COMMENT$|Checkbox$)/i;
 
   function buildMessage(form) {
     var fd = new FormData(form);
-    var lines = [];
-    var msgType = "", msgId = "";
+    var lines = [], msgType = "", msgId = "";
     fd.forEach(function (value, key) {
       if (!key || value === "" || value == null) return;
       if (SKIP.test(key)) return;
       if (key === "messenger-type") { msgType = value; return; }
       if (key === "messenger-id") { msgId = value; return; }
+      if (key === "Phone") { lines.push("Телефон: " + value); return; }
       lines.push(key + ": " + value);
     });
     if (msgId) lines.push("Связь (" + (msgType || "?") + "): " + msgId);
@@ -53,41 +55,49 @@
   function showError(form) {
     var scope = (form && (form.closest(".t-form, .t-form__wrapper, .t-quiz") || form.parentElement)) || document.body;
     inlineMessage(scope,
-      "Не удалось отправить заявку. Напишите мне напрямую в Telegram <b>@a_dianov14</b>.",
-      "#d33");
+      "Не удалось отправить заявку. Напишите мне напрямую в Telegram <b>@a_dianov14</b>.", "#d33");
   }
 
-  function onSubmit(e) {
-    var form = e.target;
-    if (!form || form.tagName !== "FORM") return;
-    // блокируем штатную отправку Tilda (на её серверы) и обрабатываем сами
-    e.preventDefault();
-    e.stopImmediatePropagation();
-    if (form.checkValidity && !form.checkValidity()) {
-      if (form.reportValidity) form.reportValidity();
-      return;
-    }
+  function sendToEmail(form, btn) {
     var payload = {
       access_key: ACCESS_KEY,
       subject: "Новая заявка с сайта diasite.ru",
       from_name: "Сайт diasite.ru",
       message: buildMessage(form)
     };
-    var btn = form.querySelector('[type="submit"]');
     if (btn) btn.setAttribute("disabled", "disabled");
-
     fetch(ENDPOINT, {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify(payload)
     })
       .then(function (r) { return r.json(); })
-      .then(function (d) {
-        if (d && d.success) showSuccess(form); else showError(form);
-      })
+      .then(function (d) { if (d && d.success) showSuccess(form); else showError(form); })
       .catch(function () { showError(form); })
       .then(function () { if (btn) btn.removeAttribute("disabled"); });
   }
 
-  document.addEventListener("submit", onSubmit, true); // capture — срабатывает раньше Tilda
+  // 1) Перехват клика по кнопке отправки (capture — раньше обработчиков Tilda)
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest('button[type="submit"], input[type="submit"]');
+    if (!btn) return;
+    var form = btn.closest("form");
+    if (!form) return;
+    e.preventDefault();
+    e.stopImmediatePropagation();
+    if (form.checkValidity && !form.checkValidity()) {
+      if (form.reportValidity) form.reportValidity();
+      return;
+    }
+    sendToEmail(form, btn);
+  }, true);
+
+  // 2) Предохранитель: не выпускаем запросы к серверу форм Tilda (чтобы не было её ошибок)
+  var TILDA_FORM = /tildaapi\.com\/procces|tildacdn\.com\/procces|forms\.tilda/i;
+  var _open = XMLHttpRequest.prototype.open;
+  XMLHttpRequest.prototype.open = function (m, u) { this.__tildaForm = TILDA_FORM.test("" + u); return _open.apply(this, arguments); };
+  var _send = XMLHttpRequest.prototype.send;
+  XMLHttpRequest.prototype.send = function () { if (this.__tildaForm) { try { this.abort(); } catch (e) {} return; } return _send.apply(this, arguments); };
+  var _fetch = window.fetch;
+  window.fetch = function (u) { if (TILDA_FORM.test("" + u)) return Promise.resolve(new Response("{}", { status: 200 })); return _fetch.apply(this, arguments); };
 })();
