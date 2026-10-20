@@ -1,0 +1,42 @@
+---
+layout: base.njk
+title: Разработка сайтов на заявки
+description: Сайты для бизнеса на Тильде с упором на заявки. Веб-дизайн, SEO и контекст. Иркутск.
+---
+
+<!-- HERO -->
+<section class="section">
+  <div class="container">
+    <p class="accent" style="font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem">
+      {{ site.role }}
+    </p>
+    <h1>Сайты<br />для бизнеса</h1>
+    <p style="max-width:34rem;font-size:1.2rem;color:var(--c-muted);margin-top:1.2rem">
+      {{ site.tagline }}. Делаю сайты, которые приносят заявки, а не просто
+      красиво выглядят.
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
+      <a class="btn btn--primary" href="/#tarifs">Выбрать тариф</a>
+      <a class="btn btn--ghost" href="/#audit">Нужен аудит сайта</a>
+    </div>
+  </div>
+</section>
+
+<!-- Заглушки секций (наполним на Этапе 2). Нужны, чтобы проверить меню/якоря. -->
+{% set stub = [
+  { id: "metod",    t: "Подход" },
+  { id: "works",    t: "Работы" },
+  { id: "tarifs",   t: "Тарифы" },
+  { id: "audit",    t: "Аудит" },
+  { id: "follow",   t: "Сопровождение" },
+  { id: "contacts", t: "Контакты" }
+] %}
+
+{% for s in stub %}
+<section class="section {% if loop.index % 2 == 0 %}section--soft{% endif %}" id="{{ s.id }}">
+  <div class="container">
+    <h2>{{ s.t }}</h2>
+    <p style="color:var(--c-muted)">Раздел «{{ s.t }}» — контент перенесём на Этапе&nbsp;2.</p>
+  </div>
+</section>
+{% endfor %}

@@ -1,0 +1,51 @@
+/* ─── Дизайн-токены сайта ───────────────────────────────── */
+
+/* Шрифты */
+@font-face {
+  font-family: "Druk Wide";
+  src: url("/assets/fonts/Druk-Wide-Cyr-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Druk Wide";
+  src: url("/assets/fonts/Druk-Wide-Cyr-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Семейства */
+  --font-display: "Druk Wide", "Arial Black", sans-serif; /* крупные заголовки */
+  --font-head: "Syne", Arial, sans-serif;                  /* подзаголовки */
+  --font-text: "Manrope", Arial, sans-serif;               /* текст */
+
+  /* Цвета */
+  --c-ink: #171717;        /* основной тёмный */
+  --c-bg: #ffffff;         /* фон */
+  --c-bg-soft: #f5f5f5;    /* светлый блок */
+  --c-accent: #00af92;     /* фирменный зелёный */
+  --c-accent-ink: #ffffff; /* текст на акценте */
+  --c-muted: #6b6b6b;      /* серый текст */
+  --c-muted-2: #969696;    /* светло-серый */
+  --c-line: #e6e6e6;       /* границы */
+
+  /* Типографика */
+  --fs-hero: clamp(2rem, 7vw, 5.5rem);
+  --fs-h2: clamp(1.6rem, 4.5vw, 3rem);
+  --fs-h3: clamp(1.3rem, 2.5vw, 1.6rem);
+  --fs-body: 1.0625rem;
+  --lh-body: 1.6;
+
+  /* Отступы / сетка */
+  --space-section: clamp(3.5rem, 8vw, 7rem);
+  --container: 1200px;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+  --radius: 16px;
+
+  /* Прочее */
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --transition: 0.25s ease;
+}

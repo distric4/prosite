@@ -2,3 +2,8 @@ Thumbs.db
 .DS_Store
 ДАК-РАЗМЕСТИТЬ.md
 КАК-РАЗМЕСТИТЬ.md
+
+# Eleventy / Node
+node_modules/
+# Сборка 11ty (генерируется; на бой публикует GitHub Actions)
+docs/

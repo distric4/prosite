@@ -1,0 +1,25 @@
+{
+  "name": "Дианов Алексей",
+  "brand": "Сайты для бизнеса",
+  "tagline": "Веб-дизайн & SEO · Контекст",
+  "role": "Тильда-эксперт",
+  "city": "Иркутск",
+  "domain": "diasite.ru",
+  "url": "https://diasite.ru",
+  "phone": "+79834075940",
+  "phoneDisplay": "+7 983 407-59-40",
+  "email": "aleksey.dianov.1996@gmail.com",
+  "telegram": "https://t.me/a_dianov14",
+  "telegramHandle": "@a_dianov14",
+  "whatsapp": "https://wa.me/79834075940",
+  "channel": "https://t.me/design_surfers",
+  "web3formsKey": "cf3863c7-4967-4e9d-a65a-1d080192c678",
+  "nav": [
+    { "label": "Подход", "href": "/#metod" },
+    { "label": "Работы", "href": "/#works" },
+    { "label": "Тарифы", "href": "/#tarifs" },
+    { "label": "Аудит", "href": "/#audit" },
+    { "label": "Сопровождение", "href": "/#follow" },
+    { "label": "Контакты", "href": "/#contacts" }
+  ]
+}

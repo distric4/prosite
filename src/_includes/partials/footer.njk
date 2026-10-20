@@ -1,0 +1,32 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__col footer__brand">
+        <span class="brand__name">{{ site.brand }}</span>
+        <p style="margin-top:.6rem;max-width:22rem;color:#9a9a9a">
+          {{ site.name }} — {{ site.role }}. {{ site.tagline }}. {{ site.city }}.
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Навигация</h4>
+        {% for item in site.nav %}
+          <a href="{{ item.href }}">{{ item.label }}</a>
+        {% endfor %}
+      </div>
+
+      <div class="footer__col">
+        <h4>Связь</h4>
+        <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
+        <a href="{{ site.telegram }}" target="_blank" rel="noopener">Telegram {{ site.telegramHandle }}</a>
+        <a href="{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© {% year %} {{ site.name }} · {{ site.domain }}</span>
+      <a href="/privacy/">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>

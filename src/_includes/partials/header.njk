@@ -1,0 +1,21 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="{{ site.brand }} — на главную">
+      <span class="brand__name">{{ site.brand }}</span>
+      <span class="brand__sub">{{ site.tagline }}</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      {% for item in site.nav %}
+        <a class="nav__link" href="{{ item.href }}">{{ item.label }}</a>
+      {% endfor %}
+    </nav>
+
+    <div class="header__actions">
+      <a class="header__phone" href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
+      <button class="burger" type="button" aria-label="Меню" aria-controls="nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
