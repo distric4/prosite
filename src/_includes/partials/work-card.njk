@@ -6,21 +6,22 @@
   </div>
   {% endif %}
   <div class="work-card__body">
-    <div class="work-card__main">
-      <div class="work-card__head">
-        <span class="work-card__name">{{ w.name }}</span>
-        <span class="work-card__type">{{ w.type }}</span>
-      </div>
-      <h3>{{ w.tag }}</h3>
-      <p class="work-card__desc">{{ w.desc }}</p>
-      <div class="work-card__result"><span>Результат</span>{{ w.result }}</div>
+    <div class="work-card__head">
+      <span class="work-card__name">{{ w.name }}</span>
+      <span class="work-card__type">{{ w.type }}</span>
     </div>
-    <aside class="work-card__params">
+    <h3>{{ w.tag }}</h3>
+    <div class="work-card__price">
+      <span>Актуальная стоимость аналогичной работы</span>
+      <b>{{ w.price }}</b>
+    </div>
+    <div class="work-card__params">
       {% for pr in w.params %}
       <div class="param"><span>{{ pr.k }}</span><b>{{ pr.v }}</b></div>
       {% endfor %}
-      <div class="param param--price"><span>Стоимость аналогичной работы</span><b>{{ w.price }}</b></div>
-    </aside>
+    </div>
+    <p class="work-card__desc">{{ w.desc }}</p>
+    <div class="work-card__result"><span>Результат</span>{{ w.result }}</div>
   </div>
 </article>
 {% endmacro %}

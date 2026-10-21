@@ -42,6 +42,21 @@
     }
   }
 
+  /* ─── Вкладки (секция «Проблема») ─── */
+  document.querySelectorAll("[data-tabs]").forEach(function (root) {
+    var btns = root.querySelectorAll(".tabs__btn");
+    var panels = root.querySelectorAll(".tabs__panel");
+    root.querySelector(".tabs__nav").addEventListener("click", function (e) {
+      var btn = e.target.closest(".tabs__btn");
+      if (!btn) return;
+      var id = btn.getAttribute("data-tab");
+      btns.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
+      panels.forEach(function (p) {
+        p.classList.toggle("is-active", p.getAttribute("data-panel") === id);
+      });
+    });
+  });
+
   /* ─── Маска телефона: +7 (999) 999-99-99 ─── */
   function formatPhone(value) {
     var d = value.replace(/\D/g, "");

@@ -97,23 +97,33 @@ description: Сайты для бизнеса на Тильде с упором 
 ] %}
 <section class="section" id="problem">
   <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Проблема</span>
+    <div class="section__head section__head--wide">
+      <span class="eyebrow eyebrow--line">Проблема</span>
       <h2>Почему сайт не приносит клиентов?</h2>
       <p>Большинство проектов создаются «для галочки» — без продуманной структуры, смысла и системы развития.</p>
     </div>
-    <div class="problems">
-      {% for p in problems %}
-      <article class="problem-card">
-        <div class="problem-card__num">0{{ loop.index }}</div>
-        <h3>{{ p.t }}</h3>
-        <p class="problem-card__desc">{{ p.d }}</p>
-        <div class="compare">
-          <div class="compare__row compare__row--bad"><span>Обычно</span>{{ p.bad }}</div>
-          <div class="compare__row compare__row--good"><span>Эффективнее</span>{{ p.good }}</div>
+    <div class="tabs" data-tabs>
+      <div class="tabs__nav" role="tablist">
+        {% for p in problems %}
+        <button class="tabs__btn{% if loop.first %} is-active{% endif %}" type="button" role="tab" data-tab="{{ loop.index }}">{{ p.t }}</button>
+        {% endfor %}
+      </div>
+      <div class="tabs__panels">
+        {% for p in problems %}
+        <div class="tabs__panel{% if loop.first %} is-active{% endif %}" data-panel="{{ loop.index }}">
+          <div class="problem">
+            <div class="problem__text">
+              <h3>{{ p.t }}</h3>
+              <p>{{ p.d }}</p>
+            </div>
+            <div class="problem__compare">
+              <div class="compare__row compare__row--bad"><span>Как делают обычно</span>{{ p.bad }}</div>
+              <div class="compare__row compare__row--good"><span>Как работает эффективнее</span>{{ p.good }}</div>
+            </div>
+          </div>
         </div>
-      </article>
-      {% endfor %}
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
@@ -127,14 +137,14 @@ description: Сайты для бизнеса на Тильде с упором 
 ] %}
 <section class="section section--soft" id="metod">
   <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Подход</span>
-      <h2>Создаю проект не для вас,<br />а для ваших клиентов</h2>
-      <p class="approach__quote">«Если я открыл ваш сайт, в первую очередь я хочу узнать, как вы оказываете услуги, а не сколько у вас было клиентов».</p>
+    <div class="section__head section__head--wide">
+      <span class="eyebrow eyebrow--line">Подход</span>
+      <h2>Создаю проект не для&nbsp;Вас, а&nbsp;для&nbsp;Ваших&nbsp;клиентов</h2>
+      <p class="approach__quote">«Если я открыл ваш сайт, в первую очередь я хочу узнать, как вы оказываете услуги, а не сколько у Вас было клиентов».</p>
     </div>
     <div class="steps">
       {% for s in steps %}
-      <article class="step">
+      <article class="step{% if loop.index == 2 or loop.index == 3 %} step--dark{% endif %}">
         <div class="step__num">0{{ loop.index }}</div>
         <h3>{{ s.t }}</h3>
         <p>{{ s.d }}</p>
