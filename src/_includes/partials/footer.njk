@@ -1,31 +1,44 @@
 <footer class="site-footer">
   <div class="container">
-    <div class="footer__top">
-      <div class="footer__col footer__brand">
-        <span class="brand__name">{{ site.brand }}</span>
-        <p style="margin-top:.6rem;max-width:22rem;color:#9a9a9a">
-          {{ site.name }} — {{ site.role }}. {{ site.tagline }}. {{ site.city }}.
-        </p>
-      </div>
+    <div class="footer__brandrow">
+      <span class="brand__name">{{ site.brand }}</span>
+    </div>
 
+    <div class="footer__cols">
       <div class="footer__col">
-        <h4>Навигация</h4>
-        {% for item in site.nav %}
-          <a href="{{ item.href }}">{{ item.label }}</a>
-        {% endfor %}
+        <h4>Разделы</h4>
+        <a href="/">Главная</a>
+        <a href="/#metod">Подход</a>
+        <a href="/#works">Работы</a>
+        <a href="/#tarifs">Тарифы</a>
+        <a href="/#follow">Ведение</a>
+        <a href="/#audit">Аудит</a>
       </div>
-
       <div class="footer__col">
-        <h4>Связь</h4>
-        <a href="tel:{{ site.phone }}">{{ site.phoneDisplay }}</a>
-        <a href="{{ site.telegram }}" target="_blank" rel="noopener">Telegram {{ site.telegramHandle }}</a>
-        <a href="{{ site.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <h4>Дополнительно</h4>
+        <a href="/#metod">Кто я?</a>
+        <a href="{{ site.vc }}" target="_blank" rel="noopener">Блог</a>
+        <a href="/works/">Кейсы</a>
+        <a href="/#contacts">Контакты</a>
+      </div>
+      <div class="footer__social">
+        <div class="footer__soc">
+          <h4>Статьи про сайты</h4>
+          <a href="{{ site.vc }}" target="_blank" rel="noopener">На VC.RU</a>
+        </div>
+        <div class="footer__soc">
+          <h4>Телеграм</h4>
+          <a href="{{ site.telegram }}" target="_blank" rel="noopener">{{ site.telegramHandle }}</a>
+        </div>
+        <div class="footer__soc">
+          <h4>ТГ-канал</h4>
+          <a href="{{ site.channel }}" target="_blank" rel="noopener">{{ site.channelName }}</a>
+        </div>
       </div>
     </div>
 
     <div class="footer__bottom">
-      <span>© {% year %} {{ site.name }} · {{ site.domain }}</span>
+      <span>© {% year %} Dianov Aleksey</span>
       <a href="/privacy/">Политика конфиденциальности</a>
     </div>
   </div>

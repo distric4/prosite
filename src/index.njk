@@ -269,61 +269,48 @@ description: Сайты для бизнеса на Тильде с упором 
 
 <!-- СОПРОВОЖДЕНИЕ -->
 {% set follow = [
-  { t: "Аналитика и контроль показателей", d: "Анализ поведения пользователей, отслеживание конверсий и заявок, поиск точек потери клиентов, регулярные рекомендации." },
-  { t: "SEO-оптимизация и развитие структуры", d: "Расширение семантики, новые страницы под запросы, корректировка заголовков и мета-тегов, работа над видимостью." },
-  { t: "Наполнение и доработка контента", d: "Обновление информации, новые разделы, переработка слабых блоков, усиление офферов." },
-  { t: "Технические корректировки", d: "Оптимизация структуры, правка интерфейса, улучшение мобильной версии, проверка форм и заявок." },
-  { t: "Развитие системы продаж", d: "Масштабирование, тестирование гипотез, подготовка под рекламу, новые сценарии захвата заявок." }
+  { t: "Аналитика и контроль показателей", items: ["Анализ поведения пользователей", "Отслеживание конверсий и заявок", "Поиск точек потери клиентов", "Регулярные рекомендации по улучшению"] },
+  { t: "SEO-оптимизация и развитие структуры", items: ["Расширение семантики", "Новые страницы под поисковые запросы", "Корректировка заголовков и мета-тегов", "Работа над видимостью сайта"] },
+  { t: "Наполнение и доработка контента", items: ["Усиление офферов", "Переработка слабых блоков", "Добавление новых разделов", "Обновление информации"] },
+  { t: "Технические корректировки", items: ["Проверка форм и заявок", "Улучшение мобильной версии", "Корректировка интерфейса", "Оптимизация структуры"] },
+  { t: "Развитие системы продаж сайта", items: ["Новые сценарии захвата заявок", "Подготовка под рекламу", "Тестирование гипотез", "Постепенное масштабирование"] }
 ] %}
-<section class="section" id="follow">
+<section class="section section--soft" id="follow">
   <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Сопровождение</span>
+    <div class="section__head section__head--wide">
+      <span class="eyebrow eyebrow--line">Сопровождение</span>
       <h2>Развитие и стабильная поддержка</h2>
-      <p>Для тех, кто использует сайт как актив: держу его в тренде и подстраиваю под изменения рынка.</p>
+      <p>Подключаюсь к проекту и постепенно усиливаю его: SEO, расширение структуры, аналитика и новые точки роста.</p>
     </div>
     <div class="follow">
       {% for f in follow %}
       <article class="follow__item">
         <div class="follow__num">{{ loop.index }}</div>
-        <div>
+        <div class="follow__body">
           <h3>{{ f.t }}</h3>
-          <p>{{ f.d }}</p>
+          <ul class="follow__list">
+            {% for it in f.items %}<li>{{ it }}</li>{% endfor %}
+          </ul>
         </div>
       </article>
       {% endfor %}
-    </div>
-    <div class="follow__foot">
-      <div class="follow__price"><b>от 15 000 ₽</b> / мес</div>
-      <a class="btn btn--ghost" href="#contacts">Обсудить сопровождение</a>
+      <article class="follow__pricebox">
+        <p>Для тех, кто использует сайт как актив, который находится в тренде и подстраивается под изменения рынка.</p>
+        <div class="follow__price"><b>от 15 000</b> ₽/мес</div>
+        <a class="btn btn--primary" href="#calc">Обсудить сопровождение</a>
+      </article>
     </div>
   </div>
 </section>
 
 <!-- КОНТАКТЫ -->
-<section class="section section--soft" id="contacts">
+<section class="section" id="contacts">
   <div class="container">
-    <div class="section__head">
-      <span class="eyebrow">Контакты</span>
+    <div class="section__head section__head--wide">
+      <span class="eyebrow eyebrow--line">Контакты</span>
       <h2>Давайте говорить прямо</h2>
-      <p>Я так же, как и вы, заинтересован, чтобы ваш сайт реально работал и приносил деньги. Свяжитесь со мной — и дальше принимайте решение.</p>
+      <p>Я так же, как и вы, заинтересован, чтобы ваш сайт реально работал и приносил деньги. Чтобы не терять ни секунды — свяжитесь со мной прямо сейчас, а после этого принимайте решения.</p>
     </div>
-    <div class="contacts">
-      <a class="contacts__item" href="tel:{{ site.phone }}">
-        <span>Телефон</span><b>{{ site.phoneDisplay }}</b>
-      </a>
-      <a class="contacts__item" href="{{ site.telegram }}" target="_blank" rel="noopener">
-        <span>Telegram</span><b>{{ site.telegramHandle }}</b>
-      </a>
-      <a class="contacts__item" href="{{ site.whatsapp }}" target="_blank" rel="noopener">
-        <span>WhatsApp</span><b>Написать</b>
-      </a>
-      <a class="contacts__item" href="mailto:{{ site.email }}">
-        <span>Почта</span><b>{{ site.email }}</b>
-      </a>
-    </div>
-    <div class="contacts__cta">
-      <a class="btn btn--primary" href="{{ site.telegram }}" target="_blank" rel="noopener">Связаться со мной</a>
-    </div>
+    <a class="btn btn--ghost btn--arrow" href="{{ site.telegram }}" target="_blank" rel="noopener">Связаться со мной</a>
   </div>
 </section>
