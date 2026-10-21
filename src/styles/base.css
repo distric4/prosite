@@ -34,20 +34,22 @@ h4 {
 }
 
 h1 {
-  font-family: var(--font-display);
+  font-family: var(--font-head);
+  font-weight: 800;
   font-size: var(--fs-hero);
-  text-transform: uppercase;
   letter-spacing: -0.01em;
 }
 
 h2 {
-  font-family: var(--font-display);
+  font-family: var(--font-head);
+  font-weight: 800;
   font-size: var(--fs-h2);
-  text-transform: uppercase;
+  letter-spacing: -0.01em;
 }
 
 h3 {
-  font-family: var(--font-head);
+  font-family: var(--font-text);
+  font-weight: 700;
   font-size: var(--fs-h3);
 }
 

@@ -16,10 +16,8 @@
   "web3formsKey": "cf3863c7-4967-4e9d-a65a-1d080192c678",
   "nav": [
     { "label": "Подход", "href": "/#metod" },
-    { "label": "Работы", "href": "/#works" },
     { "label": "Тарифы", "href": "/#tarifs" },
-    { "label": "Аудит", "href": "/#audit" },
-    { "label": "Сопровождение", "href": "/#follow" },
+    { "label": "Работы", "href": "/#works" },
     { "label": "Контакты", "href": "/#contacts" }
   ]
 }

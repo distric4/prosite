@@ -20,6 +20,28 @@
     });
   }
 
+  /* ─── Эффект печати в hero ─── */
+  var typeEl = document.querySelector("[data-type]");
+  if (typeEl && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    var words = (typeEl.getAttribute("data-words") || "").split(",").map(function (s) { return s.trim(); }).filter(Boolean);
+    if (words.length) {
+      var wi = 0, ci = words[0].length, deleting = false;
+      var tick = function () {
+        var word = words[wi];
+        if (!deleting) {
+          ci++;
+          if (ci >= word.length) { ci = word.length; deleting = true; setTimeout(tick, 1800); typeEl.textContent = word; return; }
+        } else {
+          ci--;
+          if (ci <= 0) { ci = 0; deleting = false; wi = (wi + 1) % words.length; }
+        }
+        typeEl.textContent = words[wi].slice(0, ci);
+        setTimeout(tick, deleting ? 55 : 120);
+      };
+      setTimeout(tick, 1800);
+    }
+  }
+
   /* ─── Маска телефона: +7 (999) 999-99-99 ─── */
   function formatPhone(value) {
     var d = value.replace(/\D/g, "");

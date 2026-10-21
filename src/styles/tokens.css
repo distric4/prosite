@@ -17,10 +17,10 @@
 }
 
 :root {
-  /* Семейства */
-  --font-display: "Druk Wide", "Arial Black", sans-serif; /* крупные заголовки */
-  --font-head: "Syne", Arial, sans-serif;                  /* подзаголовки */
-  --font-text: "Manrope", Arial, sans-serif;               /* текст */
+  /* Семейства — как в оригинале на Tilda */
+  --font-display: "Druk Wide", "Arial Black", sans-serif;  /* крупные цифры, бейджи */
+  --font-head: "Syne", Arial, sans-serif;                   /* заголовки (обычный регистр) */
+  --font-text: "Manrope", Arial, sans-serif;                /* текст, меню, кнопки */
 
   /* Цвета */
   --c-ink: #171717;        /* основной тёмный */
@@ -45,7 +45,10 @@
   --gutter: clamp(1rem, 4vw, 2.5rem);
   --radius: 16px;
 
-  /* Прочее */
+  /* Прочее — острые углы, как в оригинале */
   --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
   --transition: 0.25s ease;
+}
+:root {
+  --radius: 0px;
 }

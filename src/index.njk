@@ -6,23 +6,37 @@ description: Сайты для бизнеса на Тильде с упором 
 {% from "partials/work-card.njk" import workCard %}
 
 <!-- HERO -->
-<section class="section hero">
-  <div class="container">
-    <span class="eyebrow">{{ site.name }} — разработчик сайтов · {{ site.role }}</span>
-    <h1>Разработка<br />и продвижение<br /><span class="accent">сайтов</span> для бизнеса</h1>
-    <p class="hero__lead">
-      Сайт — это ваш сотрудник, который работает на вас, продаёт и находит
-      клиентов 24/7.
-    </p>
-    <div class="hero__cta">
-      <a class="btn btn--primary" href="#calc">Рассчитать стоимость сайта</a>
-      <a class="btn btn--ghost" href="#audit">Нужен аудит сайта</a>
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__text">
+      <span class="eyebrow eyebrow--line">Веб-дизайн &amp; SEO · Контекст</span>
+      <h1 class="hero__title">
+        <span class="accent">Создаю</span>
+        <span class="type" data-type data-words="сайты,лендинги,магазины">сайты</span><br />
+        <span class="accent">и&nbsp;привожу</span><br />клиентов онлайн
+      </h1>
+      <p class="hero__lead">
+        Получите стоимость разработки или корректировки вашего сайта
+        <b>всего за 3 минуты</b>.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#calc">Рассчитать стоимость сайта</a>
+        <span class="hero__note">Отправлю 3 варианта цены с этапами и сроками</span>
+      </div>
     </div>
-    <p class="hero__note">
-      Получите стоимость разработки или корректировки сайта за 3 минуты —
-      отправлю 3 варианта цены с этапами и сроками.
-    </p>
 
+    <div class="hero__media">
+      <div class="hero__photo" style="background-image:url('/assets/img/hero.webp')">
+        <span class="hero__badge">Тильда-эксперт</span>
+        <div class="hero__plate">
+          <b>{{ site.name }}</b>
+          <span>разработчик сайтов</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
     <!-- Статистика -->
     <div class="stats">
       <div class="stat">
