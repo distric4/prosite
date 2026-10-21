@@ -3,6 +3,7 @@ layout: base.njk
 title: Разработка сайтов на заявки
 description: Сайты для бизнеса на Тильде с упором на заявки. Веб-дизайн, SEO и контекст. Иркутск.
 ---
+{% from "partials/work-card.njk" import workCard %}
 
 <!-- HERO -->
 <section class="section hero">
@@ -138,25 +139,7 @@ description: Сайты для бизнеса на Тильде с упором 
       <p>Созданные мной проекты, которые используются в реальном бизнесе и продолжают развиваться.</p>
     </div>
     <div class="works">
-      {% for w in works %}
-      <article class="work-card">
-        <div class="work-card__main">
-          <div class="work-card__head">
-            <span class="work-card__name">{{ w.name }}</span>
-            <span class="work-card__type">{{ w.type }}</span>
-          </div>
-          <h3>{{ w.tag }}</h3>
-          <p class="work-card__desc">{{ w.desc }}</p>
-          <div class="work-card__result"><span>Результат</span>{{ w.result }}</div>
-        </div>
-        <aside class="work-card__params">
-          {% for pr in w.params %}
-          <div class="param"><span>{{ pr.k }}</span><b>{{ pr.v }}</b></div>
-          {% endfor %}
-          <div class="param param--price"><span>Стоимость аналогичной работы</span><b>{{ w.price }}</b></div>
-        </aside>
-      </article>
-      {% endfor %}
+      {% for w in works %}{% if loop.index <= 3 %}{{ workCard(w) }}{% endif %}{% endfor %}
     </div>
     <div class="works__more">
       <a class="btn btn--ghost" href="/works/">Посмотреть ещё работы</a>

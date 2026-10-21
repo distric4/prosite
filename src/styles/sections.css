@@ -536,6 +536,45 @@
   margin-top: 2rem;
 }
 
+/* ─── Юридический текст (политика) ─── */
+.legal {
+  max-width: 46rem;
+}
+.legal h3 {
+  margin-top: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+.legal h3:first-child {
+  margin-top: 0;
+}
+.legal p {
+  color: var(--c-muted);
+  font-size: 0.97rem;
+}
+.legal__req {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0 0 1.2rem;
+  padding: 1.2rem 1.4rem;
+  background: var(--c-bg-soft);
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+}
+.legal__req li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.legal__req span {
+  font-weight: 600;
+  color: var(--c-ink);
+  min-width: 7rem;
+}
+.legal__req a {
+  color: var(--c-accent);
+  text-decoration: underline;
+}
+
 /* ─── Адаптив секций ─── */
 @media (max-width: 900px) {
   .steps {
