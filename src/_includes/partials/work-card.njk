@@ -1,19 +1,26 @@
 {% macro workCard(w) %}
 <article class="work-card">
-  <div class="work-card__main">
-    <div class="work-card__head">
-      <span class="work-card__name">{{ w.name }}</span>
-      <span class="work-card__type">{{ w.type }}</span>
-    </div>
-    <h3>{{ w.tag }}</h3>
-    <p class="work-card__desc">{{ w.desc }}</p>
-    <div class="work-card__result"><span>Результат</span>{{ w.result }}</div>
+  {% if w.img %}
+  <div class="work-card__shot">
+    <img src="{{ w.img }}" alt="Сайт проекта {{ w.name }}" loading="lazy" width="1200" height="600" />
   </div>
-  <aside class="work-card__params">
-    {% for pr in w.params %}
-    <div class="param"><span>{{ pr.k }}</span><b>{{ pr.v }}</b></div>
-    {% endfor %}
-    <div class="param param--price"><span>Стоимость аналогичной работы</span><b>{{ w.price }}</b></div>
-  </aside>
+  {% endif %}
+  <div class="work-card__body">
+    <div class="work-card__main">
+      <div class="work-card__head">
+        <span class="work-card__name">{{ w.name }}</span>
+        <span class="work-card__type">{{ w.type }}</span>
+      </div>
+      <h3>{{ w.tag }}</h3>
+      <p class="work-card__desc">{{ w.desc }}</p>
+      <div class="work-card__result"><span>Результат</span>{{ w.result }}</div>
+    </div>
+    <aside class="work-card__params">
+      {% for pr in w.params %}
+      <div class="param"><span>{{ pr.k }}</span><b>{{ pr.v }}</b></div>
+      {% endfor %}
+      <div class="param param--price"><span>Стоимость аналогичной работы</span><b>{{ w.price }}</b></div>
+    </aside>
+  </div>
 </article>
 {% endmacro %}

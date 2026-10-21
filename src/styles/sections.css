@@ -210,11 +210,25 @@
   gap: 1.5rem;
 }
 .work-card {
+  background: var(--c-bg-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.work-card__shot {
+  aspect-ratio: 1200 / 600;
+  background: #0f0f0f;
+  border-bottom: 1px solid var(--c-line);
+}
+.work-card__shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+.work-card__body {
   display: grid;
   grid-template-columns: 1.7fr 1fr;
   gap: 2rem;
-  background: var(--c-bg-soft);
-  border-radius: var(--radius);
   padding: 2rem;
 }
 .work-card__head {
@@ -590,7 +604,7 @@
   .form-block {
     grid-template-columns: 1fr;
   }
-  .work-card {
+  .work-card__body {
     grid-template-columns: 1fr;
   }
   .work-card__params {
