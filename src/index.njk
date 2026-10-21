@@ -5,38 +5,318 @@ description: Сайты для бизнеса на Тильде с упором 
 ---
 
 <!-- HERO -->
-<section class="section">
+<section class="section hero">
   <div class="container">
-    <p class="accent" style="font-family:var(--font-head);font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:1rem">
-      {{ site.role }}
+    <span class="eyebrow">{{ site.name }} — разработчик сайтов · {{ site.role }}</span>
+    <h1>Разработка<br />и продвижение<br /><span class="accent">сайтов</span> для бизнеса</h1>
+    <p class="hero__lead">
+      Сайт — это ваш сотрудник, который работает на вас, продаёт и находит
+      клиентов 24/7.
     </p>
-    <h1>Сайты<br />для бизнеса</h1>
-    <p style="max-width:34rem;font-size:1.2rem;color:var(--c-muted);margin-top:1.2rem">
-      {{ site.tagline }}. Делаю сайты, которые приносят заявки, а не просто
-      красиво выглядят.
+    <div class="hero__cta">
+      <a class="btn btn--primary" href="#calc">Рассчитать стоимость сайта</a>
+      <a class="btn btn--ghost" href="#audit">Нужен аудит сайта</a>
+    </div>
+    <p class="hero__note">
+      Получите стоимость разработки или корректировки сайта за 3 минуты —
+      отправлю 3 варианта цены с этапами и сроками.
     </p>
-    <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem">
-      <a class="btn btn--primary" href="/#tarifs">Выбрать тариф</a>
-      <a class="btn btn--ghost" href="/#audit">Нужен аудит сайта</a>
+
+    <!-- Статистика -->
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__num">40<span>+</span></div>
+        <div class="stat__label">реализованных проектов</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">100<span>%</span></div>
+        <div class="stat__label">уникальный дизайн</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">от 60<span>к</span></div>
+        <div class="stat__label">цена, рублей</div>
+      </div>
+      <div class="stat">
+        <div class="stat__num">3</div>
+        <div class="stat__label">сайта в ТОП-3 SEO</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- Заглушки секций (наполним на Этапе 2). Нужны, чтобы проверить меню/якоря. -->
-{% set stub = [
-  { id: "metod",    t: "Подход" },
-  { id: "works",    t: "Работы" },
-  { id: "tarifs",   t: "Тарифы" },
-  { id: "audit",    t: "Аудит" },
-  { id: "follow",   t: "Сопровождение" },
-  { id: "contacts", t: "Контакты" }
-] %}
+<!-- Бегущая строка услуг -->
+{% set services = ["Разработка под ключ", "Адаптация под все устройства", "SEO", "Аналитика / метрика", "Яндекс Директ", "Уникальный дизайн"] %}
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {% for s in services %}<span class="marquee__item">{{ s }}</span>{% endfor %}
+    {% for s in services %}<span class="marquee__item">{{ s }}</span>{% endfor %}
+  </div>
+</div>
 
-{% for s in stub %}
-<section class="section {% if loop.index % 2 == 0 %}section--soft{% endif %}" id="{{ s.id }}">
+<!-- ПРОБЛЕМА -->
+{% set problems = [
+  {
+    t: "Нет чёткого предложения",
+    d: "Сайт рассказывает о компании, но не объясняет: почему выбрать именно вас, в чём отличие от конкурентов и какую выгоду получает клиент.",
+    bad: "«Мы оказываем качественные услуги более 10 лет» — общие фразы без конкретики.",
+    good: "«Алмазное бурение без пыли за 1 день. Приезд за 2 часа. Работаем по договору» — оффер с выгодой."
+  },
+  {
+    t: "Не отвечает на скрытые вопросы",
+    d: "У клиента всегда есть сомнения: сколько стоит, какие сроки, есть ли гарантии, кто будет выполнять работу.",
+    bad: "Короткое описание услуг и номер телефона. Без процесса, гарантий и сроков.",
+    good: "Разбор процесса по шагам: как проходит работа, сроки, гарантии, что входит в стоимость."
+  },
+  {
+    t: "Нет воронки внутри страницы",
+    d: "Кнопка «Оставить заявку» — это не стратегия. Без логики подачи и триггеров доверия заявок почти нет.",
+    bad: "Одна кнопка «Оставить заявку» в надежде, что прокатит.",
+    good: "Пошаговая логика: проблема → решение → доказательства → форма «Получить расчёт за 2 минуты»."
+  },
+  {
+    t: "Не оптимизирован под поиск",
+    d: "Без SEO-структуры и аналитики сайт не виден в поиске и не приносит органических заявок.",
+    bad: "Сайт запустили, а оптимизацию не провели. Нет аналитики, тестов, доработок.",
+    good: "Структура под SEO с учётом запросов ниши, после запуска — анализ и добавление контента."
+  }
+] %}
+<section class="section" id="problem">
   <div class="container">
-    <h2>{{ s.t }}</h2>
-    <p style="color:var(--c-muted)">Раздел «{{ s.t }}» — контент перенесём на Этапе&nbsp;2.</p>
+    <div class="section__head">
+      <span class="eyebrow">Проблема</span>
+      <h2>Почему сайт не приносит клиентов?</h2>
+      <p>Большинство проектов создаются «для галочки» — без продуманной структуры, смысла и системы развития.</p>
+    </div>
+    <div class="problems">
+      {% for p in problems %}
+      <article class="problem-card">
+        <div class="problem-card__num">0{{ loop.index }}</div>
+        <h3>{{ p.t }}</h3>
+        <p class="problem-card__desc">{{ p.d }}</p>
+        <div class="compare">
+          <div class="compare__row compare__row--bad"><span>Обычно</span>{{ p.bad }}</div>
+          <div class="compare__row compare__row--good"><span>Эффективнее</span>{{ p.good }}</div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
   </div>
 </section>
-{% endfor %}
+
+<!-- ПОДХОД -->
+{% set steps = [
+  { t: "Анализ", d: "Погружаюсь в нишу — изучаю конкурентов и целевую аудиторию, анализирую боли, возражения и семантику, чтобы понять, что продавать и как говорить с клиентом." },
+  { t: "Стратегия", d: "Прорабатываю структуру и смысл, чтобы сайт говорил на языке клиента. Прототип: логика, тексты для конверсии, сценарии поведения пользователей." },
+  { t: "Дизайн & Разработка", d: "Разрабатываю уникальный визуал под бренд — никаких шаблонов. Вёрстка, мобильная адаптация, анимации, формы заявок и подключение аналитики." },
+  { t: "Запуск & Рост", d: "Запускаю сайт, оптимизирую под поисковые запросы и тестирую конверсию. SEO, Яндекс Метрика, цели, поддержка и аналитическое сопровождение." }
+] %}
+<section class="section section--soft" id="metod">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">Подход</span>
+      <h2>Создаю проект не для вас,<br />а для ваших клиентов</h2>
+      <p class="approach__quote">«Если я открыл ваш сайт, в первую очередь я хочу узнать, как вы оказываете услуги, а не сколько у вас было клиентов».</p>
+    </div>
+    <div class="steps">
+      {% for s in steps %}
+      <article class="step">
+        <div class="step__num">0{{ loop.index }}</div>
+        <h3>{{ s.t }}</h3>
+        <p>{{ s.d }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- РАБОТЫ -->
+<section class="section" id="works">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">Работы</span>
+      <h2>Эти сайты уже работают<br />и приносят заявки</h2>
+      <p>Созданные мной проекты, которые используются в реальном бизнесе и продолжают развиваться.</p>
+    </div>
+    <div class="works">
+      {% for w in works %}
+      <article class="work-card">
+        <div class="work-card__main">
+          <div class="work-card__head">
+            <span class="work-card__name">{{ w.name }}</span>
+            <span class="work-card__type">{{ w.type }}</span>
+          </div>
+          <h3>{{ w.tag }}</h3>
+          <p class="work-card__desc">{{ w.desc }}</p>
+          <div class="work-card__result"><span>Результат</span>{{ w.result }}</div>
+        </div>
+        <aside class="work-card__params">
+          {% for pr in w.params %}
+          <div class="param"><span>{{ pr.k }}</span><b>{{ pr.v }}</b></div>
+          {% endfor %}
+          <div class="param param--price"><span>Стоимость аналогичной работы</span><b>{{ w.price }}</b></div>
+        </aside>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="works__more">
+      <a class="btn btn--ghost" href="/works/">Посмотреть ещё работы</a>
+    </div>
+  </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section class="section section--soft" id="tarifs">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">Варианты сотрудничества</span>
+      <h2>Какой старт подойдёт<br />вашему бизнесу?</h2>
+      <p>Выбирайте формат под ваши задачи, бюджет и планы роста. Точную цену и скидку рассчитаю после объёма работ.</p>
+    </div>
+    <div class="tariffs">
+      {% for t in tariffs %}
+      <article class="tariff{% if t.popular %} tariff--popular{% endif %}">
+        {% if t.popular %}<div class="tariff__badge">Популярный</div>{% endif %}
+        <h3 class="tariff__name">{{ t.name }}</h3>
+        <div class="tariff__price">{{ t.price }}</div>
+        <div class="tariff__term">Срок до запуска — {{ t.term }}</div>
+        <p class="tariff__for">{{ t.for }}</p>
+        <p class="tariff__summary">{{ t.summary }}</p>
+        <ul class="tariff__features">
+          {% for f in t.features %}<li>{{ f }}</li>{% endfor %}
+        </ul>
+        <a class="btn {% if t.popular %}btn--primary{% else %}btn--ghost{% endif %} tariff__btn" href="#calc">Выбрать тариф</a>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- РАССЧИТАТЬ СТОИМОСТЬ (короткая форма; полный квиз — позже) -->
+<section class="section" id="calc">
+  <div class="container">
+    <div class="form-block">
+      <div class="form-block__text">
+        <span class="eyebrow">Расчёт стоимости</span>
+        <h2>Узнайте стоимость<br />за 3 минуты</h2>
+        <p>Оставьте контакты и тип сайта — подготовлю предварительное решение под вашу задачу и пришлю 3 варианта цены с этапами и сроками.</p>
+      </div>
+      <form class="lead-form" data-form="calc" novalidate>
+        <label class="field">
+          <span>Какой сайт нужен?</span>
+          <select name="Тип сайта" required>
+            <option value="" disabled selected>Выберите тип</option>
+            <option>Лендинг (1 страница)</option>
+            <option>Многостраничный сайт</option>
+            <option>Интернет-магазин</option>
+            <option>Уже есть сайт — нужна доработка</option>
+            <option>Пока не уверен — нужна консультация</option>
+          </select>
+        </label>
+        <label class="field">
+          <span>Ваше имя</span>
+          <input type="text" name="Имя" placeholder="Как к вам обращаться" required />
+        </label>
+        <label class="field">
+          <span>Телефон</span>
+          <input type="tel" name="Телефон" placeholder="+7 ___ ___-__-__" required />
+        </label>
+        <label class="field">
+          <span>Telegram (по желанию)</span>
+          <input type="text" name="Telegram" placeholder="@username" />
+        </label>
+        <button class="btn btn--primary" type="submit">Получить расчёт</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой конфиденциальности</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- АУДИТ -->
+<section class="section section--dark" id="audit">
+  <div class="container">
+    <div class="form-block">
+      <div class="form-block__text">
+        <span class="eyebrow">Аудит</span>
+        <h2>Бесплатный аудит<br />вашего сайта</h2>
+        <p>Оставьте ссылку — запишу персональный видеоразбор: структура, оффер, логика заявки и SEO. Покажу, где сайт теряет клиентов и что можно усилить уже сейчас.</p>
+      </div>
+      <form class="lead-form" data-form="audit" novalidate>
+        <label class="field">
+          <span>Ссылка на сайт</span>
+          <input type="url" name="Сайт" placeholder="https://" required />
+        </label>
+        <label class="field">
+          <span>Ваше имя</span>
+          <input type="text" name="Имя" placeholder="Как к вам обращаться" required />
+        </label>
+        <label class="field">
+          <span>Телефон</span>
+          <input type="tel" name="Телефон" placeholder="+7 ___ ___-__-__" required />
+        </label>
+        <button class="btn btn--primary" type="submit">Получить аудит</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой конфиденциальности</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- СОПРОВОЖДЕНИЕ -->
+{% set follow = [
+  { t: "Аналитика и контроль показателей", d: "Анализ поведения пользователей, отслеживание конверсий и заявок, поиск точек потери клиентов, регулярные рекомендации." },
+  { t: "SEO-оптимизация и развитие структуры", d: "Расширение семантики, новые страницы под запросы, корректировка заголовков и мета-тегов, работа над видимостью." },
+  { t: "Наполнение и доработка контента", d: "Обновление информации, новые разделы, переработка слабых блоков, усиление офферов." },
+  { t: "Технические корректировки", d: "Оптимизация структуры, правка интерфейса, улучшение мобильной версии, проверка форм и заявок." },
+  { t: "Развитие системы продаж", d: "Масштабирование, тестирование гипотез, подготовка под рекламу, новые сценарии захвата заявок." }
+] %}
+<section class="section" id="follow">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">Сопровождение</span>
+      <h2>Развитие и стабильная поддержка</h2>
+      <p>Для тех, кто использует сайт как актив: держу его в тренде и подстраиваю под изменения рынка.</p>
+    </div>
+    <div class="follow">
+      {% for f in follow %}
+      <article class="follow__item">
+        <div class="follow__num">{{ loop.index }}</div>
+        <div>
+          <h3>{{ f.t }}</h3>
+          <p>{{ f.d }}</p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <div class="follow__foot">
+      <div class="follow__price"><b>от 15 000 ₽</b> / мес</div>
+      <a class="btn btn--ghost" href="#contacts">Обсудить сопровождение</a>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="section section--soft" id="contacts">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">Контакты</span>
+      <h2>Давайте говорить прямо</h2>
+      <p>Я так же, как и вы, заинтересован, чтобы ваш сайт реально работал и приносил деньги. Свяжитесь со мной — и дальше принимайте решение.</p>
+    </div>
+    <div class="contacts">
+      <a class="contacts__item" href="tel:{{ site.phone }}">
+        <span>Телефон</span><b>{{ site.phoneDisplay }}</b>
+      </a>
+      <a class="contacts__item" href="{{ site.telegram }}" target="_blank" rel="noopener">
+        <span>Telegram</span><b>{{ site.telegramHandle }}</b>
+      </a>
+      <a class="contacts__item" href="{{ site.whatsapp }}" target="_blank" rel="noopener">
+        <span>WhatsApp</span><b>Написать</b>
+      </a>
+      <a class="contacts__item" href="mailto:{{ site.email }}">
+        <span>Почта</span><b>{{ site.email }}</b>
+      </a>
+    </div>
+    <div class="contacts__cta">
+      <a class="btn btn--primary" href="{{ site.telegram }}" target="_blank" rel="noopener">Связаться со мной</a>
+    </div>
+  </div>
+</section>
