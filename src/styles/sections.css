@@ -420,6 +420,21 @@
 .form-note a {
   text-decoration: underline;
 }
+.form-status {
+  margin-top: 0.3rem;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+.form-status[data-type="ok"] {
+  background: #e3f6f1;
+  color: #1f5e52;
+}
+.form-status[data-type="err"] {
+  background: #fcebe9;
+  color: #a5342a;
+}
 
 /* Тёмная секция (Аудит) */
 .section--dark {
