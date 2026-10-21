@@ -727,6 +727,75 @@
   font-size: 1.1em;
 }
 
+/* ─── Иконки ─── */
+.ico {
+  width: 1.7rem;
+  height: 1.7rem;
+  display: block;
+}
+.step__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.4rem;
+}
+.step__top .step__num {
+  margin-bottom: 0;
+}
+.step__ico {
+  color: var(--c-accent);
+}
+.tariff__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+.tariff__ico {
+  color: var(--c-accent);
+  flex-shrink: 0;
+}
+.tariff--popular .tariff__ico {
+  color: var(--c-accent);
+}
+
+/* ─── АУДИТ (форма + видео) ─── */
+.audit {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.audit__media {
+  align-self: stretch;
+}
+.audit__lead {
+  color: #c9c9c9;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+.audit__lead b {
+  display: block;
+  color: #fff;
+  font-size: 1.15rem;
+  margin-bottom: 0.4rem;
+}
+.audit__video {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+  border: 1px solid #2c2c2c;
+}
+@media (max-width: 860px) {
+  .audit {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
 /* ─── Юридический текст (политика) ─── */
 .legal {
   max-width: 46rem;
