@@ -13,7 +13,7 @@ description: Сайты для бизнеса на Тильде с упором 
       <span class="eyebrow eyebrow--line">Веб-дизайн &amp; SEO · Контекст</span>
       <h1 class="hero__title">
         <span class="accent">Создаю</span>
-        <span class="type" data-type data-words="сайты,лендинги,магазины">сайты</span><br />
+        <span class="type" data-type data-words="сайты,лендинги,квизы">сайты</span><br />
         <span class="accent">и&nbsp;привожу</span><br />клиентов онлайн
       </h1>
       <p class="hero__lead">
@@ -21,7 +21,7 @@ description: Сайты для бизнеса на Тильде с упором 
         <b>всего за 3 минуты</b>.
       </p>
       <div class="hero__cta">
-        <a class="btn btn--primary" href="#calc">Рассчитать стоимость сайта</a>
+        <a class="btn btn--primary" href="#contacts">Рассчитать стоимость сайта</a>
         <span class="hero__note">Отправлю 3 варианта цены с этапами и сроками</span>
       </div>
     </div>
@@ -73,24 +73,32 @@ description: Сайты для бизнеса на Тильде с упором 
 {% set problems = [
   {
     t: "Нет чёткого предложения",
+    ico: "offer",
+    img: "/assets/img/problem/p1.webp",
     d: "Сайт рассказывает о компании, но не объясняет: почему выбрать именно вас, в чём отличие от конкурентов и какую выгоду получает клиент.",
     bad: "«Мы оказываем качественные услуги более 10 лет» — общие фразы без конкретики.",
     good: "«Алмазное бурение без пыли за 1 день. Приезд за 2 часа. Работаем по договору» — оффер с выгодой."
   },
   {
     t: "Не отвечает на скрытые вопросы",
+    ico: "question",
+    img: "/assets/img/problem/p2.webp",
     d: "У клиента всегда есть сомнения: сколько стоит, какие сроки, есть ли гарантии, кто будет выполнять работу.",
     bad: "Короткое описание услуг и номер телефона. Без процесса, гарантий и сроков.",
     good: "Разбор процесса по шагам: как проходит работа, сроки, гарантии, что входит в стоимость."
   },
   {
     t: "Нет воронки внутри страницы",
+    ico: "funnel",
+    img: "/assets/img/problem/p3.webp",
     d: "Кнопка «Оставить заявку» — это не стратегия. Без логики подачи и триггеров доверия заявок почти нет.",
     bad: "Одна кнопка «Оставить заявку» в надежде, что прокатит.",
     good: "Пошаговая логика: проблема → решение → доказательства → форма «Получить расчёт за 2 минуты»."
   },
   {
     t: "Не оптимизирован под поиск",
+    ico: "seo",
+    img: "/assets/img/problem/p4.webp",
     d: "Без SEO-структуры и аналитики сайт не виден в поиске и не приносит органических заявок.",
     bad: "Сайт запустили, а оптимизацию не провели. Нет аналитики, тестов, доработок.",
     good: "Структура под SEO с учётом запросов ниши, после запуска — анализ и добавление контента."
@@ -106,7 +114,10 @@ description: Сайты для бизнеса на Тильде с упором 
     <div class="tabs" data-tabs data-reveal>
       <div class="tabs__nav" role="tablist">
         {% for p in problems %}
-        <button class="tabs__btn{% if loop.first %} is-active{% endif %}" type="button" role="tab" data-tab="{{ loop.index }}">{{ p.t }}</button>
+        <button class="tabs__btn{% if loop.first %} is-active{% endif %}" type="button" role="tab" data-tab="{{ loop.index }}">
+          <span class="tabs__ico">{{ icon(p.ico) }}</span>
+          <span>{{ p.t }}</span>
+        </button>
         {% endfor %}
       </div>
       <div class="tabs__panels">
@@ -116,10 +127,13 @@ description: Сайты для бизнеса на Тильде с упором 
             <div class="problem__text">
               <h3>{{ p.t }}</h3>
               <p>{{ p.d }}</p>
+              <div class="problem__compare">
+                <div class="compare__row compare__row--bad"><span>Как делают обычно</span>{{ p.bad }}</div>
+                <div class="compare__row compare__row--good"><span>Как работает эффективнее</span>{{ p.good }}</div>
+              </div>
             </div>
-            <div class="problem__compare">
-              <div class="compare__row compare__row--bad"><span>Как делают обычно</span>{{ p.bad }}</div>
-              <div class="compare__row compare__row--good"><span>Как работает эффективнее</span>{{ p.good }}</div>
+            <div class="problem__media">
+              <img src="{{ p.img }}" alt="Пример: {{ p.t }}" loading="lazy" />
             </div>
           </div>
         </div>
@@ -199,7 +213,7 @@ description: Сайты для бизнеса на Тильде с упором 
         <ul class="tariff__features">
           {% for f in t.features %}<li>{{ f }}</li>{% endfor %}
         </ul>
-        <a class="btn {% if t.popular %}btn--primary{% else %}btn--ghost{% endif %} tariff__btn" href="#calc">Выбрать тариф</a>
+        <a class="btn {% if t.popular %}btn--ondark{% else %}btn--ghost{% endif %} tariff__btn" href="#contacts">Выбрать тариф</a>
       </article>
       {% endfor %}
     </div>
@@ -209,47 +223,7 @@ description: Сайты для бизнеса на Тильде с упором 
         <b>Подарок.</b> При заказе сайта по тарифу <b>Business</b> вы получаете дополнительно
         <b>4 тематические SEO-страницы</b> — бесплатно.
       </p>
-      <a class="btn btn--primary" href="#calc">Выбрать тариф и получить подарок</a>
-    </div>
-  </div>
-</section>
-
-<!-- РАССЧИТАТЬ СТОИМОСТЬ (короткая форма; полный квиз — позже) -->
-<section class="section" id="calc">
-  <div class="container">
-    <div class="form-block">
-      <div class="form-block__text" data-reveal="left">
-        <span class="eyebrow eyebrow--line">Расчёт стоимости</span>
-        <h2>Узнайте стоимость за 3 минуты</h2>
-        <p>Оставьте контакты и тип сайта — подготовлю предварительное решение под вашу задачу и пришлю 3 варианта цены с этапами и сроками.</p>
-      </div>
-      <form class="lead-form" data-form="calc" data-reveal="right" novalidate>
-        <label class="field">
-          <span>Какой сайт нужен?</span>
-          <select name="Тип сайта" required>
-            <option value="" disabled selected>Выберите тип</option>
-            <option>Лендинг (1 страница)</option>
-            <option>Многостраничный сайт</option>
-            <option>Интернет-магазин</option>
-            <option>Уже есть сайт — нужна доработка</option>
-            <option>Пока не уверен — нужна консультация</option>
-          </select>
-        </label>
-        <label class="field">
-          <span>Ваше имя</span>
-          <input type="text" name="Имя" placeholder="Как к вам обращаться" required />
-        </label>
-        <label class="field">
-          <span>Телефон</span>
-          <input type="tel" name="Телефон" placeholder="+7 ___ ___-__-__" required />
-        </label>
-        <label class="field">
-          <span>Telegram (по желанию)</span>
-          <input type="text" name="Telegram" placeholder="@username" />
-        </label>
-        <button class="btn btn--primary" type="submit">Получить расчёт</button>
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой конфиденциальности</a>.</p>
-      </form>
+      <a class="btn btn--primary" href="#contacts">Выбрать тариф и получить подарок</a>
     </div>
   </div>
 </section>
@@ -263,7 +237,16 @@ description: Сайты для бизнеса на Тильде с упором 
       <p>Я разберу структуру, оффер, логику заявки и SEO-настройку. Покажу, где сайт теряет клиентов и что можно усилить уже сейчас.</p>
     </div>
     <div class="audit">
-      <form class="lead-form audit__form" data-form="audit" data-reveal="left" novalidate>
+      <div class="audit__media" data-reveal="left">
+        <p class="audit__lead">
+          <b>Давайте посмотрим, как работает ваш сайт на самом деле.</b>
+          Оставьте ссылку — я запишу персональный видеоразбор и покажу, что можно улучшить уже сейчас.
+        </p>
+        <video class="audit__video" src="/assets/video/audit.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+
+      <form class="lead-form audit__form" data-form="audit" data-reveal="right" novalidate>
+        <p class="audit__form-title">Отправьте ссылку на ваш сайт — пришлю видеоразбор</p>
         <label class="field">
           <span>Ссылка на ваш сайт</span>
           <input type="url" name="Сайт" placeholder="example.com" required />
@@ -276,17 +259,12 @@ description: Сайты для бизнеса на Тильде с упором 
           <span>Телефон для связи</span>
           <input type="tel" name="Телефон" placeholder="+7 ___ ___-__-__" required />
         </label>
-        <button class="btn btn--primary" type="submit">Отправить запрос на аудит</button>
-        <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой конфиденциальности</a>.</p>
+        <button class="btn btn--white" type="submit">Отправить запрос на аудит</button>
+        <label class="consent">
+          <input type="checkbox" name="Согласие" required />
+          <span>Я даю согласие на обработку персональных данных и соглашаюсь с <a href="/privacy/">политикой конфиденциальности</a>.</span>
+        </label>
       </form>
-
-      <div class="audit__media" data-reveal="right">
-        <p class="audit__lead">
-          <b>Давайте посмотрим, как работает ваш сайт на самом деле.</b>
-          Оставьте ссылку — я запишу персональный видеоразбор и покажу, что можно улучшить уже сейчас.
-        </p>
-        <video class="audit__video" src="/assets/video/audit.mp4" autoplay muted loop playsinline preload="metadata"></video>
-      </div>
     </div>
   </div>
 </section>
@@ -321,8 +299,17 @@ description: Сайты для бизнеса на Тильде с упором 
       <article class="follow__pricebox" data-reveal>
         <p>Для тех, кто использует сайт как актив, который находится в тренде и подстраивается под изменения рынка.</p>
         <div class="follow__price"><b>от 15 000</b> ₽/мес</div>
-        <a class="btn btn--primary" href="#calc">Обсудить сопровождение</a>
+        <a class="btn btn--primary" href="#contacts">Обсудить сопровождение</a>
       </article>
+    </div>
+
+    <div class="follow__report" data-reveal>
+      <img class="follow__report-img" src="/assets/img/report.webp" alt="Пример отчёта по сопровождению" loading="lazy" width="760" height="570" />
+      <div class="follow__report-text">
+        <h3>Прозрачная отчётность</h3>
+        <p>Каждый период присылаю понятный отчёт: что сделано, какие метрики выросли и что делаем дальше.</p>
+        <a class="btn btn--ghost btn--arrow" href="https://disk.yandex.ru/i/A5Kkbfefe0GWVw" target="_blank" rel="noopener">Посмотреть пример отчёта</a>
+      </div>
     </div>
   </div>
 </section>

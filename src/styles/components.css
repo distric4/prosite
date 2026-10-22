@@ -38,14 +38,39 @@
   color: #fff;
 }
 
+/* Белая обводка на тёмном (кнопка Business); при наведении — зелёная */
+.btn--ondark {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.btn--ondark:hover {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #fff;
+}
+
+/* Сплошная белая кнопка (форма аудита на серой подложке) */
+.btn--white {
+  background: #fff;
+  border-color: #fff;
+  color: var(--c-ink);
+}
+.btn--white:hover {
+  background: var(--c-accent);
+  border-color: var(--c-accent);
+  color: #fff;
+}
+
 /* ─── Шапка ─── */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(8px);
-  border-bottom: 1px solid var(--c-line);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border-bottom: 1px solid rgba(23, 23, 23, 0.08);
 }
 
 .site-header__inner {

@@ -190,7 +190,7 @@
       var data = {};
       var lines = [];
       new FormData(form).forEach(function (val, key) {
-        if (key === "botcheck") return;
+        if (key === "botcheck" || key === "Согласие") return;
         var v = String(val).trim();
         if (!v) return;
         data[key] = v;
