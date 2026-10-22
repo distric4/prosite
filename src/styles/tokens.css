@@ -3,14 +3,14 @@
 /* Шрифты */
 @font-face {
   font-family: "Druk Wide";
-  src: url("/assets/fonts/Druk-Wide-Cyr-Medium.woff") format("woff");
+  src: url("../assets/fonts/Druk-Wide-Cyr-Medium.woff") format("woff");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Druk Wide";
-  src: url("/assets/fonts/Druk-Wide-Cyr-Bold.woff") format("woff");
+  src: url("../assets/fonts/Druk-Wide-Cyr-Bold.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;

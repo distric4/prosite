@@ -7,3 +7,4 @@ Thumbs.db
 node_modules/
 # Сборка 11ty (генерируется; на бой публикует GitHub Actions)
 docs/
+_preview/
