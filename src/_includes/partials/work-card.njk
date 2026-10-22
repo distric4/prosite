@@ -1,5 +1,5 @@
 {% macro workCard(w) %}
-<article class="work-card">
+<article class="work-card" data-reveal>
   {% if w.img %}
   <div class="work-card__shot">
     <img src="{{ w.img }}" alt="Сайт проекта {{ w.name }}" loading="lazy" width="1200" height="600" />

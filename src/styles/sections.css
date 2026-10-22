@@ -560,6 +560,34 @@
   margin-top: auto;
   width: 100%;
 }
+.tariff-gift {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--c-bg);
+  border: 1px solid var(--c-accent);
+}
+.tariff-gift__text {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--c-muted);
+  max-width: 44rem;
+}
+.tariff-gift__text b {
+  color: var(--c-ink);
+}
+.tariff-gift .btn {
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .tariff-gift .btn {
+    width: 100%;
+  }
+}
 
 /* ─── ФОРМЫ ─── */
 .form-block {

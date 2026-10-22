@@ -3,6 +3,9 @@
 (function () {
   "use strict";
 
+  // Включаем reveal-анимации только когда работает JS
+  document.documentElement.classList.add("js");
+
   /* ─── Мобильное меню (бургер) ─── */
   var burger = document.querySelector(".burger");
   var nav = document.getElementById("nav");
@@ -40,6 +43,66 @@
       };
       setTimeout(tick, 1800);
     }
+  }
+
+  /* ─── Scroll-reveal + счётчики цифр ─── */
+  function animateCount(el) {
+    var target = parseFloat(el.getAttribute("data-count"));
+    if (isNaN(target)) return;
+    var dur = 1100, start = null;
+    function step(ts) {
+      if (!start) start = ts;
+      var p = Math.min((ts - start) / dur, 1);
+      var eased = 1 - Math.pow(1 - p, 3);
+      el.textContent = Math.round(target * eased).toLocaleString("ru-RU");
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = target.toLocaleString("ru-RU");
+    }
+    requestAnimationFrame(step);
+  }
+
+  var revealEls = [].slice.call(document.querySelectorAll("[data-reveal]"));
+  if (!("IntersectionObserver" in window)) {
+    revealEls.forEach(function (el) { el.classList.add("is-in"); });
+  } else {
+    // стаггер внутри групп
+    revealEls.forEach(function (el) {
+      var group = el.closest("[data-reveal-group]");
+      if (group) {
+        var sibs = [].slice.call(group.querySelectorAll("[data-reveal]"));
+        el.style.setProperty("--reveal-delay", (sibs.indexOf(el) * 0.08) + "s");
+      }
+    });
+    function reveal(el) {
+      if (el.classList.contains("is-in")) return;
+      el.classList.add("is-in");
+      el.querySelectorAll("[data-count]").forEach(animateCount);
+      if (el.hasAttribute("data-count")) animateCount(el);
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        reveal(e.target);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    revealEls.forEach(function (el) { io.observe(el); });
+
+    // Сразу показываем то, что уже в зоне видимости (не ждём асинхронный IO)
+    requestAnimationFrame(function () {
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      revealEls.forEach(function (el) {
+        var r = el.getBoundingClientRect();
+        if (r.top < vh * 0.92 && r.bottom > 0) reveal(el);
+      });
+    });
+
+    // Страховка: если ничего не показалось (скрытая вкладка и т.п.) — показать всё
+    setTimeout(function () {
+      if (!revealEls.some(function (el) { return el.classList.contains("is-in"); })) {
+        revealEls.forEach(reveal);
+      }
+    }, 2000);
   }
 
   /* ─── Вкладки (секция «Проблема») ─── */

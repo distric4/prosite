@@ -9,7 +9,7 @@ description: Сайты для бизнеса на Тильде с упором 
 <!-- HERO -->
 <section class="hero">
   <div class="container hero__grid">
-    <div class="hero__text">
+    <div class="hero__text" data-reveal="left">
       <span class="eyebrow eyebrow--line">Веб-дизайн &amp; SEO · Контекст</span>
       <h1 class="hero__title">
         <span class="accent">Создаю</span>
@@ -26,7 +26,7 @@ description: Сайты для бизнеса на Тильде с упором 
       </div>
     </div>
 
-    <div class="hero__media">
+    <div class="hero__media" data-reveal="right">
       <div class="hero__photo" style="background-image:url('/assets/img/hero.webp')">
         <span class="hero__badge">Тильда-эксперт</span>
         <div class="hero__plate">
@@ -39,21 +39,21 @@ description: Сайты для бизнеса на Тильде с упором 
 
   <div class="container">
     <!-- Статистика -->
-    <div class="stats">
-      <div class="stat">
-        <div class="stat__num">40<span>+</span></div>
+    <div class="stats" data-reveal-group>
+      <div class="stat" data-reveal>
+        <div class="stat__num"><span class="count" data-count="40">40</span><span>+</span></div>
         <div class="stat__label">реализованных проектов</div>
       </div>
-      <div class="stat">
-        <div class="stat__num">100<span>%</span></div>
+      <div class="stat" data-reveal>
+        <div class="stat__num"><span class="count" data-count="100">100</span><span>%</span></div>
         <div class="stat__label">уникальный дизайн</div>
       </div>
-      <div class="stat">
-        <div class="stat__num">от 60<span>к</span></div>
+      <div class="stat" data-reveal>
+        <div class="stat__num">от&nbsp;<span class="count" data-count="60">60</span><span>к</span></div>
         <div class="stat__label">цена, рублей</div>
       </div>
-      <div class="stat">
-        <div class="stat__num">3</div>
+      <div class="stat" data-reveal>
+        <div class="stat__num"><span class="count" data-count="3">3</span></div>
         <div class="stat__label">сайта в ТОП-3 SEO</div>
       </div>
     </div>
@@ -98,12 +98,12 @@ description: Сайты для бизнеса на Тильде с упором 
 ] %}
 <section class="section" id="problem">
   <div class="container">
-    <div class="section__head section__head--wide">
+    <div class="section__head section__head--wide" data-reveal>
       <span class="eyebrow eyebrow--line">Проблема</span>
       <h2>Почему сайт не приносит клиентов?</h2>
       <p>Большинство проектов создаются «для галочки» — без продуманной структуры, смысла и системы развития.</p>
     </div>
-    <div class="tabs" data-tabs>
+    <div class="tabs" data-tabs data-reveal>
       <div class="tabs__nav" role="tablist">
         {% for p in problems %}
         <button class="tabs__btn{% if loop.first %} is-active{% endif %}" type="button" role="tab" data-tab="{{ loop.index }}">{{ p.t }}</button>
@@ -138,14 +138,14 @@ description: Сайты для бизнеса на Тильде с упором 
 ] %}
 <section class="section section--soft" id="metod">
   <div class="container">
-    <div class="section__head section__head--wide">
+    <div class="section__head section__head--wide" data-reveal>
       <span class="eyebrow eyebrow--line">Подход</span>
       <h2>Создаю проект не для&nbsp;Вас, а&nbsp;для&nbsp;Ваших&nbsp;клиентов</h2>
       <p class="approach__quote">«Если я открыл ваш сайт, в первую очередь я хочу узнать, как вы оказываете услуги, а не сколько у Вас было клиентов».</p>
     </div>
-    <div class="steps">
+    <div class="steps" data-reveal-group>
       {% for s in steps %}
-      <article class="step{% if loop.index == 2 or loop.index == 3 %} step--dark{% endif %}">
+      <article class="step{% if loop.index == 2 or loop.index == 3 %} step--dark{% endif %}" data-reveal>
         <div class="step__top">
           <div class="step__num">0{{ loop.index }}</div>
           <span class="step__ico">{{ icon(s.ico) }}</span>
@@ -161,12 +161,12 @@ description: Сайты для бизнеса на Тильде с упором 
 <!-- РАБОТЫ -->
 <section class="section" id="works">
   <div class="container">
-    <div class="section__head section__head--wide">
+    <div class="section__head section__head--wide" data-reveal>
       <span class="eyebrow eyebrow--line">Работы</span>
       <h2>Эти сайты уже работают и приносят заявки</h2>
       <p>Созданные мной проекты, которые используются в реальном бизнесе и продолжают развиваться.</p>
     </div>
-    <div class="works">
+    <div class="works" data-reveal-group>
       {% for w in works %}{% if loop.index <= 3 %}{{ workCard(w) }}{% endif %}{% endfor %}
     </div>
     <div class="works__more">
@@ -178,15 +178,15 @@ description: Сайты для бизнеса на Тильде с упором 
 <!-- ТАРИФЫ -->
 <section class="section section--soft" id="tarifs">
   <div class="container">
-    <div class="section__head section__head--wide">
+    <div class="section__head section__head--wide" data-reveal>
       <span class="eyebrow eyebrow--line">Варианты сотрудничества</span>
       <h2>Какой старт подойдёт вашему бизнесу?</h2>
       <p>Выбирайте формат под ваши задачи, бюджет и планы роста. Точную цену и скидку рассчитаю после объёма работ.</p>
     </div>
     {% set tIcons = ["store", "briefcase", "building"] %}
-    <div class="tariffs">
+    <div class="tariffs" data-reveal-group>
       {% for t in tariffs %}
-      <article class="tariff{% if t.popular %} tariff--popular{% endif %}">
+      <article class="tariff{% if t.popular %} tariff--popular{% endif %}" data-reveal>
         {% if t.popular %}<div class="tariff__badge">Популярный</div>{% endif %}
         <div class="tariff__top">
           <h3 class="tariff__name">{{ t.name }}</h3>
@@ -203,6 +203,14 @@ description: Сайты для бизнеса на Тильде с упором 
       </article>
       {% endfor %}
     </div>
+
+    <div class="tariff-gift" data-reveal>
+      <p class="tariff-gift__text">
+        <b>Подарок.</b> При заказе сайта по тарифу <b>Business</b> вы получаете дополнительно
+        <b>4 тематические SEO-страницы</b> — бесплатно.
+      </p>
+      <a class="btn btn--primary" href="#calc">Выбрать тариф и получить подарок</a>
+    </div>
   </div>
 </section>
 
@@ -210,12 +218,12 @@ description: Сайты для бизнеса на Тильде с упором 
 <section class="section" id="calc">
   <div class="container">
     <div class="form-block">
-      <div class="form-block__text">
+      <div class="form-block__text" data-reveal="left">
         <span class="eyebrow eyebrow--line">Расчёт стоимости</span>
         <h2>Узнайте стоимость за 3 минуты</h2>
         <p>Оставьте контакты и тип сайта — подготовлю предварительное решение под вашу задачу и пришлю 3 варианта цены с этапами и сроками.</p>
       </div>
-      <form class="lead-form" data-form="calc" novalidate>
+      <form class="lead-form" data-form="calc" data-reveal="right" novalidate>
         <label class="field">
           <span>Какой сайт нужен?</span>
           <select name="Тип сайта" required>
@@ -249,13 +257,13 @@ description: Сайты для бизнеса на Тильде с упором 
 <!-- АУДИТ -->
 <section class="section section--dark" id="audit">
   <div class="container">
-    <div class="section__head section__head--wide">
+    <div class="section__head section__head--wide" data-reveal>
       <span class="eyebrow eyebrow--line">Аудит</span>
       <h2>Бесплатный аудит вашего сайта</h2>
       <p>Я разберу структуру, оффер, логику заявки и SEO-настройку. Покажу, где сайт теряет клиентов и что можно усилить уже сейчас.</p>
     </div>
     <div class="audit">
-      <form class="lead-form audit__form" data-form="audit" novalidate>
+      <form class="lead-form audit__form" data-form="audit" data-reveal="left" novalidate>
         <label class="field">
           <span>Ссылка на ваш сайт</span>
           <input type="url" name="Сайт" placeholder="example.com" required />
@@ -272,7 +280,7 @@ description: Сайты для бизнеса на Тильде с упором 
         <p class="form-note">Нажимая кнопку, вы соглашаетесь с <a href="/privacy/">политикой конфиденциальности</a>.</p>
       </form>
 
-      <div class="audit__media">
+      <div class="audit__media" data-reveal="right">
         <p class="audit__lead">
           <b>Давайте посмотрим, как работает ваш сайт на самом деле.</b>
           Оставьте ссылку — я запишу персональный видеоразбор и покажу, что можно улучшить уже сейчас.
@@ -293,14 +301,14 @@ description: Сайты для бизнеса на Тильде с упором 
 ] %}
 <section class="section section--soft" id="follow">
   <div class="container">
-    <div class="section__head section__head--wide">
+    <div class="section__head section__head--wide" data-reveal>
       <span class="eyebrow eyebrow--line">Сопровождение</span>
       <h2>Развитие и стабильная поддержка</h2>
       <p>Подключаюсь к проекту и постепенно усиливаю его: SEO, расширение структуры, аналитика и новые точки роста.</p>
     </div>
-    <div class="follow">
+    <div class="follow" data-reveal-group>
       {% for f in follow %}
-      <article class="follow__item">
+      <article class="follow__item" data-reveal>
         <div class="follow__num">{{ loop.index }}</div>
         <div class="follow__body">
           <h3>{{ f.t }}</h3>
@@ -310,7 +318,7 @@ description: Сайты для бизнеса на Тильде с упором 
         </div>
       </article>
       {% endfor %}
-      <article class="follow__pricebox">
+      <article class="follow__pricebox" data-reveal>
         <p>Для тех, кто использует сайт как актив, который находится в тренде и подстраивается под изменения рынка.</p>
         <div class="follow__price"><b>от 15 000</b> ₽/мес</div>
         <a class="btn btn--primary" href="#calc">Обсудить сопровождение</a>
@@ -322,11 +330,11 @@ description: Сайты для бизнеса на Тильде с упором 
 <!-- КОНТАКТЫ -->
 <section class="section" id="contacts">
   <div class="container">
-    <div class="section__head section__head--wide">
+    <div class="section__head section__head--wide" data-reveal>
       <span class="eyebrow eyebrow--line">Контакты</span>
       <h2>Давайте говорить прямо</h2>
       <p>Я так же, как и вы, заинтересован, чтобы ваш сайт реально работал и приносил деньги. Чтобы не терять ни секунды — свяжитесь со мной прямо сейчас, а после этого принимайте решения.</p>
     </div>
-    <a class="btn btn--ghost btn--arrow" href="{{ site.telegram }}" target="_blank" rel="noopener">Связаться со мной</a>
+    <a class="btn btn--ghost btn--arrow" href="{{ site.telegram }}" target="_blank" rel="noopener" data-reveal>Связаться со мной</a>
   </div>
 </section>
