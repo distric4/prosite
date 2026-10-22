@@ -110,6 +110,80 @@
   color: var(--c-ink);
 }
 
+/* ─── Выпадающее меню («Ниши») ─── */
+.nav__item.has-dropdown {
+  position: relative;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+.nav__toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-text);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  color: var(--c-muted-2);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  transition: color var(--transition);
+}
+.nav__chev {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translate(-1px, -1px);
+  transition: transform var(--transition);
+}
+.has-dropdown:hover .nav__toggle,
+.has-dropdown:focus-within .nav__toggle,
+.nav__toggle[aria-expanded="true"] {
+  color: var(--c-ink);
+}
+.has-dropdown:hover .nav__chev,
+.has-dropdown:focus-within .nav__chev {
+  transform: rotate(-135deg) translate(-1px, -1px);
+}
+.nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  min-width: 17rem;
+  background: #fff;
+  border: 1px solid var(--c-line);
+  box-shadow: var(--shadow);
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), transform var(--transition);
+  z-index: 60;
+}
+.has-dropdown:hover .nav__dropdown,
+.has-dropdown:focus-within .nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+.nav__sublink {
+  padding: 0.7rem 0.9rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--c-ink);
+  white-space: nowrap;
+}
+.nav__sublink:hover {
+  background: var(--c-bg-soft);
+  color: var(--c-accent);
+}
+
 .header__actions {
   justify-self: end;
   display: flex;
@@ -259,5 +333,46 @@
   }
   .header__audit {
     display: none;
+  }
+
+  /* Выпадашка на мобильном — раскрывается по клику, без наведения */
+  .nav__item.has-dropdown {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+  }
+  .nav__toggle {
+    width: 100%;
+    justify-content: space-between;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--c-line);
+    font-size: 1rem;
+    color: var(--c-ink);
+  }
+  .nav__dropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    min-width: 0;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    padding: 0 0 0 1rem;
+    z-index: auto;
+  }
+  .has-dropdown:hover .nav__dropdown,
+  .has-dropdown:focus-within .nav__dropdown {
+    transform: none;
+  }
+  .nav__item.has-dropdown.is-open .nav__dropdown {
+    display: flex;
+  }
+  .nav__item.has-dropdown.is-open .nav__chev {
+    transform: rotate(-135deg) translate(-1px, -1px);
+  }
+  .nav__sublink {
+    font-size: 1rem;
   }
 }

@@ -19,9 +19,24 @@
       if (e.target.closest(".nav__link")) {
         nav.setAttribute("data-open", "false");
         burger.setAttribute("aria-expanded", "false");
+        // свернуть раскрытые выпадашки при переходе по ссылке
+        nav.querySelectorAll(".has-dropdown.is-open").forEach(function (d) {
+          d.classList.remove("is-open");
+          var t = d.querySelector(".nav__toggle");
+          if (t) t.setAttribute("aria-expanded", "false");
+        });
       }
     });
   }
+
+  /* ─── Выпадающее меню (раскрытие по клику — моб. + клавиатура) ─── */
+  document.querySelectorAll(".nav__toggle").forEach(function (toggle) {
+    toggle.addEventListener("click", function () {
+      var item = toggle.closest(".has-dropdown");
+      var open = item.classList.toggle("is-open");
+      toggle.setAttribute("aria-expanded", String(open));
+    });
+  });
 
   /* ─── Эффект печати в hero ─── */
   var typeEl = document.querySelector("[data-type]");
