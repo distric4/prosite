@@ -8,7 +8,8 @@
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* clip, а не hidden: hidden на предке ломает position: sticky у шапки */
+  overflow-x: clip;
 }
 
 body {
@@ -20,7 +21,7 @@ body {
   background: var(--c-bg);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 h1,

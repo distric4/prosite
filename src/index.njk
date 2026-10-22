@@ -127,13 +127,23 @@ description: Сайты для бизнеса на Тильде с упором 
             <div class="problem__text">
               <h3>{{ p.t }}</h3>
               <p>{{ p.d }}</p>
-              <div class="problem__compare">
-                <div class="compare__row compare__row--bad"><span>Как делают обычно</span>{{ p.bad }}</div>
-                <div class="compare__row compare__row--good"><span>Как работает эффективнее</span>{{ p.good }}</div>
-              </div>
+              <p class="problem__hint">Посмотрите разницу на экране телефона клиента →</p>
             </div>
-            <div class="problem__media">
-              <img src="{{ p.img }}" alt="Пример: {{ p.t }}" loading="lazy" />
+            <div class="problem__phones">
+              <figure class="phone phone--before">
+                <span class="phone__label">До</span>
+                <div class="phone__frame phone__frame--bad">
+                  <span class="phone__mark">✕</span>
+                  <p>{{ p.bad }}</p>
+                </div>
+              </figure>
+              <figure class="phone phone--after">
+                <span class="phone__label">После</span>
+                <div class="phone__frame phone__frame--good">
+                  <span class="phone__mark">✓</span>
+                  <p>{{ p.good }}</p>
+                </div>
+              </figure>
             </div>
           </div>
         </div>
@@ -286,6 +296,17 @@ description: Сайты для бизнеса на Тильде с упором 
     </div>
     <div class="follow" data-reveal-group>
       {% for f in follow %}
+      {# после 3-го пункта вставляем блок с папкой и чёрной плашкой (левый нижний угол) #}
+      {% if loop.index == 4 %}
+      <div class="follow__asset" data-reveal>
+        <img class="follow__folder" src="/assets/img/report.webp" alt="Пример отчёта по сопровождению" loading="lazy" width="760" height="570" />
+        <div class="follow__pricebox">
+          <p>Для тех, кто использует сайт как актив, который находится в тренде и подстраивается под изменения рынка.</p>
+          <div class="follow__price"><span>от</span> <b>15 000</b> <span>₽/мес</span></div>
+          <a class="btn btn--white btn--arrow" href="https://disk.yandex.ru/i/A5Kkbfefe0GWVw" target="_blank" rel="noopener">Посмотреть пример отчёта</a>
+        </div>
+      </div>
+      {% endif %}
       <article class="follow__item" data-reveal>
         <div class="follow__num">{{ loop.index }}</div>
         <div class="follow__body">
@@ -296,20 +317,6 @@ description: Сайты для бизнеса на Тильде с упором 
         </div>
       </article>
       {% endfor %}
-      <article class="follow__pricebox" data-reveal>
-        <p>Для тех, кто использует сайт как актив, который находится в тренде и подстраивается под изменения рынка.</p>
-        <div class="follow__price"><b>от 15 000</b> ₽/мес</div>
-        <a class="btn btn--primary" href="#contacts">Обсудить сопровождение</a>
-      </article>
-    </div>
-
-    <div class="follow__report" data-reveal>
-      <img class="follow__report-img" src="/assets/img/report.webp" alt="Пример отчёта по сопровождению" loading="lazy" width="760" height="570" />
-      <div class="follow__report-text">
-        <h3>Прозрачная отчётность</h3>
-        <p>Каждый период присылаю понятный отчёт: что сделано, какие метрики выросли и что делаем дальше.</p>
-        <a class="btn btn--ghost btn--arrow" href="https://disk.yandex.ru/i/A5Kkbfefe0GWVw" target="_blank" rel="noopener">Посмотреть пример отчёта</a>
-      </div>
     </div>
   </div>
 </section>

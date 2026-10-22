@@ -274,50 +274,100 @@
   font-size: 1.05rem;
   margin-bottom: 1.5rem;
 }
-.problem__media {
-  background: var(--c-bg-soft);
-  border: 1px solid var(--c-line);
-  padding: 1.5rem;
+.problem__hint {
+  font-weight: 600;
+  font-size: 0.95rem !important;
+  color: var(--c-ink) !important;
+  margin-bottom: 0 !important;
+}
+
+/* Два телефона: «До» (слабый экран) и «После» (сильный экран) */
+.problem__phones {
   display: flex;
-  align-items: center;
+  gap: 1.5rem;
   justify-content: center;
+  align-items: stretch;
 }
-.problem__media img {
-  width: 100%;
-  height: auto;
-  max-height: 24rem;
-  object-fit: contain;
+.phone {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+  max-width: 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.9rem;
 }
-.compare__row {
-  display: block;
-  font-size: 0.95rem;
-  padding: 1rem 1.2rem;
-  margin-bottom: 1rem;
-}
-.compare__row span {
-  display: block;
+.phone__label {
   font-family: var(--font-text);
   font-weight: 700;
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.35rem;
+  letter-spacing: 0.1em;
+  padding: 0.35rem 0.9rem;
 }
-.compare__row--bad {
-  background: #f6f6f6;
-  color: #555;
-  border-left: 3px solid #c0392b;
-}
-.compare__row--bad span {
+.phone--before .phone__label {
+  background: #fbe9e7;
   color: #c0392b;
 }
-.compare__row--good {
-  background: #eafaf6;
+.phone--after .phone__label {
+  background: #e4f7f1;
   color: #1f5e52;
-  border-left: 3px solid var(--c-accent);
 }
-.compare__row--good span {
+.phone__frame {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 15rem;
+  border: 8px solid var(--c-ink);
+  border-radius: 28px;
+  padding: 1.8rem 1.1rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 24px 44px -30px rgba(23, 23, 23, 0.55);
+}
+.phone__frame::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36%;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--c-ink);
+}
+.phone__frame--bad {
+  background: linear-gradient(160deg, #fff 55%, #fdf1ef);
+}
+.phone__frame--good {
+  background: linear-gradient(160deg, #fff 55%, #eff9f5);
+}
+.phone__mark {
+  width: 2.3rem;
+  height: 2.3rem;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.phone__frame--bad .phone__mark {
+  background: #fbe9e7;
+  color: #c0392b;
+}
+.phone__frame--good .phone__mark {
+  background: #e4f7f1;
   color: var(--c-accent);
+}
+.phone__frame p {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #2a2a2a;
 }
 @media (max-width: 760px) {
   .tabs__nav {
@@ -329,7 +379,11 @@
   }
   .problem {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
+  }
+  .problem__phones {
+    max-width: 24rem;
+    margin-inline: auto;
   }
 }
 
@@ -387,18 +441,27 @@
 /* ─── РАБОТЫ ─── */
 .works {
   display: grid;
-  gap: 3rem;
+  gap: 2rem;
 }
 .work-card {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
-  gap: 2.5rem;
-  align-items: start;
+  gap: clamp(1.5rem, 3vw, 2.8rem);
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--c-line);
+  padding: clamp(1.3rem, 2.5vw, 2rem);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+.work-card:hover {
+  border-color: var(--c-ink);
+  box-shadow: 0 18px 40px -28px rgba(23, 23, 23, 0.4);
 }
 .work-card__shot {
   overflow: hidden;
-  align-self: start;
+  align-self: stretch;
   border: 1px solid var(--c-line);
+  background: var(--c-bg-soft);
 }
 .work-card__shot img {
   width: 100%;
@@ -712,28 +775,27 @@
 /* ─── СОПРОВОЖДЕНИЕ ─── */
 .follow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(3, auto);
-  grid-auto-flow: column;
-  gap: 2.5rem 3rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.8rem 2.5rem;
+  align-items: start;
 }
 .follow__item {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 1.3rem;
+  gap: 1.1rem;
   align-items: start;
 }
 .follow__num {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 2.6rem;
-  color: #e2e2e2;
-  line-height: 0.9;
+  font-size: 2.8rem;
+  color: #dcdcdc;
+  line-height: 0.85;
 }
 .follow__body h3 {
   font-family: var(--font-head);
   font-weight: 800;
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin-bottom: 0.7rem;
 }
 .follow__list {
@@ -756,58 +818,63 @@
   border-radius: 50%;
   background: var(--c-accent);
 }
-.follow__pricebox {
-  background: var(--c-ink);
-  color: #fff;
-  padding: 2rem;
+
+/* Левый нижний угол: папка-отчёт + чёрная плашка с ценой и ссылкой */
+.follow__asset {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  justify-content: center;
+  align-items: flex-start;
+}
+.follow__folder {
+  width: 112%;
+  max-width: 440px;
+  height: auto;
+  margin: -0.5rem 0 -2.6rem -1.5rem;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 22px 34px rgba(23, 23, 23, 0.22));
+}
+.follow__pricebox {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: var(--c-ink);
+  color: #fff;
+  padding: 2rem 1.8rem 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
 }
 .follow__pricebox p {
   color: #c9c9c9;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   margin: 0;
 }
 .follow__price {
-  font-size: 1rem;
-  color: #c9c9c9;
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  font-size: 0.95rem;
+  color: #bdbdbd;
 }
 .follow__price b {
   font-family: var(--font-display);
-  font-size: 1.7rem;
-  color: var(--c-accent);
-  margin-right: 0.3rem;
+  font-size: 2rem;
+  color: #fff;
+  line-height: 1;
 }
-.follow__report {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: center;
-  margin-top: 3rem;
-  padding-top: 3rem;
-  border-top: 1px solid var(--c-line);
-}
-.follow__report-img {
+.follow__pricebox .btn {
   width: 100%;
-  height: auto;
-  display: block;
 }
-.follow__report-text h3 {
-  font-family: var(--font-head);
-  font-weight: 800;
-  font-size: 1.5rem;
-  margin-bottom: 0.8rem;
-}
-.follow__report-text p {
-  color: var(--c-muted);
-  margin-bottom: 1.5rem;
-}
-@media (max-width: 760px) {
-  .follow__report {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+@media (max-width: 900px) {
+  .follow__folder {
+    width: 100%;
+    max-width: 360px;
+    margin: 0 0 -2.2rem 0;
+  }
+  .follow__asset {
+    align-items: stretch;
   }
 }
 
