@@ -255,26 +255,14 @@ description: Сайты для бизнеса на Тильде с упором 
         <video class="audit__video" src="/assets/video/audit.mp4" autoplay muted loop playsinline preload="metadata"></video>
       </div>
 
-      <form class="lead-form audit__form" data-form="audit" data-reveal="right" novalidate>
-        <p class="audit__form-title">Отправьте ссылку на ваш сайт — пришлю видеоразбор</p>
-        <label class="field">
-          <span>Ссылка на ваш сайт</span>
-          <input type="url" name="Сайт" placeholder="example.com" required />
-        </label>
-        <label class="field">
-          <span>Ваше имя</span>
-          <input type="text" name="Имя" placeholder="Как к вам обращаться" required />
-        </label>
-        <label class="field">
-          <span>Телефон для связи</span>
-          <input type="tel" name="Телефон" placeholder="+7 ___ ___-__-__" required />
-        </label>
-        <button class="btn btn--white" type="submit">Отправить запрос на аудит</button>
-        <label class="consent">
-          <input type="checkbox" name="Согласие" required />
-          <span>Я даю согласие на обработку персональных данных и соглашаюсь с <a href="/privacy/">политикой конфиденциальности</a>.</span>
-        </label>
-      </form>
+      <div class="audit__form contact-cta" data-reveal="right">
+        <p class="audit__form-title">Напишите мне — отвечу лично</p>
+        <p class="contact-cta__text">Пришлите ссылку на ваш сайт в удобном мессенджере — запишу персональный видеоразбор и покажу, что можно усилить.</p>
+        <div class="contact-cta__actions">
+          <a class="btn btn--primary btn--arrow" href="{{ site.telegram }}" target="_blank" rel="noopener">Написать в Telegram</a>
+          <a class="btn btn--ghost btn--arrow" href="{{ site.max }}" target="_blank" rel="noopener">Написать в {{ site.maxLabel }}</a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -329,6 +317,9 @@ description: Сайты для бизнеса на Тильде с упором 
       <h2>Давайте говорить прямо</h2>
       <p>Я так же, как и вы, заинтересован, чтобы ваш сайт реально работал и приносил деньги. Чтобы не терять ни секунды — свяжитесь со мной прямо сейчас, а после этого принимайте решения.</p>
     </div>
-    <a class="btn btn--ghost btn--arrow" href="{{ site.telegram }}" target="_blank" rel="noopener" data-reveal>Связаться со мной</a>
+    <div class="contact-cta__actions contact-cta__actions--row" data-reveal>
+      <a class="btn btn--primary btn--arrow" href="{{ site.telegram }}" target="_blank" rel="noopener">Написать в Telegram</a>
+      <a class="btn btn--ghost btn--arrow" href="{{ site.max }}" target="_blank" rel="noopener">Написать в {{ site.maxLabel }}</a>
+    </div>
   </div>
 </section>

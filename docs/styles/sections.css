@@ -1026,6 +1026,30 @@
   text-decoration: underline;
 }
 
+/* ─── Контактный блок вместо форм (Telegram / MAX) ─── */
+.contact-cta__text {
+  color: var(--c-muted);
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0.4rem 0 1.3rem;
+}
+.contact-cta__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.contact-cta__actions .btn {
+  width: 100%;
+}
+/* Горизонтальный вариант (секция «Контакты») */
+.contact-cta__actions--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.contact-cta__actions--row .btn {
+  width: auto;
+}
+
 @media (max-width: 860px) {
   .audit {
     grid-template-columns: 1fr;
