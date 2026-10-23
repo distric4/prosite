@@ -21,7 +21,8 @@
     { "label": "Тарифы", "href": "/#tarifs" },
     { "label": "Работы", "href": "/#works" },
     { "label": "Ниши", "children": [
-      { "label": "Косметологические клиники", "href": "/nishi/kosmetologiya/" }
+      { "label": "Косметологические клиники", "href": "/nishi/kosmetologiya/" },
+      { "label": "Стоматологические клиники", "href": "/nishi/stomatologiya/" }
     ] },
     { "label": "Контакты", "href": "/#contacts" }
   ]

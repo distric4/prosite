@@ -1,0 +1,116 @@
+---
+layout: base.njk
+title: Сайты для стоматологических клиник
+description: Разработка сайтов для стоматологий и зубных клиник — запись на приём, прайс на лечение, доверие пациентов и поток заявок из поиска. Иркутск и вся Россия.
+---
+{% from "partials/icons.njk" import icon %}
+
+<!-- HERO -->
+<section class="hero niche-hero">
+  <div class="container">
+    <div class="niche-hero__inner" data-reveal>
+      <span class="eyebrow eyebrow--line">Ниша · Стоматология</span>
+      <h1 class="hero__title">Сайты для стоматологических клиник, на которые&nbsp;<span class="accent">записываются пациенты</span></h1>
+      <p class="hero__lead">
+        Делаю сайты для стоматологий и зубных клиник: понятная запись на приём, честный прайс на лечение
+        и доверие с первого экрана — чтобы пациент выбрал вас, а не того, кто оказался выше в поиске.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#niche-form">Обсудить сайт для клиники</a>
+        <span class="hero__note">Отвечу лично, без менеджеров и call-центра</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- БОЛИ НИШИ -->
+{% set pains = [
+  { ico: "offer", t: "Сайт не снимает страх", d: "Пациент боится боли и «развода на деньги». Если сайт не показывает заботу, технологии и честный подход — человек откладывает визит или идёт к другим." },
+  { ico: "question", t: "Непонятно, сколько стоит лечение", d: "Нет прайса и объяснения, из чего складывается цена. Пациент не хочет звонить «чтобы узнать», боится скрытых доплат — и закрывает сайт." },
+  { ico: "funnel", t: "Нельзя записаться онлайн", d: "Только телефон в рабочие часы. Пациент, который решился вечером, не может записаться здесь и сейчас — и заявка теряется." },
+  { ico: "seo", t: "Клинику не находят в поиске", d: "Нет SEO под услуги и район — сайт не виден по запросам «стоматология рядом», «имплантация + город», «лечение зубов недорого»." }
+] %}
+<section class="section">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Проблема</span>
+      <h2>Почему сайты стоматологий не приносят записей?</h2>
+      <p>Стоматология — это про доверие и преодоление страха. Если сайт не снимает сомнения, пациент выбирает того, кто объяснил и успокоил лучше.</p>
+    </div>
+    <div class="steps" data-reveal-group>
+      {% for p in pains %}
+      <article class="step{% if loop.index == 2 or loop.index == 3 %} step--dark{% endif %}" data-reveal>
+        <div class="step__top">
+          <span class="step__ico">{{ icon(p.ico) }}</span>
+        </div>
+        <h3>{{ p.t }}</h3>
+        <p>{{ p.d }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ЧТО ВХОДИТ -->
+{% set includes = [
+  { t: "Запись на приём", d: "Онлайн-запись или заявка в 2 касания, выбор услуги и удобного времени, кнопка в WhatsApp/Telegram и звонок — пациент связывается так, как ему привычно." },
+  { t: "Прайс и услуги понятно", d: "Карточки услуг: лечение, имплантация, протезирование, ортодонтия — что входит, сколько стоит, как проходит. Снимаем страх скрытых доплат." },
+  { t: "Доверие и экспертность", d: "Врачи с регалиями и опытом, лицензии, фото клиники и оборудования, реальные «до/после», отзывы — всё, что убеждает доверить вам здоровье зубов." },
+  { t: "SEO под ваш город и услуги", d: "Структура и тексты под запросы ниши и района, подключение аналитики — чтобы стоматологию находили в Яндексе и Google по целевым запросам." }
+] %}
+<section class="section section--soft">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Решение</span>
+      <h2>Что будет на сайте вашей клиники</h2>
+      <p>Собираю не шаблон, а систему, которая ведёт пациента от «надо бы сходить к стоматологу» до записи на приём.</p>
+    </div>
+    <div class="niche-grid" data-reveal-group>
+      {% for i in includes %}
+      <article class="niche-card" data-reveal>
+        <h3>{{ i.t }}</h3>
+        <p>{{ i.d }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- CTA / ФОРМА -->
+<section class="section section--dark" id="niche-form">
+  <div class="container">
+    <div class="audit">
+      <div class="audit__media" data-reveal="left">
+        <div class="section__head section__head--wide" style="margin-bottom:1.2rem">
+          <span class="eyebrow eyebrow--line">Заявка</span>
+          <h2>Обсудим сайт для вашей клиники</h2>
+        </div>
+        <p class="audit__lead">
+          <b>Расскажите про клинику — предложу структуру и цену.</b>
+          Посмотрю ваш текущий сайт или профиль, подскажу, что усилить, и сориентирую по срокам и стоимости.
+        </p>
+      </div>
+
+      <form class="lead-form audit__form" data-form="lead" data-reveal="right" novalidate>
+        <p class="audit__form-title">Оставьте контакты — свяжусь лично</p>
+        <label class="field">
+          <span>Название клиники или город</span>
+          <input type="text" name="Клиника / город" placeholder="Напр.: стоматология «Дента», Иркутск" required />
+        </label>
+        <label class="field">
+          <span>Ваше имя</span>
+          <input type="text" name="Имя" placeholder="Как к вам обращаться" required />
+        </label>
+        <label class="field">
+          <span>Телефон для связи</span>
+          <input type="tel" name="Телефон" placeholder="+7 ___ ___-__-__" required />
+        </label>
+        <button class="btn btn--white" type="submit">Отправить заявку</button>
+        <label class="consent">
+          <input type="checkbox" name="Согласие" required />
+          <span>Я даю согласие на обработку персональных данных и соглашаюсь с <a href="/privacy/">политикой конфиденциальности</a>.</span>
+        </label>
+      </form>
+    </div>
+  </div>
+</section>
