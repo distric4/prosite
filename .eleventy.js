@@ -17,6 +17,11 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
+  // Служебные файлы GitHub Pages в корень сборки:
+  // CNAME сохраняет привязку домена diasite.ru, .nojekyll отключает Jekyll
+  eleventyConfig.addPassthroughCopy({ "src/CNAME": "CNAME" });
+  eleventyConfig.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
+
   // Год для подвала
   eleventyConfig.addShortcode("year", () => String(new Date().getFullYear()));
 
