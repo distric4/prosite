@@ -1,0 +1,117 @@
+/* ─── Базовые стили / сброс / типографика ──────────────── */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* clip, а не hidden: hidden на предке ломает position: sticky у шапки */
+  overflow-x: clip;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-text);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--c-ink);
+  background: var(--c-bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 0 0.5em;
+  line-height: 1.1;
+  font-weight: 700;
+  overflow-wrap: break-word; /* длинные слова не ломают вёрстку */
+}
+
+h1 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: var(--fs-hero);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: var(--fs-h2);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-family: var(--font-text);
+  font-weight: 700;
+  font-size: var(--fs-h3);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--c-accent);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Контейнер и секции */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--space-section);
+}
+
+.section--soft {
+  background: var(--c-bg-soft);
+}
+
+.accent {
+  color: var(--c-accent);
+}
+
+/* Доступность: видимый фокус */
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+/* Скрыто визуально, но доступно скринридерам */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

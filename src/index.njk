@@ -1,0 +1,334 @@
+---
+layout: base.njk
+title: Разработка сайтов на заявки
+description: Сайты для бизнеса на Тильде с упором на заявки. Веб-дизайн, SEO и контекст. Иркутск.
+---
+{% from "partials/work-card.njk" import workCard %}
+{% from "partials/icons.njk" import icon %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__text" data-reveal="left">
+      <span class="eyebrow eyebrow--line">Веб-дизайн &amp; SEO · Контекст</span>
+      <h1 class="hero__title">
+        <span class="accent">Создаю</span>
+        <span class="type" data-type data-words="сайты,лендинги,квизы">сайты</span><br />
+        <span class="accent">и&nbsp;привожу</span><br />клиентов онлайн
+      </h1>
+      <p class="hero__lead">
+        Получите стоимость разработки или корректировки вашего сайта
+        <b>всего за 3 минуты</b>.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#contacts">Рассчитать стоимость сайта</a>
+        <span class="hero__note">Отправлю 3 варианта цены с этапами и сроками</span>
+      </div>
+    </div>
+
+    <div class="hero__media" data-reveal="right">
+      <div class="hero__photo">
+        <span class="hero__badge">Тильда-эксперт</span>
+        <div class="hero__plate">
+          <b>{{ site.name }}</b>
+          <span>разработчик сайтов</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Статистика -->
+    <div class="stats" data-reveal-group>
+      <div class="stat" data-reveal>
+        <div class="stat__num"><span class="count" data-count="40">40</span><span>+</span></div>
+        <div class="stat__label">реализованных проектов</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat__num"><span class="count" data-count="100">100</span><span>%</span></div>
+        <div class="stat__label">уникальный дизайн</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat__num">от&nbsp;<span class="count" data-count="60">60</span><span>к</span></div>
+        <div class="stat__label">цена, рублей</div>
+      </div>
+      <div class="stat" data-reveal>
+        <div class="stat__num"><span class="count" data-count="3">3</span></div>
+        <div class="stat__label">сайта в ТОП-3 SEO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Бегущая строка услуг -->
+{% set services = ["Разработка под ключ", "Адаптация под все устройства", "SEO", "Аналитика / метрика", "Яндекс Директ", "Уникальный дизайн"] %}
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {% for s in services %}<span class="marquee__item">{{ s }}</span>{% endfor %}
+    {% for s in services %}<span class="marquee__item">{{ s }}</span>{% endfor %}
+  </div>
+</div>
+
+<!-- ПРОБЛЕМА -->
+{% set problems = [
+  {
+    t: "Нет чёткого предложения",
+    ico: "offer",
+    img: "/assets/img/problem/p1.webp",
+    d: "Сайт рассказывает о компании, но не объясняет: почему выбрать именно вас, в чём отличие от конкурентов и какую выгоду получает клиент.",
+    bad: "«Мы оказываем качественные услуги более 10 лет» — общие фразы без конкретики.",
+    good: "«Алмазное бурение без пыли за 1 день. Приезд за 2 часа. Работаем по договору» — оффер с выгодой."
+  },
+  {
+    t: "Не отвечает на скрытые вопросы",
+    ico: "question",
+    img: "/assets/img/problem/p2.webp",
+    d: "У клиента всегда есть сомнения: сколько стоит, какие сроки, есть ли гарантии, кто будет выполнять работу.",
+    bad: "Короткое описание услуг и номер телефона. Без процесса, гарантий и сроков.",
+    good: "Разбор процесса по шагам: как проходит работа, сроки, гарантии, что входит в стоимость."
+  },
+  {
+    t: "Нет воронки внутри страницы",
+    ico: "funnel",
+    img: "/assets/img/problem/p3.webp",
+    d: "Кнопка «Оставить заявку» — это не стратегия. Без логики подачи и триггеров доверия заявок почти нет.",
+    bad: "Одна кнопка «Оставить заявку» в надежде, что прокатит.",
+    good: "Пошаговая логика: проблема → решение → доказательства → форма «Получить расчёт за 2 минуты»."
+  },
+  {
+    t: "Не оптимизирован под поиск",
+    ico: "seo",
+    img: "/assets/img/problem/p4.webp",
+    d: "Без SEO-структуры и аналитики сайт не виден в поиске и не приносит органических заявок.",
+    bad: "Сайт запустили, а оптимизацию не провели. Нет аналитики, тестов, доработок.",
+    good: "Структура под SEO с учётом запросов ниши, после запуска — анализ и добавление контента."
+  }
+] %}
+<section class="section" id="problem">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Проблема</span>
+      <h2>Почему сайт не приносит клиентов?</h2>
+      <p>Большинство проектов создаются «для галочки» — без продуманной структуры, смысла и системы развития.</p>
+    </div>
+    <div class="tabs" data-tabs data-reveal>
+      <div class="tabs__nav" role="tablist">
+        {% for p in problems %}
+        <button class="tabs__btn{% if loop.first %} is-active{% endif %}" type="button" role="tab" data-tab="{{ loop.index }}">
+          <span class="tabs__ico">{{ icon(p.ico) }}</span>
+          <span>{{ p.t }}</span>
+        </button>
+        {% endfor %}
+      </div>
+      <div class="tabs__panels">
+        {% for p in problems %}
+        <div class="tabs__panel{% if loop.first %} is-active{% endif %}" data-panel="{{ loop.index }}">
+          <div class="problem">
+            <div class="problem__text">
+              <h3>{{ p.t }}</h3>
+              <p>{{ p.d }}</p>
+              <p class="problem__hint">Посмотрите разницу на экране телефона клиента →</p>
+            </div>
+            <div class="problem__phones">
+              <figure class="phone phone--before">
+                <span class="phone__label">До</span>
+                <div class="phone__frame phone__frame--bad">
+                  <span class="phone__mark">✕</span>
+                  <p>{{ p.bad }}</p>
+                </div>
+              </figure>
+              <figure class="phone phone--after">
+                <span class="phone__label">После</span>
+                <div class="phone__frame phone__frame--good">
+                  <span class="phone__mark">✓</span>
+                  <p>{{ p.good }}</p>
+                </div>
+              </figure>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОДХОД -->
+{% set steps = [
+  { t: "Анализ", ico: "analysis", d: "Погружаюсь в нишу — изучаю конкурентов и целевую аудиторию, анализирую боли, возражения и семантику, чтобы понять, что продавать и как говорить с клиентом." },
+  { t: "Стратегия", ico: "strategy", d: "Прорабатываю структуру и смысл, чтобы сайт говорил на языке клиента. Прототип: логика, тексты для конверсии, сценарии поведения пользователей." },
+  { t: "Дизайн & Разработка", ico: "design", d: "Разрабатываю уникальный визуал под бренд — никаких шаблонов. Вёрстка, мобильная адаптация, анимации, формы заявок и подключение аналитики." },
+  { t: "Запуск & Рост", ico: "launch", d: "Запускаю сайт, оптимизирую под поисковые запросы и тестирую конверсию. SEO, Яндекс Метрика, цели, поддержка и аналитическое сопровождение." }
+] %}
+<section class="section section--soft" id="metod">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Подход</span>
+      <h2>Создаю проект не для&nbsp;Вас, а&nbsp;для&nbsp;Ваших&nbsp;клиентов</h2>
+      <p class="approach__quote">«Если я открыл ваш сайт, в первую очередь я хочу узнать, как вы оказываете услуги, а не сколько у Вас было клиентов».</p>
+    </div>
+    <div class="steps" data-reveal-group>
+      {% for s in steps %}
+      <article class="step{% if loop.index == 2 or loop.index == 3 %} step--dark{% endif %}" data-reveal>
+        <div class="step__top">
+          <div class="step__num">0{{ loop.index }}</div>
+          <span class="step__ico">{{ icon(s.ico) }}</span>
+        </div>
+        <h3>{{ s.t }}</h3>
+        <p>{{ s.d }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- РАБОТЫ -->
+<section class="section" id="works">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Работы</span>
+      <h2>Эти сайты уже работают и приносят заявки</h2>
+      <p>Созданные мной проекты, которые используются в реальном бизнесе и продолжают развиваться.</p>
+    </div>
+    <div class="works" data-reveal-group>
+      {% for w in works %}{% if loop.index <= 3 %}{{ workCard(w) }}{% endif %}{% endfor %}
+    </div>
+    <div class="works__more">
+      <a class="btn btn--ghost" href="/works/">Посмотреть ещё работы</a>
+    </div>
+  </div>
+</section>
+
+<!-- ТАРИФЫ -->
+<section class="section section--soft" id="tarifs">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Варианты сотрудничества</span>
+      <h2>Какой старт подойдёт вашему бизнесу?</h2>
+      <p>Выбирайте формат под ваши задачи, бюджет и планы роста. Точную цену и скидку рассчитаю после объёма работ.</p>
+    </div>
+    {% set tIcons = ["store", "briefcase", "building"] %}
+    <div class="tariffs" data-reveal-group>
+      {% for t in tariffs %}
+      <article class="tariff{% if t.popular %} tariff--popular{% endif %}" data-reveal>
+        {% if t.popular %}<div class="tariff__badge">Популярный</div>{% endif %}
+        <div class="tariff__top">
+          <h3 class="tariff__name">{{ t.name }}</h3>
+          <span class="tariff__ico">{{ icon(tIcons[loop.index0]) }}</span>
+        </div>
+        <div class="tariff__price">{{ t.price }}</div>
+        <div class="tariff__term">Срок до запуска — {{ t.term }}</div>
+        <p class="tariff__for">{{ t.for }}</p>
+        <p class="tariff__summary">{{ t.summary }}</p>
+        <ul class="tariff__features">
+          {% for f in t.features %}<li>{{ f }}</li>{% endfor %}
+        </ul>
+        <a class="btn {% if t.popular %}btn--ondark{% else %}btn--ghost{% endif %} tariff__btn" href="#contacts">Выбрать тариф</a>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="tariff-gift" data-reveal>
+      <p class="tariff-gift__text">
+        <b>Подарок.</b> При заказе сайта по тарифу <b>Business</b> вы получаете дополнительно
+        <b>4 тематические SEO-страницы</b> — бесплатно.
+      </p>
+      <a class="btn btn--primary" href="#contacts">Выбрать тариф и получить подарок</a>
+    </div>
+  </div>
+</section>
+
+<!-- АУДИТ -->
+<section class="section section--dark" id="audit">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Аудит</span>
+      <h2>Бесплатный аудит вашего сайта</h2>
+      <p>Я разберу структуру, оффер, логику заявки и SEO-настройку. Покажу, где сайт теряет клиентов и что можно усилить уже сейчас.</p>
+    </div>
+    <div class="audit">
+      <div class="audit__media" data-reveal="left">
+        <p class="audit__lead">
+          <b>Давайте посмотрим, как работает ваш сайт на самом деле.</b>
+          Оставьте ссылку — я запишу персональный видеоразбор и покажу, что можно улучшить уже сейчас.
+        </p>
+        <video class="audit__video" src="/assets/video/audit.mp4" autoplay muted loop playsinline preload="metadata"></video>
+      </div>
+
+      <form class="lead-form audit__form" data-form="audit" data-reveal="right" novalidate>
+        <p class="audit__form-title">Отправьте ссылку на ваш сайт — пришлю видеоразбор</p>
+        <label class="field">
+          <span>Ссылка на ваш сайт</span>
+          <input type="url" name="Сайт" placeholder="example.com" required />
+        </label>
+        <label class="field">
+          <span>Ваше имя</span>
+          <input type="text" name="Имя" placeholder="Как к вам обращаться" required />
+        </label>
+        <label class="field">
+          <span>Телефон для связи</span>
+          <input type="tel" name="Телефон" placeholder="+7 ___ ___-__-__" required />
+        </label>
+        <button class="btn btn--white" type="submit">Отправить запрос на аудит</button>
+        <label class="consent">
+          <input type="checkbox" name="Согласие" required />
+          <span>Я даю согласие на обработку персональных данных и соглашаюсь с <a href="/privacy/">политикой конфиденциальности</a>.</span>
+        </label>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- СОПРОВОЖДЕНИЕ -->
+{% set follow = [
+  { t: "Аналитика и контроль показателей", items: ["Анализ поведения пользователей", "Отслеживание конверсий и заявок", "Поиск точек потери клиентов", "Регулярные рекомендации по улучшению"] },
+  { t: "SEO-оптимизация и развитие структуры", items: ["Расширение семантики", "Новые страницы под поисковые запросы", "Корректировка заголовков и мета-тегов", "Работа над видимостью сайта"] },
+  { t: "Наполнение и доработка контента", items: ["Усиление офферов", "Переработка слабых блоков", "Добавление новых разделов", "Обновление информации"] },
+  { t: "Технические корректировки", items: ["Проверка форм и заявок", "Улучшение мобильной версии", "Корректировка интерфейса", "Оптимизация структуры"] },
+  { t: "Развитие системы продаж сайта", items: ["Новые сценарии захвата заявок", "Подготовка под рекламу", "Тестирование гипотез", "Постепенное масштабирование"] }
+] %}
+<section class="section section--soft" id="follow">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Сопровождение</span>
+      <h2>Развитие и стабильная поддержка</h2>
+      <p>Подключаюсь к проекту и постепенно усиливаю его: SEO, расширение структуры, аналитика и новые точки роста.</p>
+    </div>
+    <div class="follow" data-reveal-group>
+      {% for f in follow %}
+      {# после 3-го пункта вставляем блок с папкой и чёрной плашкой (левый нижний угол) #}
+      {% if loop.index == 4 %}
+      <div class="follow__asset" data-reveal>
+        <img class="follow__folder" src="/assets/img/report.webp" alt="Пример отчёта по сопровождению" loading="lazy" width="760" height="570" />
+        <div class="follow__pricebox">
+          <p>Для тех, кто использует сайт как актив, который находится в тренде и подстраивается под изменения рынка.</p>
+          <div class="follow__price"><span>от</span> <b>15 000</b> <span>₽/мес</span></div>
+          <a class="btn btn--white btn--arrow" href="https://disk.yandex.ru/i/A5Kkbfefe0GWVw" target="_blank" rel="noopener">Посмотреть пример отчёта</a>
+        </div>
+      </div>
+      {% endif %}
+      <article class="follow__item" data-reveal>
+        <div class="follow__num">{{ loop.index }}</div>
+        <div class="follow__body">
+          <h3>{{ f.t }}</h3>
+          <ul class="follow__list">
+            {% for it in f.items %}<li>{{ it }}</li>{% endfor %}
+          </ul>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="section" id="contacts">
+  <div class="container">
+    <div class="section__head section__head--wide" data-reveal>
+      <span class="eyebrow eyebrow--line">Контакты</span>
+      <h2>Давайте говорить прямо</h2>
+      <p>Я так же, как и вы, заинтересован, чтобы ваш сайт реально работал и приносил деньги. Чтобы не терять ни секунды — свяжитесь со мной прямо сейчас, а после этого принимайте решения.</p>
+    </div>
+    <a class="btn btn--ghost btn--arrow" href="{{ site.telegram }}" target="_blank" rel="noopener" data-reveal>Связаться со мной</a>
+  </div>
+</section>

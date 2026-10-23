@@ -1,0 +1,30 @@
+---
+layout: base.njk
+title: Работы и кейсы
+description: Примеры сайтов — реальные проекты и кейсы с результатом. Лендинги, многостраничные сайты и интернет-магазины.
+permalink: /works/
+---
+{% from "partials/work-card.njk" import workCard %}
+
+<section class="section">
+  <div class="container">
+    <div class="section__head" data-reveal>
+      <span class="eyebrow eyebrow--line">Примеры</span>
+      <h2>Реальные проекты и кейсы с результатом</h2>
+      <p>Лендинги, многостраничные сайты, интернет-магазины — проекты, которые используются в реальном бизнесе и приносят заявки.</p>
+    </div>
+    <div class="works" data-reveal-group>
+      {% for w in works %}{{ workCard(w) }}{% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--soft">
+  <div class="container" style="text-align:center">
+    <h2>Хотите такой же результат?</h2>
+    <p style="color:var(--c-muted);max-width:34rem;margin:0 auto 1.5rem">
+      Рассчитаю стоимость под вашу задачу и пришлю 3 варианта с этапами и сроками.
+    </p>
+    <a class="btn btn--primary" href="/#contacts">Связаться со мной</a>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+{% macro workCard(w) %}
+<article class="work-card" data-reveal>
+  {% if w.img %}
+  <div class="work-card__shot">
+    <img src="{{ w.img }}" alt="Сайт проекта {{ w.name }}" loading="lazy" />
+  </div>
+  {% endif %}
+  <div class="work-card__body">
+    <h3>{{ w.title or w.tag }}</h3>
+    <div class="work-card__price">
+      <span>Актуальная стоимость аналогичной работы</span>
+      <b>{{ w.price }}</b>
+    </div>
+    <div class="work-card__params">
+      {% for pr in w.params %}
+      <div class="param"><span>{{ pr.k }}</span><b>{{ pr.v }}</b></div>
+      {% endfor %}
+    </div>
+    <p class="work-card__desc">{{ w.desc }}</p>
+    <div class="work-card__result"><span>Результат</span>{{ w.result }}</div>
+  </div>
+</article>
+{% endmacro %}

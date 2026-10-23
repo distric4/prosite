@@ -1,0 +1,33 @@
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="{{ site.brand }} — на главную">
+      <span class="brand__name">{{ site.brand }}</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      {% for item in site.nav %}
+        {% if item.children %}
+        <div class="nav__item has-dropdown">
+          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false">
+            {{ item.label }}<span class="nav__chev" aria-hidden="true"></span>
+          </button>
+          <div class="nav__dropdown">
+            {% for child in item.children %}
+            <a class="nav__link nav__sublink" href="{{ child.href }}">{{ child.label }}</a>
+            {% endfor %}
+          </div>
+        </div>
+        {% else %}
+        <a class="nav__link" href="{{ item.href }}">{{ item.label }}</a>
+        {% endif %}
+      {% endfor %}
+    </nav>
+
+    <div class="header__actions">
+      <a class="btn btn--primary header__audit" href="/#audit">Нужен аудит сайта</a>
+      <button class="burger" type="button" aria-label="Меню" aria-controls="nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>

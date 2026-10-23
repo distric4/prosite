@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{% if title %}{{ title }} — {{ site.brand }}{% else %}{{ site.brand }} · {{ site.name }}{% endif %}</title>
+    <meta name="description" content="{{ description or (site.brand + '. ' + site.tagline + '. ' + site.city + '.') }}" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% if title %}{{ title }} — {{ site.brand }}{% else %}{{ site.brand }}{% endif %}" />
+    <meta property="og:description" content="{{ description or site.tagline }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:locale" content="ru_RU" />
+
+    <!-- Шрифты Google: Manrope (текст) + Syne (заголовки) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Стили сайта -->
+    <link rel="stylesheet" href="/styles/tokens.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/components.css" />
+    <link rel="stylesheet" href="/styles/sections.css" />
+    <link rel="stylesheet" href="/styles/animations.css" />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300af92'/%3E%3C/svg%3E"
+    />
+  </head>
+  <body>
+    {% include "partials/header.njk" %}
+
+    <main id="top">{{ content | safe }}</main>
+
+    {% include "partials/footer.njk" %}
+
+    <script>
+      window.SITE_FORM = {
+        key: "{{ site.web3formsKey }}",
+        brand: "{{ site.brand }}",
+        from: "{{ site.name }} — сайт {{ site.domain }}"
+      };
+    </script>
+    <script src="/js/main.js" defer></script>
+  </body>
+</html>
