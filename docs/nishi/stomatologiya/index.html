@@ -1,277 +1,625 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайты для стоматологических клиник — заявки из рекламы, SEO и ИИ | Алексей Дианов</title>
+<meta name="description" content="Разработка и ведение сайтов для стоматологий: онлайн-запись, продающие страницы имплантации и ортодонтии, поток пациентов из рекламы, поиска и ответов нейросетей. Бесплатный аудит сайта клиники.">
+<link rel="canonical" href="https://diasite.ru/dentistry">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Сайты для стоматологий — заявки, а не просто красивый сайт">
+<meta property="og:description" content="Собираю и веду сайты стоматологий так, чтобы реклама, поиск и нейросети загружали кресла пациентами.">
+<meta property="og:url" content="https://diasite.ru/dentistry">
+<meta property="og:locale" content="ru_RU">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23171717'/%3E%3Ctext x='50' y='68' font-family='Manrope,Arial,sans-serif' font-size='56' font-weight='700' fill='%23fff' text-anchor='middle'%3Eд%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&subset=latin,cyrillic&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#171717;--ink-80:#3a3a3a;--muted:#6f6b66;--line:#e7e4df;--bg:#ffffff;--soft:#f6f4f1;--soft-2:#efece7;--white:#ffffff;
+  --radius:18px;--radius-sm:12px;--maxw:1120px;--gut:20px;--shadow:0 24px 60px -28px rgba(23,23,23,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Manrope',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;color:var(--ink);background:var(--bg);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--gut)}
+.section{padding:92px 0}
+.section--soft{background:var(--soft)}
+.section--ink{background:var(--ink);color:#fff}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-0.02em;line-height:1.08}
+h1{font-size:clamp(33px,6vw,62px);font-weight:800}
+h2{font-size:clamp(27px,4.2vw,44px)}
+h3{font-size:19px;letter-spacing:-0.01em}
+p{margin:0}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--ink);opacity:.4}
+.lead{font-size:clamp(17px,2.2vw,20px);color:var(--ink-80);max-width:62ch}
+.muted{color:var(--muted)}
+.center{text-align:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:600;font-size:16px;line-height:1;cursor:pointer;padding:17px 28px;border-radius:999px;border:1.5px solid var(--ink);transition:transform .18s ease, background .2s ease, color .2s ease, box-shadow .2s ease;white-space:nowrap}
+.btn svg{width:17px;height:17px;transition:transform .2s ease}
+.btn--primary{background:var(--ink);color:#fff}
+.btn--primary:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(23,23,23,.55)}
+.btn--primary:hover svg{transform:translateX(4px)}
+.btn--ghost{background:transparent;color:var(--ink)}
+.btn--ghost:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.btn--lg{padding:19px 34px;font-size:17px}
+.btn--white{background:#fff;color:var(--ink);border-color:#fff}
+.btn--white:hover{transform:translateY(-2px);box-shadow:0 14px 26px -12px rgba(0,0,0,.4)}
+.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(1.3) blur(12px);border-bottom:1px solid var(--line);transition:box-shadow .25s}
+.hdr.scrolled{box-shadow:0 10px 30px -22px rgba(0,0,0,.4)}
+.hdr__in{display:flex;align-items:center;gap:24px;height:68px}
+.brand{display:flex;flex-direction:column;line-height:1.1;font-weight:700;letter-spacing:-0.01em}
+.brand small{font-weight:500;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.nav{display:flex;gap:26px;margin-left:12px}
+.nav a{font-size:15px;color:var(--ink-80);font-weight:500;position:relative}
+.nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--ink);transition:width .25s}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after{width:100%}
+.hdr__right{margin-left:auto;display:flex;align-items:center;gap:18px}
+.hdr__phone{font-weight:600;font-size:15px;white-space:nowrap}
+.burger{display:none;margin-left:auto;background:none;border:0;padding:8px;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:.25s}
+.i3d{position:relative;width:66px;height:66px;flex:none;border-radius:20px;display:flex;align-items:center;justify-content:center;background:linear-gradient(158deg,#343434 0%,#1b1b1b 55%,#101010 100%);box-shadow:0 14px 26px -12px rgba(23,23,23,.6), inset 0 1.6px 0 rgba(255,255,255,.22), inset 0 -10px 18px rgba(0,0,0,.55);transition:transform .3s cubic-bezier(.2,.7,.3,1.4), box-shadow .3s}
+.i3d::before{content:"";position:absolute;inset:0;border-radius:inherit;background:radial-gradient(120% 90% at 26% 16%, rgba(255,255,255,.4), rgba(255,255,255,0) 46%);pointer-events:none}
+.i3d svg{width:30px;height:30px;stroke:#fff;stroke-width:1.9;fill:none;stroke-linecap:round;stroke-linejoin:round;position:relative;z-index:1;filter:drop-shadow(0 2px 3px rgba(0,0,0,.4))}
+.card:hover .i3d, .chan .card:hover .i3d{transform:translateY(-4px) rotate(-4deg)}
+.i3d--lg{width:78px;height:78px;border-radius:24px}
+.i3d--lg svg{width:36px;height:36px}
+.grid{display:grid;gap:20px}
+.grid-4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;transition:transform .25s ease, box-shadow .25s ease, border-color .25s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:#dcd7cf}
+.section--soft .card{background:#fff}
+.card h3{margin:18px 0 10px}
+.card p{color:var(--muted);font-size:15.5px}
+.p-card .num{position:absolute;top:22px;right:26px;font-size:13px;font-weight:700;color:#cfc9c0;letter-spacing:.1em}
+.p-card{position:relative}
+.hero{position:relative;padding:84px 0 56px}
+.hero__glow{position:absolute;inset:0;z-index:-1;overflow:hidden}
+.hero__glow::before{content:"";position:absolute;top:-220px;right:-160px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle, rgba(106,150,184,.14), rgba(106,150,184,0) 70%);animation:float 16s ease-in-out infinite}
+.hero__glow::after{content:"";position:absolute;bottom:-260px;left:-180px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle, rgba(23,23,23,.06), rgba(23,23,23,0) 70%);animation:float 20s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-26px)}}
+.hero .trust{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;color:var(--muted);font-size:14.5px;font-weight:500}
+.hero .trust span{display:inline-flex;align-items:center;gap:8px}
+.hero .trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.hero__cta{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:34px}
+.hero__cta small{color:var(--muted);font-size:14px;max-width:34ch}
+.hero__grid{display:grid;grid-template-columns:1.08fr .92fr;gap:50px;align-items:center}
+.hero__media{position:relative}
+.hero__media img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px;box-shadow:var(--shadow)}
+.hero__media::after{content:"";position:absolute;inset:0;border-radius:22px;box-shadow:inset 0 0 0 1px rgba(23,23,23,.06);pointer-events:none}
+.sol__grid{display:grid;grid-template-columns:1fr .82fr;gap:48px;align-items:center}
+.sol__media img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:20px;box-shadow:var(--shadow)}
+@media (max-width:900px){.hero__grid{grid-template-columns:1fr;gap:30px}.hero__media img{aspect-ratio:16/10}.sol__grid{grid-template-columns:1fr;gap:30px}.sol__media{order:-1}.sol__media img{aspect-ratio:16/10}}
+.marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--soft);padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee__track{display:flex;gap:40px;width:max-content;animation:scroll 34s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__track span{font-size:16px;font-weight:600;color:var(--ink-80);display:inline-flex;align-items:center;gap:40px;white-space:nowrap;letter-spacing:-.01em}
+.marquee__track span::after{content:"✦";color:var(--muted);font-size:12px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.stat{text-align:center;padding:10px}
+.stat .num{font-size:clamp(34px,5vw,52px);font-weight:800;letter-spacing:-0.03em;line-height:1}
+.stat .lbl{color:rgba(255,255,255,.62);font-size:14.5px;margin-top:10px;font-weight:500}
+.section--ink .eyebrow{color:rgba(255,255,255,.6)}
+.section--ink .eyebrow::before{background:#fff;opacity:.5}
+.steps{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.steps .step{display:inline-flex;align-items:center;gap:10px;background:var(--soft);border:1px solid var(--line);border-radius:999px;padding:11px 18px;font-weight:500;font-size:15px;transition:transform .2s,border-color .2s}
+.steps .step:hover{transform:translateY(-3px);border-color:var(--ink)}
+.steps .step b{font-weight:700}
+.section--soft .steps .step{background:#fff}
+.chan{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+.chan .card{display:flex;flex-direction:column}
+.chan .tag{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:18px 0 12px}
+.chan .card p{color:var(--ink-80);font-size:15.5px}
+.bridge{margin-top:26px;font-size:15.5px;color:var(--muted);display:flex;align-items:center;gap:10px}
+.bridge::before{content:"";width:28px;height:1.5px;background:var(--muted)}
+.case{display:grid;grid-template-columns:1fr 1.15fr;gap:40px;align-items:center;padding:40px 0;border-top:1px solid var(--line)}
+.case:first-of-type{border-top:0}
+.case:nth-child(even){direction:rtl}
+.case:nth-child(even) > *{direction:ltr}
+.case__meta .name{font-size:24px;font-weight:800;letter-spacing:-0.02em}
+.case__meta .type{color:var(--muted);font-size:14.5px;margin-top:8px}
+.case__meta p.desc{color:var(--ink-80);font-size:16px;margin-top:18px}
+.browser{border-radius:14px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#fff}
+.browser__bar{display:flex;align-items:center;gap:7px;padding:11px 14px;background:#f1efeb;border-bottom:1px solid var(--line)}
+.browser__bar i{width:11px;height:11px;border-radius:50%;background:#d4cfc6;display:block}
+.browser__bar .url{margin-left:12px;font-size:12px;color:var(--muted);background:#fff;border-radius:6px;padding:4px 12px;font-weight:500;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.browser__shot{overflow:hidden;aspect-ratio:1280/640;background:var(--soft);position:relative}
+.browser__shot img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.skel{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:linear-gradient(158deg,#f4f2ef,#e9e6e1);color:var(--muted);font-weight:600;font-size:14px;text-align:center;padding:16px}
+.skel .dot{width:46px;height:46px;border-radius:14px;background:linear-gradient(158deg,#2a2a2a,#121212);display:flex;align-items:center;justify-content:center}
+.skel .dot svg{width:22px;height:22px;stroke:#fff;stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.skel::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);transform:translateX(-100%);animation:shimmer 2.4s ease-in-out infinite}
+@keyframes shimmer{to{transform:translateX(100%)}}
+.feature{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+.feature ul{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:14px}
+.feature li{position:relative;padding-left:32px;color:var(--ink-80);font-size:16px}
+.feature li::before{content:"";position:absolute;left:0;top:3px;width:20px;height:20px;border-radius:50%;background:var(--ink);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:13px;background-repeat:no-repeat;background-position:center}
+.feature__art{position:relative;overflow:hidden;background:linear-gradient(158deg,#2a2a2a,#121212);color:#fff;border-radius:22px;padding:42px 36px;min-height:260px;display:flex;flex-direction:column;justify-content:center;box-shadow:var(--shadow)}
+.feature__art::after{content:"";position:absolute;top:-60%;left:-30%;width:70%;height:220%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);transform:rotate(18deg);animation:sheen 6s ease-in-out infinite}
+@keyframes sheen{0%,60%{transform:translateX(-120%) rotate(18deg)}100%{transform:translateX(320%) rotate(18deg)}}
+.feature__art .chip{align-self:flex-start;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14);border-radius:999px;padding:7px 15px;font-size:13px;font-weight:600;margin-bottom:22px}
+.feature__art .big{font-size:clamp(26px,3vw,34px);font-weight:800;letter-spacing:-0.02em;line-height:1.12;position:relative;z-index:1}
+.feature__art .sub{color:rgba(255,255,255,.72);margin-top:16px;font-size:15px;position:relative;z-index:1}
+.sheetanim{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;position:relative;z-index:1}
+.sheetanim .row{display:flex;justify-content:space-between;background:rgba(255,255,255,.08);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:600}
+.sheetanim .row .v{color:#fff;transition:opacity .25s}
+.formats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.format{position:relative;border:1px solid var(--line);border-radius:var(--radius);padding:36px 32px;background:#fff;display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s}
+.format:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.format--lead{background:linear-gradient(158deg,#242424,#121212);color:#fff;border-color:var(--ink)}
+.format--lead::before{content:"Рекомендую";position:absolute;top:18px;right:22px;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:rgba(255,255,255,.14);padding:6px 12px;border-radius:999px}
+.format .kicker{font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.format--lead .kicker{color:rgba(255,255,255,.65)}
+.format .price{font-size:clamp(24px,3vw,32px);font-weight:800;margin:14px 0 4px;letter-spacing:-0.02em}
+.format .name{font-size:19px;font-weight:700;margin-bottom:14px}
+.format p{font-size:15.5px;color:var(--muted)}
+.format--lead p{color:rgba(255,255,255,.82)}
+.format .flist{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:10px;font-size:15px}
+.format .flist li{padding-left:26px;position:relative;color:var(--ink-80)}
+.format--lead .flist li{color:rgba(255,255,255,.85)}
+.format .flist li::before{content:"";position:absolute;left:0;top:6px;width:14px;height:9px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(-45deg);opacity:.8}
+.format .btn{margin-top:26px}
+.format--lead .btn{background:#fff;color:var(--ink);border-color:#fff}
+.band{position:relative;overflow:hidden;background:linear-gradient(158deg,#242424,#111);color:#fff;border-radius:26px;padding:60px 44px;text-align:center;box-shadow:var(--shadow)}
+.band::after{content:"";position:absolute;top:-50%;left:-20%;width:50%;height:200%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);transform:rotate(18deg);animation:sheen 7s ease-in-out infinite}
+.band h2{color:#fff;position:relative;z-index:1}
+.band p{color:rgba(255,255,255,.8);max-width:56ch;margin:16px auto 0;position:relative;z-index:1}
+.band .btn{margin-top:30px;position:relative;z-index:1}
+.faq{max-width:820px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{list-style:none;cursor:pointer;padding:22px 44px 22px 0;position:relative;font-weight:600;font-size:18px;transition:color .2s}
+.faq summary:hover{color:var(--muted)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";position:absolute;right:4px;top:24px;width:16px;height:16px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23171717' stroke-width='2.4' stroke-linecap='round'%3E%3Cline x1='12' y1='5' x2='12' y2='19'/%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E") center/contain no-repeat;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(135deg)}
+.faq .ans{padding:0 44px 22px 0;color:var(--ink-80);font-size:16px}
+.formwrap{max-width:560px;margin:0 auto}
+.form{display:grid;gap:14px;margin-top:28px}
+.form input{font-family:inherit;font-size:16px;padding:16px 18px;border:1.5px solid var(--line);border-radius:var(--radius-sm);background:#fff;color:var(--ink);width:100%;transition:border-color .2s,box-shadow .2s}
+.form input:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 4px rgba(23,23,23,.06)}
+.form .btn{width:100%}
+.form .consent{font-size:13px;color:var(--muted);text-align:center;margin-top:4px}
+.form .consent a{text-decoration:underline}
+.ftr{background:var(--ink);color:#fff;padding:60px 0 40px}
+.ftr a{color:rgba(255,255,255,.75);transition:color .2s}
+.ftr a:hover{color:#fff}
+.ftr__top{display:flex;flex-wrap:wrap;gap:30px;justify-content:space-between;align-items:flex-start}
+.ftr__brand{font-weight:800;font-size:22px;letter-spacing:-0.01em}
+.ftr__links{display:flex;flex-wrap:wrap;gap:12px 28px;font-size:15px}
+.ftr__contacts{font-size:15px;display:grid;gap:8px}
+.ftr__contacts a{font-weight:600;color:#fff}
+.ftr__bottom{margin-top:40px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;color:rgba(255,255,255,.55);font-size:13px}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}
+.reveal[data-d="2"]{transition-delay:.16s}
+.reveal[data-d="3"]{transition-delay:.24s}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}*{animation:none!important}}
+@media (max-width:900px){
+  .section{padding:66px 0}
+  .grid-4,.chan,.formats,.stats{grid-template-columns:1fr 1fr}
+  .feature{grid-template-columns:1fr;gap:28px}
+  .case{grid-template-columns:1fr;gap:22px;direction:ltr}
+  .case:nth-child(even){direction:ltr}
+  .case__media{order:-1}
+  .nav,.hdr__phone{display:none}
+  .burger{display:block}
+  .hdr__right{margin-left:0}
+}
+@media (max-width:620px){
+  body{font-size:16px}
+  .section{padding:54px 0}
+  .grid-4,.chan,.formats{grid-template-columns:1fr}
+  .stats{grid-template-columns:1fr 1fr;gap:28px 16px}
+  .band{padding:42px 22px}
+  .hdr__right .btn{display:none}
+}
+.mnav{display:none;position:fixed;inset:68px 0 0;background:#fff;z-index:49;padding:24px var(--gut);flex-direction:column;gap:4px}
+.mnav.open{display:flex}
+.mnav a{padding:16px 0;border-bottom:1px solid var(--line);font-size:18px;font-weight:600}
+.mnav .btn{margin-top:20px}
+</style>
+</head>
+<body>
 
-    <title>Сайты для стоматологических клиник — Сайты для бизнеса</title>
-    <meta name="description" content="Разработка сайтов для стоматологий и зубных клиник — запись на приём, прайс на лечение, доверие пациентов и поток заявок из поиска. Иркутск и вся Россия." />
-    <link rel="canonical" href="https://diasite.ru/nishi/stomatologiya/" />
-
-    <!-- OpenGraph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Сайты для стоматологических клиник — Сайты для бизнеса" />
-    <meta property="og:description" content="Разработка сайтов для стоматологий и зубных клиник — запись на приём, прайс на лечение, доверие пациентов и поток заявок из поиска. Иркутск и вся Россия." />
-    <meta property="og:url" content="https://diasite.ru/nishi/stomatologiya/" />
-    <meta property="og:locale" content="ru_RU" />
-
-    <!-- Шрифты Google: Manrope (текст) + Syne (заголовки) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
-
-    <!-- Стили сайта -->
-    <link rel="stylesheet" href="/styles/tokens.css" />
-    <link rel="stylesheet" href="/styles/base.css" />
-    <link rel="stylesheet" href="/styles/components.css" />
-    <link rel="stylesheet" href="/styles/sections.css" />
-    <link rel="stylesheet" href="/styles/animations.css" />
-
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2300af92'/%3E%3C/svg%3E"
-    />
-  </head>
-  <body>
-    <header class="site-header">
-  <div class="container site-header__inner">
-    <a class="brand" href="/" aria-label="Сайты для бизнеса — на главную">
-      <span class="brand__name">Сайты для бизнеса</span>
-    </a>
-
-    <nav class="nav" id="nav" aria-label="Основное меню">
-      
-        
-        <a class="nav__link" href="/#metod">Подход</a>
-        
-      
-        
-        <a class="nav__link" href="/#tarifs">Тарифы</a>
-        
-      
-        
-        <a class="nav__link" href="/#works">Работы</a>
-        
-      
-        
-        <div class="nav__item has-dropdown">
-          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false">
-            Ниши<span class="nav__chev" aria-hidden="true"></span>
-          </button>
-          <div class="nav__dropdown">
-            
-            <a class="nav__link nav__sublink" href="/nishi/kosmetologiya/">Косметологические клиники</a>
-            
-            <a class="nav__link nav__sublink" href="/nishi/stomatologiya/">Стоматологические клиники</a>
-            
-          </div>
-        </div>
-        
-      
-        
-        <a class="nav__link" href="/#contacts">Контакты</a>
-        
-      
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="/">Алексей Дианов<small>Сайты для стоматологии</small></a>
+    <nav class="nav">
+      <a href="#problem">Проблема</a>
+      <a href="#channels">Заявки</a>
+      <a href="#cases">Кейсы</a>
+      <a href="#formats">Форматы</a>
+      <a href="#faq">Вопросы</a>
     </nav>
-
-    <div class="header__actions">
-      <a class="btn btn--primary header__audit" href="/#audit">Нужен аудит сайта</a>
-      <button class="burger" type="button" aria-label="Меню" aria-controls="nav" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="hdr__right">
+      <a class="hdr__phone" href="tel:+79834075940">+7 983 407-59-40</a>
+      <a class="btn btn--primary" href="#audit">Бесплатный аудит</a>
     </div>
+    <button class="burger" id="burger" aria-label="Меню" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </header>
+<nav class="mnav" id="mnav">
+  <a href="#problem">Проблема</a>
+  <a href="#channels">Откуда заявки</a>
+  <a href="#cases">Кейсы</a>
+  <a href="#formats">Форматы работы</a>
+  <a href="#faq">Вопросы</a>
+  <a href="tel:+79834075940">+7 983 407-59-40</a>
+  <a class="btn btn--primary" href="#audit">Бесплатный аудит</a>
+</nav>
 
+<!-- 1. Hero -->
+<section class="hero">
+  <div class="hero__glow"></div>
+  <div class="wrap hero__grid">
+    <div class="hero__col">
+    <span class="eyebrow reveal">Сайты для стоматологических клиник</span>
+    <h1 class="reveal" data-d="1">Сайт стоматологии, который загружает кресла,<br>а не просто красиво выглядит</h1>
+    <p class="lead reveal" data-d="2" style="margin-top:22px">
+      Разрабатываю и веду сайты для стоматологий. Собираю их так, чтобы реклама,
+      поиск и даже ответы нейросетей приводили пациентов на онлайн-запись&nbsp;— а не в&nbsp;пустоту.
+    </p>
+    <div class="hero__cta reveal" data-d="3">
+      <a class="btn btn--primary btn--lg" href="#audit">Получить бесплатный аудит
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <small>Разберу ваш сайт как пациент и&nbsp;как маркетолог — покажу, где теряются записи. Без&nbsp;оплаты.</small>
+    </div>
+    <div class="trust reveal" data-d="3">
+      <span>Имплантация и ортодонтия</span>
+      <span>Онлайн-запись</span>
+      <span>Реклама · SEO · ИИ</span>
+    </div>
+    </div>
+    <div class="hero__media reveal" data-d="2">
+      <img src="/assets/nishi/img/dent-hero.jpg" alt="Консультация стоматолога в современной клинике" loading="eager" width="1100" height="825">
+    </div>
+  </div>
+</section>
 
-    <main id="top">
+<!-- Marquee -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <span>Имплантация</span><span>Брекеты и элайнеры</span><span>Виниры</span><span>Лечение и гигиена</span><span>All-on-4 / All-on-6</span><span>Отбеливание</span><span>Детская стоматология</span><span>Онлайн-запись</span>
+    <span>Имплантация</span><span>Брекеты и элайнеры</span><span>Виниры</span><span>Лечение и гигиена</span><span>All-on-4 / All-on-6</span><span>Отбеливание</span><span>Детская стоматология</span><span>Онлайн-запись</span>
+  </div>
+</div>
 
-<!-- HERO -->
-<section class="hero niche-hero">
-  <div class="container">
-    <div class="niche-hero__inner" data-reveal>
-      <span class="eyebrow eyebrow--line">Ниша · Стоматология</span>
-      <h1 class="hero__title">Сайты для стоматологических клиник, на которые&nbsp;<span class="accent">записываются пациенты</span></h1>
-      <p class="hero__lead">
-        Делаю сайты для стоматологий и зубных клиник: понятная запись на приём, честный прайс на лечение
-        и доверие с первого экрана — чтобы пациент выбрал вас, а не того, кто оказался выше в поиске.
-      </p>
-      <div class="hero__cta">
-        <a class="btn btn--primary" href="#niche-form">Обсудить сайт для клиники</a>
-        <span class="hero__note">Отвечу лично, без менеджеров и call-центра</span>
+<!-- 2. Problem -->
+<section class="section section--soft" id="problem">
+  <div class="wrap">
+    <span class="eyebrow reveal">Проблема</span>
+    <h2 class="reveal">Почему кресла загружены<br>не так, как могли бы</h2>
+    <p class="lead reveal" style="margin-top:18px">Дело редко в спросе. Чаще — в сайте, который получает трафик, но не&nbsp;умеет превращать его в&nbsp;запись.</p>
+    <div class="grid grid-4" style="margin-top:42px">
+      <div class="card p-card reveal" data-d="0"><div class="num">01</div>
+        <span class="i3d"><svg viewBox="0 0 24 24"><path d="M3 17l5-5 4 3 6-7"/><polyline points="21 5 21 9 17 9"/><path d="M3 21h18"/></svg></span>
+        <h3>Реклама работает в минус</h3><p>Бюджет на Директ уходит, а заявка выходит дороже лечения. Трафик приходит на страницу, которая не ведёт к записи.</p></div>
+      <div class="card p-card reveal" data-d="1"><div class="num">02</div>
+        <span class="i3d"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="17" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="16" y1="2" x2="16" y2="6"/><path d="M8 14h3"/></svg></span>
+        <h3>Простаивают окна в графике</h3><p>Пустое кресло — это прямые потери за смену. Запись живёт в звонках и переписках, а не на сайте в один клик.</p></div>
+      <div class="card p-card reveal" data-d="2"><div class="num">03</div>
+        <span class="i3d"><svg viewBox="0 0 24 24"><path d="M12 3c-3 0-4 1.5-6 1.5S3 4 3 8c0 4 2 5 2.5 8 .4 2.3 1 4 2 4s1.2-3 1.5-5c.2-1.2.5-2 1-2s.8.8 1 2c.3 2 .5 5 1.5 5s1.6-1.7 2-4c.5-3 2.5-4 2.5-8 0-4-1-2.5-3-2.5S15 3 12 3z"/></svg></span>
+        <h3>Дорогие услуги не упакованы</h3><p>Имплантация, виниры, брекеты — это выбор на большие деньги. Если на странице только прайс, пациент уходит сравнивать и не возвращается.</p></div>
+      <div class="card p-card reveal" data-d="3"><div class="num">04</div>
+        <span class="i3d"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a4 4 0 00-5.4 5.4l-6 6 2.6 2.6 6-6a4 4 0 005.4-5.4l-2.5 2.5-2.1-.5-.5-2.1z"/></svg></span>
+        <h3>Каждая правка цены — через разработчика</h3><p>Изменился прайс или акция — пишете исполнителю и ждёте. Поэтому на сайте месяцами висят неактуальные цены.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. Solution -->
+<section class="section" id="solution">
+  <div class="wrap sol__grid">
+    <div>
+    <span class="eyebrow reveal">Решение</span>
+    <h2 class="reveal">Я собираю сайт как систему записи,<br>а не как визитку</h2>
+    <p class="lead reveal" style="margin-top:18px">
+      Сначала разбираю вашу нишу и пациентов, выстраиваю маршрут от «просто смотрю» до записи
+      на приём и только потом собираю страницы. Дизайн здесь обслуживает одну задачу&nbsp;— чтобы человек записался.
+    </p>
+    <div class="steps reveal">
+      <span class="step"><b>01</b> Анализ ниши и конкурентов</span>
+      <span class="step"><b>02</b> Структура под вашего пациента</span>
+      <span class="step"><b>03</b> Дизайн и сборка с онлайн-записью</span>
+      <span class="step"><b>04</b> Запуск на трафик и аналитику</span>
+    </div>
+    </div>
+    <div class="sol__media reveal" data-d="1"><img src="/assets/nishi/img/dent-implant.jpg" alt="Модель зубного импланта и брекетов" loading="lazy" width="1100" height="733"></div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section section--ink" style="padding:68px 0">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat reveal" data-d="0"><div class="num" data-count="3">0</div><div class="lbl">канала заявок:<br>реклама, SEO, GEO</div></div>
+      <div class="stat reveal" data-d="1"><div class="num" data-count="24" data-suffix="/7">0</div><div class="lbl">онлайн-запись<br>пациентов</div></div>
+      <div class="stat reveal" data-d="2"><div class="num" data-count="100" data-suffix="%">0</div><div class="lbl">актуальный прайс<br>через Google-таблицу</div></div>
+      <div class="stat reveal" data-d="3"><div class="num">∞</div><div class="lbl">рост охвата<br>статьями и SEO</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. Channels -->
+<section class="section section--soft" id="channels">
+  <div class="wrap">
+    <span class="eyebrow reveal">Откуда пойдут заявки</span>
+    <h2 class="reveal">Три канала записей вместо одного</h2>
+    <p class="lead reveal" style="margin-top:18px">Сайт делаю сразу под все три источника пациентов — чтобы вы не&nbsp;зависели от&nbsp;одного.</p>
+    <div class="chan" style="margin-top:42px">
+      <div class="card reveal" data-d="0">
+        <span class="i3d i3d--lg"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="#fff" stroke="none"/></svg></span>
+        <div class="tag">Реклама · Яндекс Директ</div>
+        <h3>Окупаемый рекламный бюджет</h3>
+        <p>Собираю сайт так, чтобы он конвертировал платный трафик в запись. Бюджет перестаёт утекать в клики без заявок и начинает окупаться.</p>
+      </div>
+      <div class="card reveal" data-d="1">
+        <span class="i3d i3d--lg"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><line x1="15.5" y1="15.5" x2="21" y2="21"/></svg></span>
+        <div class="tag">SEO · Поиск</div>
+        <h3>Бесплатный поток из поиска</h3>
+        <p>Выстраиваю структуру и статьи под запросы «имплантация / брекеты + ваш город». Поток растёт со временем и снижает зависимость от рекламы.</p>
+      </div>
+      <div class="card reveal" data-d="2">
+        <span class="i3d i3d--lg"><svg viewBox="0 0 24 24"><path d="M12 2l2.2 5.8L20 10l-5.8 2.2L12 18l-2.2-5.8L4 10l5.8-2.2z"/><path d="M18.5 15.5l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" stroke-width="1.3"/></svg></span>
+        <div class="tag">GEO · Ответы нейросетей</div>
+        <h3>Канал, которого нет у конкурентов</h3>
+        <p>Оформляю сайт так, чтобы клинику могли рекомендовать нейропоиск Яндекса, Алиса и ChatGPT. Вы заходите туда раньше рынка.</p>
       </div>
     </div>
+    <p class="bridge reveal">Любой из каналов можно настроить разово, а можно вести и&nbsp;усиливать каждый месяц — об&nbsp;этом ниже.</p>
   </div>
 </section>
 
-<!-- БОЛИ НИШИ -->
-
-<section class="section">
-  <div class="container">
-    <div class="section__head section__head--wide" data-reveal>
-      <span class="eyebrow eyebrow--line">Проблема</span>
-      <h2>Почему сайты стоматологий не приносят записей?</h2>
-      <p>Стоматология — это про доверие и преодоление страха. Если сайт не снимает сомнения, пациент выбирает того, кто объяснил и успокоил лучше.</p>
+<!-- 5. Cases (placeholders) -->
+<section class="section" id="cases">
+  <div class="wrap">
+    <span class="eyebrow reveal">Кейсы</span>
+    <h2 class="reveal">Проекты по стоматологии</h2>
+    <p class="lead reveal" style="margin-top:18px">Скоро здесь появятся сайты стоматологий с результатами. Слоты под кейсы уже готовы — добавлю ваши проекты и цифры.</p>
+    <div style="margin-top:28px">
+      <article class="case">
+        <div class="case__meta reveal">
+          <div class="name">Проект в работе</div>
+          <div class="type">Имплантация и ортодонтия · многостраничный сайт</div>
+          <p class="desc">Здесь будет сайт стоматологии: каталог услуг, врачи, цены, блок «До&nbsp;/&nbsp;После», онлайн-запись и управление прайсом через Google-таблицу. С результатом в&nbsp;цифрах.</p>
+        </div>
+        <div class="case__media reveal" data-d="1">
+          <div class="browser">
+            <div class="browser__bar"><i></i><i></i><i></i><span class="url">ваш-сайт.ru</span></div>
+            <div class="browser__shot"><div class="skel"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 3c-3 0-4 1.5-6 1.5S3 4 3 8c0 4 2 5 2.5 8 .4 2.3 1 4 2 4s1.2-3 1.5-5c.2-1.2.5-2 1-2s.8.8 1 2c.3 2 .5 5 1.5 5s1.6-1.7 2-4c.5-3 2.5-4 2.5-8 0-4-1-2.5-3-2.5S15 3 12 3z"/></svg></span>Скоро — ваш проект</div></div>
+          </div>
+        </div>
+      </article>
+      <article class="case">
+        <div class="case__meta reveal">
+          <div class="name">Проект в работе</div>
+          <div class="type">Клиника общей стоматологии · лендинг под акцию</div>
+          <p class="desc">Промо-страница под конкретную услугу или акцию с онлайн-записью и подготовкой под рекламу — для теста ниши или запуска направления.</p>
+        </div>
+        <div class="case__media reveal" data-d="1">
+          <div class="browser">
+            <div class="browser__bar"><i></i><i></i><i></i><span class="url">ваш-сайт.ru</span></div>
+            <div class="browser__shot"><div class="skel"><span class="dot"><svg viewBox="0 0 24 24"><path d="M12 3c-3 0-4 1.5-6 1.5S3 4 3 8c0 4 2 5 2.5 8 .4 2.3 1 4 2 4s1.2-3 1.5-5c.2-1.2.5-2 1-2s.8.8 1 2c.3 2 .5 5 1.5 5s1.6-1.7 2-4c.5-3 2.5-4 2.5-8 0-4-1-2.5-3-2.5S15 3 12 3z"/></svg></span>Скоро — ваш проект</div></div>
+          </div>
+        </div>
+      </article>
     </div>
-    <div class="steps" data-reveal-group>
-      
-      <article class="step" data-reveal>
-        <div class="step__top">
-          <span class="step__ico">
-<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d='M20.6 11.4l-8-8A2 2 0 0 0 11.2 3H5a2 2 0 0 0-2 2v6.2a2 2 0 0 0 .6 1.4l8 8a2 2 0 0 0 2.8 0l6.2-6.2a2 2 0 0 0 0-2.8z'/><circle cx='7.5' cy='7.5' r='1.3' fill='currentColor' stroke='none'/></svg></span>
-        </div>
-        <h3>Сайт не снимает страх</h3>
-        <p>Пациент боится боли и «развода на деньги». Если сайт не показывает заботу, технологии и честный подход — человек откладывает визит или идёт к другим.</p>
-      </article>
-      
-      <article class="step step--dark" data-reveal>
-        <div class="step__top">
-          <span class="step__ico">
-<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx='12' cy='12' r='9'/><path d='M9.2 9.2a2.8 2.8 0 0 1 5.4 1c0 1.9-2.8 2.5-2.8 4'/><circle cx='11.8' cy='17' r='0.9' fill='currentColor' stroke='none'/></svg></span>
-        </div>
-        <h3>Непонятно, сколько стоит лечение</h3>
-        <p>Нет прайса и объяснения, из чего складывается цена. Пациент не хочет звонить «чтобы узнать», боится скрытых доплат — и закрывает сайт.</p>
-      </article>
-      
-      <article class="step step--dark" data-reveal>
-        <div class="step__top">
-          <span class="step__ico">
-<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d='M3 4h18l-7 8v7l-4 2v-9z'/></svg></span>
-        </div>
-        <h3>Нельзя записаться онлайн</h3>
-        <p>Только телефон в рабочие часы. Пациент, который решился вечером, не может записаться здесь и сейчас — и заявка теряется.</p>
-      </article>
-      
-      <article class="step" data-reveal>
-        <div class="step__top">
-          <span class="step__ico">
-<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx='10.5' cy='10.5' r='6'/><path d='M20 20l-4.3-4.3'/><path d='M8 10.5l1.8 1.8 3.2-3.4'/></svg></span>
-        </div>
-        <h3>Клинику не находят в поиске</h3>
-        <p>Нет SEO под услуги и район — сайт не виден по запросам «стоматология рядом», «имплантация + город», «лечение зубов недорого».</p>
-      </article>
-      
+    <div class="center" style="margin-top:44px">
+      <a class="btn btn--ghost btn--lg" href="#audit">Хочу такой же сайт для своей клиники</a>
     </div>
   </div>
 </section>
 
-<!-- ЧТО ВХОДИТ -->
-
-<section class="section section--soft">
-  <div class="container">
-    <div class="section__head section__head--wide" data-reveal>
-      <span class="eyebrow eyebrow--line">Решение</span>
-      <h2>Что будет на сайте вашей клиники</h2>
-      <p>Собираю не шаблон, а систему, которая ведёт пациента от «надо бы сходить к стоматологу» до записи на приём.</p>
-    </div>
-    <div class="niche-grid" data-reveal-group>
-      
-      <article class="niche-card" data-reveal>
-        <h3>Запись на приём</h3>
-        <p>Онлайн-запись или заявка в 2 касания, выбор услуги и удобного времени, кнопка в WhatsApp/Telegram и звонок — пациент связывается так, как ему привычно.</p>
-      </article>
-      
-      <article class="niche-card" data-reveal>
-        <h3>Прайс и услуги понятно</h3>
-        <p>Карточки услуг: лечение, имплантация, протезирование, ортодонтия — что входит, сколько стоит, как проходит. Снимаем страх скрытых доплат.</p>
-      </article>
-      
-      <article class="niche-card" data-reveal>
-        <h3>Доверие и экспертность</h3>
-        <p>Врачи с регалиями и опытом, лицензии, фото клиники и оборудования, реальные «до/после», отзывы — всё, что убеждает доверить вам здоровье зубов.</p>
-      </article>
-      
-      <article class="niche-card" data-reveal>
-        <h3>SEO под ваш город и услуги</h3>
-        <p>Структура и тексты под запросы ниши и района, подключение аналитики — чтобы стоматологию находили в Яндексе и Google по целевым запросам.</p>
-      </article>
-      
-    </div>
-  </div>
-</section>
-
-<!-- CTA / ФОРМА -->
-<section class="section section--dark" id="niche-form">
-  <div class="container">
-    <div class="audit">
-      <div class="audit__media" data-reveal="left">
-        <div class="section__head section__head--wide" style="margin-bottom:1.2rem">
-          <span class="eyebrow eyebrow--line">Заявка</span>
-          <h2>Обсудим сайт для вашей клиники</h2>
-        </div>
-        <p class="audit__lead">
-          <b>Расскажите про клинику — предложу структуру и цену.</b>
-          Посмотрю ваш текущий сайт или профиль, подскажу, что усилить, и сориентирую по срокам и стоимости.
+<!-- 6. Google Sheets -->
+<section class="section section--soft" id="sheets">
+  <div class="wrap">
+    <div class="feature">
+      <div class="reveal">
+        <span class="eyebrow">Управление сайтом</span>
+        <h2>Цены и акции вы меняете сами — за минуту</h2>
+        <p class="lead" style="margin-top:18px">
+          Цены на услуги, акции и часть текстов подтягиваются из обычной Google-таблицы.
+          Администратор меняет цифру в&nbsp;таблице, и&nbsp;на сайте она обновляется сама.
+          Не нужно писать мне, заходить в&nbsp;Тильду или ждать правок.
         </p>
+        <ul>
+          <li>Прайс на сайте всегда актуальный — без «забыли обновить»</li>
+          <li>Акцию запускаете в день, когда решили, а не через неделю</li>
+          <li>Вы не платите за каждую мелкую правку и не зависите от разработчика</li>
+        </ul>
       </div>
-
-      <div class="audit__form contact-cta" data-reveal="right">
-        <p class="audit__form-title">Напишите мне — свяжусь лично</p>
-        <p class="contact-cta__text">Расскажите про клинику в удобном мессенджере — посмотрю сайт или профиль и предложу структуру, сроки и цену.</p>
-        <div class="contact-cta__actions">
-          <a class="btn btn--primary btn--arrow" href="https://t.me/a_dianov14" target="_blank" rel="noopener">Написать в Telegram</a>
-          <a class="btn btn--ghost btn--arrow" href="https://max.ru/u/f9LHodD0cOJ_zp_q0xHbKxg80n_t5cNAnF7p_HVBG5VxaGeinChxtb5k4Jg" target="_blank" rel="noopener">Написать в MAX</a>
+      <div class="feature__art reveal" data-d="1">
+        <span class="chip">Google Таблицы → сайт</span>
+        <div class="big">Изменили цену в таблице&nbsp;— сайт обновился</div>
+        <div class="sheetanim">
+          <div class="row"><span>Имплант под ключ</span><span class="v" id="pr1">45&nbsp;000&nbsp;₽</span></div>
+          <div class="row"><span>Гигиена Air Flow</span><span class="v" id="pr2">4&nbsp;500&nbsp;₽</span></div>
         </div>
+        <div class="sub">Без программиста. Без ожидания. За минуту.</div>
       </div>
     </div>
   </div>
 </section>
-</main>
 
-    <footer class="site-footer">
-  <div class="container">
-    <div class="footer__brandrow">
-      <span class="brand__name">Сайты для бизнеса</span>
+<!-- 7. Articles -->
+<section class="section" id="articles">
+  <div class="wrap">
+    <div class="feature">
+      <div class="feature__art reveal">
+        <span class="chip">Статейный ряд</span>
+        <div class="big">Каждая статья — новая точка входа из поиска и ИИ</div>
+        <div class="sub">На ведении раздел постоянно растёт и&nbsp;приводит пациентов сам.</div>
+      </div>
+      <div class="reveal" data-d="1">
+        <span class="eyebrow">Контент</span>
+        <h2>Сайт, который со временем<br>приводит пациентов сам</h2>
+        <p class="lead" style="margin-top:18px">
+          Делаю раздел статей под реальные вопросы пациентов — «больно ли ставить имплант»,
+          «сколько стоят брекеты», «как проходит лечение». На ведении раздел постоянно пополняется.
+        </p>
+        <ul>
+          <li>Каждая статья — новая точка входа из поиска и из ответов нейросетей</li>
+          <li>Поток бесплатных пациентов накапливается месяц за месяцем</li>
+          <li>Чем дольше ведём сайт, тем дешевле обходится каждая новая запись</li>
+        </ul>
+        <p style="margin-top:20px;color:var(--ink);font-weight:600">Это не разовый расход, а актив, который работает на клинику годами.</p>
+      </div>
     </div>
+  </div>
+</section>
 
-    <div class="footer__cols">
-      <div class="footer__col">
-        <h4>Разделы</h4>
+<!-- 8. Formats -->
+<section class="section section--soft" id="formats">
+  <div class="wrap">
+    <span class="eyebrow reveal">Форматы работы</span>
+    <h2 class="reveal">Разовый запуск или ведение —<br>выбираете вы</h2>
+    <p class="lead reveal" style="margin-top:18px">Две честные модели. Одна — чтобы стартовать, вторая — чтобы поток пациентов рос.</p>
+    <div class="formats" style="margin-top:40px">
+      <div class="format reveal" data-d="0">
+        <div class="kicker">Разовый запуск</div>
+        <div class="price">[от __ ₽]</div>
+        <div class="name">Собрал, настроил, передал</div>
+        <p>Сайт, который готов к работе, и управление на вашей стороне.</p>
+        <ul class="flist">
+          <li>Сайт с онлайн-записью под ваши услуги</li>
+          <li>Настройка рекламы и базового SEO</li>
+          <li>Управление ценами через Google-таблицу</li>
+          <li>Подходит для теста ниши и ограниченного бюджета</li>
+        </ul>
+        <a class="btn btn--ghost" href="#audit">Обсудить запуск</a>
+      </div>
+      <div class="format format--lead reveal" data-d="1">
+        <div class="kicker">Ведение · ежемесячно</div>
+        <div class="price">[от __ ₽/мес]</div>
+        <div class="name">Поток пациентов, который растёт</div>
+        <p>Всё из запуска плюс системная ежемесячная работа на результат.</p>
+        <ul class="flist">
+          <li>Развитие SEO и GEO под ответы нейросетей</li>
+          <li>Пополнение статейного ряда каждый месяц</li>
+          <li>Ведение рекламы, правки и дополнение контента</li>
+          <li>Аналитика заявок и контроль показателей</li>
+        </ul>
+        <a class="btn btn--white" href="#audit">Обсудить ведение</a>
+      </div>
+    </div>
+    <p class="center muted reveal" style="margin-top:24px;font-size:15px">Не знаете, какой формат нужен? Это и&nbsp;покажет бесплатный аудит.</p>
+  </div>
+</section>
+
+<!-- 9. Audit band -->
+<section class="section" id="audit">
+  <div class="wrap">
+    <div class="band reveal">
+      <h2>Бесплатный аудит сайта вашей клиники</h2>
+      <p>Пришлите ссылку на сайт — разберу его как ваш пациент и как маркетолог. Покажу, где теряются записи, чего не хватает для онлайн-записи и что исправить в первую очередь. Без оплаты и без обязательств работать со мной дальше.</p>
+      <a class="btn btn--white btn--lg" href="#contact">Получить аудит</a>
+    </div>
+  </div>
+</section>
+
+<!-- 10. FAQ -->
+<section class="section section--soft" id="faq">
+  <div class="wrap">
+    <h2 class="center reveal">Частые вопросы</h2>
+    <div class="faq reveal" style="margin-top:38px">
+      <details><summary>Мы часто меняем цены и акции — это сложно?</summary><div class="ans">Нет. Цены и акции вы меняете сами в Google-таблице, на сайте всё обновляется автоматически. Писать мне не нужно.</div></details>
+      <details><summary>Сколько времени занимает запуск?</summary><div class="ans">[__]. Точный срок называю после аудита — он зависит от объёма: промо-страница, сайт клиники или сеть филиалов.</div></details>
+      <details><summary>Учитываете требования к рекламе медицинских услуг?</summary><div class="ans">Да. Подаю услуги корректно — без обещаний гарантированного результата, с нужными оговорками и дисклеймерами, чтобы сайт проходил модерацию рекламы.</div></details>
+      <details><summary>А если заявки не пойдут?</summary><div class="ans">Поэтому начинаем с аудита и работаем по этапам, а сайт запускаю с подключённой аналитикой — видно, откуда приходят заявки и что усиливать. Решения принимаем по цифрам, а не на ощущениях.</div></details>
+      <details><summary>Работаете по договору?</summary><div class="ans">Да, по договору и с оплатой по этапам.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- 11. Contact -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="formwrap center">
+      <h2 class="reveal">Обсудим сайт вашей клиники</h2>
+      <p class="lead reveal" style="margin:16px auto 0">Начнём с бесплатного аудита — покажу, где клиника теряет записи и&nbsp;как их вернуть.</p>
+      <form class="form reveal" data-d="1">
+        <input type="hidden" name="Страница" value="Стоматология (/dentistry)">
+        <input type="text" name="Имя" placeholder="Ваше имя" required autocomplete="name">
+        <input type="tel" name="Phone" placeholder="Телефон" required autocomplete="tel">
+        <input type="url" name="Сайт" placeholder="Ссылка на текущий сайт (если есть)" autocomplete="url">
+        <button type="submit" class="btn btn--primary btn--lg">Записаться на обсуждение</button>
+        <p class="consent">Нажимая на кнопку, вы соглашаетесь с&nbsp;<a href="/privacy/">политикой обработки персональных данных</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div>
+        <div class="ftr__brand">Алексей Дианов</div>
+        <p style="color:rgba(255,255,255,.6);margin-top:10px;max-width:34ch;font-size:15px">Разработка и ведение сайтов для бизнеса. Сайты для стоматологических клиник.</p>
+      </div>
+      <nav class="ftr__links">
         <a href="/">Главная</a>
-        <a href="/#metod">Подход</a>
-        <a href="/#works">Работы</a>
-        <a href="/#tarifs">Тарифы</a>
-        <a href="/#follow">Ведение</a>
-        <a href="/#audit">Аудит</a>
-      </div>
-      <div class="footer__col">
-        <h4>Дополнительно</h4>
-        <a href="/#metod">Кто я?</a>
-        <a href="https://vc.ru/id4785754" target="_blank" rel="noopener">Блог</a>
-        <a href="/works/">Кейсы</a>
+        <a href="/works/">Работы</a>
         <a href="/#contacts">Контакты</a>
-      </div>
-      <div class="footer__social">
-        <div class="footer__soc">
-          <h4>Статьи про сайты</h4>
-          <a href="https://vc.ru/id4785754" target="_blank" rel="noopener">На VC.RU</a>
-        </div>
-        <div class="footer__soc">
-          <h4>Телеграм</h4>
-          <a href="https://t.me/a_dianov14" target="_blank" rel="noopener">@a_dianov14</a>
-        </div>
-        <div class="footer__soc">
-          <h4>MAX</h4>
-          <a href="https://max.ru/u/f9LHodD0cOJ_zp_q0xHbKxg80n_t5cNAnF7p_HVBG5VxaGeinChxtb5k4Jg" target="_blank" rel="noopener">Написать в MAX</a>
-        </div>
-        <div class="footer__soc">
-          <h4>ТГ-канал</h4>
-          <a href="https://t.me/design_surfers" target="_blank" rel="noopener">ProСайты</a>
-        </div>
+        <a href="/privacy/">Политика конфиденциальности</a>
+      </nav>
+      <div class="ftr__contacts">
+        <a href="tel:+79834075940">+7 983 407-59-40</a>
+        <a href="https://t.me/a_dianov14" target="_blank" rel="noopener">Telegram: @a_dianov14</a>
+        <span style="color:rgba(255,255,255,.6)">г. Иркутск</span>
       </div>
     </div>
-
-    <div class="footer__bottom">
-      <span>© 2026 Dianov Aleksey</span>
-      <a href="/privacy/">Политика конфиденциальности</a>
+    <div class="ftr__bottom">
+      <span>© <span id="yr"></span> Алексей Дианов · diasite.ru</span>
+      <span>Сайты для стоматологических клиник</span>
     </div>
   </div>
 </footer>
 
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Мы часто меняем цены и акции — это сложно?","acceptedAnswer":{"@type":"Answer","text":"Нет. Цены и акции вы меняете сами в Google-таблице, на сайте всё обновляется автоматически."}},
+{"@type":"Question","name":"Учитываете требования к рекламе медицинских услуг?","acceptedAnswer":{"@type":"Answer","text":"Да. Услуги подаются корректно, без обещаний гарантированного результата, с нужными оговорками и дисклеймерами."}},
+{"@type":"Question","name":"Работаете по договору?","acceptedAnswer":{"@type":"Answer","text":"Да, работа ведётся по договору с оплатой по этапам."}}]}
+</script>
 
-    <script src="/js/main.js" defer></script>
-  </body>
+<script>
+(function(){
+  var b=document.getElementById('burger'), m=document.getElementById('mnav');
+  if(b&&m){
+    b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});
+    m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded','false');});});
+  }
+  var y=document.getElementById('yr'); if(y)y.textContent=new Date().getFullYear();
+  var hdr=document.getElementById('hdr');
+  var onScroll=function(){ if(hdr) hdr.classList.toggle('scrolled', window.scrollY>8); };
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+  function fmt(n,dec,sep){ if(dec){return n.toFixed(dec).replace('.',',');} n=Math.round(n); if(sep){return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,' ');} return n.toString(); }
+  function countUp(el){
+    var target=parseFloat(el.getAttribute('data-count'))||0;
+    var dec=parseInt(el.getAttribute('data-decimals')||'0',10);
+    var sep=el.getAttribute('data-sep'); var suf=el.getAttribute('data-suffix')||'';
+    var dur=1400, start=null;
+    function step(ts){ if(!start)start=ts; var p=Math.min((ts-start)/dur,1); var e=1-Math.pow(1-p,3); el.textContent=fmt(target*e,dec,sep)+suf; if(p<1)requestAnimationFrame(step); }
+    requestAnimationFrame(step);
+  }
+  var els=document.querySelectorAll('.reveal');
+  if('IntersectionObserver'in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); e.target.querySelectorAll('[data-count]').forEach(countUp); io.unobserve(e.target); }});},{rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e){io.observe(e);});
+  } else { els.forEach(function(e){e.classList.add('in');e.querySelectorAll&&e.querySelectorAll('[data-count]').forEach(countUp);}); }
+  var pr1=document.getElementById('pr1');
+  if(pr1){ var vals=['45 000 ₽','39 900 ₽'];var i=0; pr1.style.transition='opacity .25s'; setInterval(function(){i=1-i;pr1.style.opacity='0';setTimeout(function(){pr1.textContent=vals[i];pr1.style.opacity='1';},200);},3000); }
+})();
+</script>
+<script src="/assets/nishi/leadmail.js"></script>
+</body>
 </html>
