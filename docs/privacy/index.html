@@ -38,52 +38,38 @@
     />
   </head>
   <body class="">
-    <header class="site-header">
-  <div class="container site-header__inner">
-    <a class="brand" href="/" aria-label="Сайты для бизнеса — на главную">
-      <span class="brand__name">Сайты для бизнеса</span>
-    </a>
-
-    <nav class="nav" id="nav" aria-label="Основное меню">
-      
-        
-        <a class="nav__link" href="/#metod">Подход</a>
-        
-      
-        
-        <a class="nav__link" href="/#tarifs">Тарифы</a>
-        
-      
-        
-        <a class="nav__link" href="/#works">Работы</a>
-        
-      
-        
-        <div class="nav__item has-dropdown">
-          <button class="nav__toggle" type="button" aria-haspopup="true" aria-expanded="false">
-            Ниши<span class="nav__chev" aria-hidden="true"></span>
-          </button>
-          <div class="nav__dropdown">
-            
-            <a class="nav__link nav__sublink" href="/nishi/kosmetologiya/">Косметологические клиники</a>
-            
-            <a class="nav__link nav__sublink" href="/nishi/stomatologiya/">Стоматологические клиники</a>
-            
-          </div>
-        </div>
-        
-      
-        
-        <a class="nav__link" href="/#contacts">Контакты</a>
-        
-      
+    <style>
+.dsh-header{background:linear-gradient(120deg,#07152f,#0b2450 68%,#07152f);color:#fff}
+.dsh-nav{max-width:1440px;margin:0 auto;height:78px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 32px;border-bottom:1px solid rgba(255,255,255,.12)}
+.dsh-logo{font-family:Inter,Arial,sans-serif;font-weight:850;letter-spacing:.14em;font-size:20px;line-height:1;color:#fff!important;flex:none}
+.dsh-logo em{font-style:normal;color:#7fa5ff}
+.dsh-logo small{display:block;font-size:9px;letter-spacing:.04em;font-weight:500;opacity:.65;margin-top:5px}
+.dsh-links{display:flex;gap:30px;font-family:Inter,Arial,sans-serif;font-size:13px;color:#d6e2ff;flex:none}
+.dsh-links a:hover{color:#fff}
+.dsh-right{display:flex;align-items:center;gap:14px;flex:none}
+.dsh-soc{display:flex;gap:10px;align-items:center}
+.dsh-soc svg{width:19px;height:19px;display:block}
+.dsh-max{font-family:Inter,Arial,sans-serif;color:#fff;font-weight:800;font-size:12px;letter-spacing:.1em}
+.dsh-btn{display:inline-flex;align-items:center;gap:9px;padding:14px 24px;border-radius:12px;border:0;background:linear-gradient(110deg,#2463f5,#3987ff);color:#fff;font-family:Inter,Arial,sans-serif;font-weight:700;font-size:13px;box-shadow:0 8px 22px rgba(36,99,245,.24);cursor:pointer;transition:.2s}
+.dsh-btn:hover{transform:translateY(-2px)}
+@media(max-width:900px){.dsh-links{display:none}.dsh-nav{padding:0 16px}}
+@media(max-width:560px){.dsh-btn{display:none}}
+    </style>
+    <header class="dsh-header">
+  <div class="dsh-nav">
+    <a class="dsh-logo" href="/">Di<em>ASITE</em><small>САЙТЫ ДЛЯ КОСМЕТОЛОГИИ</small></a>
+    <nav class="dsh-links">
+      <a href="/#services">Услуги</a>
+      <a href="/#cases">Кейсы</a>
+      <a href="/#about">Обо мне</a>
+      <a href="/#faq">FAQ</a>
     </nav>
-
-    <div class="header__actions">
-      <a class="btn btn--primary header__audit" href="/#audit">Нужен аудит сайта</a>
-      <button class="burger" type="button" aria-label="Меню" aria-controls="nav" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+    <div class="dsh-right">
+      <div class="dsh-soc">
+        <a href="https://t.me/a_dianov14" aria-label="Telegram" title="Telegram"><svg viewBox="0 0 24 24" fill="none"><path d="M21.5 4.5 2.9 11.7c-.9.35-.9 1.55.05 1.8l4.6 1.45 1.75 5.5c.3.9 1.5 1.05 2 .25l2.5-3.4 4.9 3.6c.75.55 1.8.1 2-.8l3.1-14c.25-1.15-.9-2.05-2.3-1.6Z" fill="#ffffff"/></svg></a>
+        <a class="dsh-max" href="https://max.ru/u/f9LHodD0cOKmdjeIIVrwUzfU-njnJ5D7YQdXsduBey4-2qQrx-Rbf430DKU">MAX</a>
+      </div>
+      <a class="dsh-btn" href="/#contact">Связаться напрямую</a>
     </div>
   </div>
 </header>
