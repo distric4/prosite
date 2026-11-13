@@ -1,0 +1,69 @@
+---
+layout: base.njk
+title: Разработка сайтов для бизнеса
+description: "Разрабатываю сайты, которые приводят клиентов: структура, дизайн, тексты, запуск и SEO. Веб-разработчик Алексей Дианов, Иркутск."
+homeV2: true
+bareChrome: true
+---
+
+<!-- ШАПКА -->
+<header class="v2-head" id="v2head">
+  <div class="v2-wrap v2-head__inner">
+    <a class="v2-logo" href="/new/" aria-label="DIA SITE — на главную">
+      <span class="v2-logo__mark">DIA&nbsp;SITE</span>
+      <span class="v2-logo__sub">Сайты для бизнеса</span>
+    </a>
+    <nav class="v2-nav" aria-label="Основное меню">
+      <a href="#projects">Проекты</a>
+      <a href="#services">Услуги</a>
+      <a href="#about">Обо мне</a>
+      <a href="#process">Этапы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="v2-head__right">
+      <a class="v2-head__phone" href="tel:{{ site.phone }}">
+        <b>{{ site.phoneDisplay }}</b>
+        <span>Пн–Пт, 9:00–20:00</span>
+      </a>
+      <a class="v2-btn v2-btn--dark" href="#contacts">Обсудить проект →</a>
+    </div>
+  </div>
+</header>
+
+<!-- ГЕРОЙ -->
+<section class="v2-hero">
+  <div class="v2-wrap v2-hero__grid">
+    <div class="v2-hero__text">
+      <p class="v2-eyebrow">Сайты для бизнеса · Стратегия · Дизайн · SEO</p>
+      <h1 class="v2-hero__title">Сайт должен <mark>приводить клиентов.</mark> Не&nbsp;просто быть.</h1>
+      <p class="v2-hero__lead">
+        Продумываю, что сказать клиенту, как показать ценность бизнеса и довести
+        до заявки. От структуры и дизайна до запуска и SEO.
+      </p>
+      <div class="v2-hero__cta">
+        <a class="v2-btn v2-btn--dark" href="#contacts">Обсудить задачу →</a>
+        <a class="v2-btn v2-btn--ghost" href="#projects">Посмотреть проекты ↓</a>
+      </div>
+      <div class="v2-stats">
+        <div><b>4+</b><span>года<br />в разработке</span></div>
+        <div><b>50+</b><span>проектов<br />и задач</span></div>
+        <div><b>SEO</b><span>и развитие<br />после запуска</span></div>
+      </div>
+    </div>
+
+    <div class="v2-hero__visual">
+      <div class="v2-browser">
+        <div class="v2-browser__bar">
+          <i></i><i></i><i></i>
+          <span class="v2-browser__url">neo-motors.ru</span>
+        </div>
+        <img src="/assets/img/work-neomotors.webp" alt="Проект NEO MOTORS — сайт по доставке авто" />
+      </div>
+      <div class="v2-phone">
+        <img src="/assets/img/work-bst.webp" alt="Проект BST — промышленный сайт" />
+      </div>
+      <span class="v2-hero__note">В каждый проект вкладываю экспертизу и нацеленность на результат</span>
+    </div>
+  </div>
+</section>
