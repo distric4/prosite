@@ -71,7 +71,7 @@ h1 span{color:#5a9aff}
 .more-link{font-size:12px;color:#d5e3ff}
 .more-link:hover{color:#fff}
 .hero-visual{position:relative;min-height:520px;display:flex;justify-content:flex-end;align-items:center;padding-right:6px}
-.phone-img{max-width:min(430px,92%);height:auto;border-radius:24px;box-shadow:0 34px 70px rgba(0,5,25,.55);animation:float 6s ease-in-out infinite;z-index:2;position:relative}
+.phone-img{max-width:min(560px,96%);height:auto;border-radius:24px;box-shadow:0 34px 70px rgba(0,5,25,.55);animation:float 6s ease-in-out infinite;z-index:2;position:relative}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .live-card{position:absolute;right:calc(min(360px,86%) - 30px);top:44px;width:225px;z-index:3;
   background:rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
@@ -92,11 +92,18 @@ h1 span{color:#5a9aff}
 .live-bar i{position:absolute;inset:0;width:40%;border-radius:99px;background:linear-gradient(90deg,#3b74ff,#7fa5ff);animation:slide 3.4s ease-in-out infinite alternate}
 @keyframes slide{from{width:34%}to{width:62%}}
 /* journey со стрелками */
-.journey{display:flex;align-items:center;gap:16px;margin-top:34px;background:rgba(255,255,255,.055);border:1px solid rgba(168,198,255,.15);border-radius:16px;padding:16px 22px;position:relative;z-index:2;flex-wrap:wrap}
-.journey-title{font-size:12px;font-weight:750;color:#dbe8ff;line-height:1.3;flex:0 0 150px}
-.jstep{flex:1;min-width:110px;text-align:center;font-size:10px;color:#d9e6ff}
-.journey-icon{width:38px;height:38px;margin:0 auto 7px;border-radius:50%;border:1px solid rgba(110,164,255,.6);display:grid;place-items:center;color:#8ebaff;font-size:18px}
-.jarrow{color:#5a9aff;font-size:22px;font-weight:800;flex:none;opacity:.85}
+.journey{display:flex;align-items:center;gap:22px;margin-top:34px;background:rgba(255,255,255,.055);border:1px solid rgba(168,198,255,.15);border-radius:16px;padding:20px 26px;position:relative;z-index:2;flex-wrap:wrap}
+.journey-title{font-size:15px;font-weight:750;color:#dbe8ff;line-height:1.3;flex:0 0 190px}
+.jstep{flex:1;min-width:120px;text-align:center;font-size:13px;line-height:1.4;color:#d9e6ff}
+.journey-icon{width:50px;height:50px;margin:0 auto 9px;border-radius:50%;border:1px solid rgba(110,164,255,.6);display:grid;place-items:center;color:#8ebaff;font-size:24px}
+.jarrow{color:#5a9aff;font-size:28px;font-weight:800;flex:none;opacity:.85}
+@media(max-width:760px){
+  .journey{flex-direction:column;align-items:stretch;gap:10px;padding:18px}
+  .journey-title{flex:auto;text-align:center}
+  .jstep{display:flex;align-items:center;text-align:left;gap:14px}
+  .journey-icon{margin:0;flex:none}
+  .jarrow{transform:rotate(90deg);align-self:center}
+}
 
 /* SECTIONS */
 section{padding:76px 0}
@@ -143,23 +150,13 @@ h2{font-size:clamp(28px,3vw,39px);line-height:1.12;letter-spacing:-.035em;margin
 .case li{font-size:12px;color:#e0eaff;margin:7px 0}
 .case li:before{content:"✓";color:#6da4ff;margin-right:8px;font-weight:900}
 .text-link{font-size:12px;color:#8ebaff;font-weight:750;border-bottom:1px solid rgba(142,186,255,.5);padding-bottom:3px}
-.shotwin{height:480px;border-radius:12px;overflow:hidden;position:relative;background:#dfe8f4;display:flex;align-items:center;justify-content:center;color:#62718d;font-size:12px}
-.shotwin img{position:absolute;top:0;left:0;width:100%;display:block;animation:roll 60s linear infinite;animation-play-state:paused}
-.shotwin.play img,.shotwin:hover img{animation-play-state:running}
-.shotwin.play:hover img{animation-play-state:running}
-@keyframes roll{0%{transform:translateY(0)}92%{transform:translateY(calc(-100% + 480px))}100%{transform:translateY(calc(-100% + 480px))}}
+.shotwin{height:480px;border-radius:12px;overflow:hidden;position:relative;background:#dfe8f4}
+.shotwin img{position:absolute;top:0;left:0;width:100%;display:block;transform:translateY(0);will-change:transform}
 .shotwin:before{content:"";position:absolute;top:0;left:0;right:0;height:26px;z-index:2;background:linear-gradient(rgba(223,232,244,.95),transparent);pointer-events:none}
 .shotwin:after{content:"";position:absolute;bottom:0;left:0;right:0;height:26px;z-index:2;background:linear-gradient(transparent,rgba(199,213,233,.95));pointer-events:none}
 .shotwin .hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);z-index:3;background:rgba(7,18,40,.72);color:#cfe0ff;font-size:10px;font-weight:700;padding:6px 12px;border-radius:999px;pointer-events:none;transition:.3s}
-@media(hover:hover){
-  .shotwin .hint{opacity:1}
-  .shotwin.play .hint,.shotwin:hover .hint{opacity:0}
-}
-@media(max-width:760px){
-  .shotwin{height:340px}
-  .shotwin img{animation-name:rollM}
-  @keyframes rollM{0%{transform:translateY(0)}92%{transform:translateY(calc(-100% + 340px))}100%{transform:translateY(calc(-100% + 340px))}}
-}
+.shotwin.play .hint,.shotwin:hover .hint{opacity:0}
+@media(max-width:760px){ .shotwin{height:340px} }
 
 /* ВЕДЕНИЕ */
 .support{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}
@@ -466,7 +463,6 @@ footer a:hover{color:#fff}
     <div>
      <h3>«Здоровая красота»</h3><p>Клиника косметологии · Иркутск</p>
      <ul><li>Структура сайта и страницы процедур</li><li>SEO-оптимизация</li><li>Формы записи и интеграция с Dikidi</li><li>Удобное обновление прайса</li></ul>
-     <a class="text-link" href="https://zdorovayakrasota.ru/" target="_blank" rel="noopener">Посмотреть сайт →</a>
     </div>
    </article>
    <article class="case">
@@ -474,7 +470,6 @@ footer a:hover{color:#fff}
     <div>
      <h3>Vtrende</h3><p>Сеть студий красоты</p>
      <ul><li>Каталог услуг и мастеров</li><li>Структура под масштабирование на филиалы</li><li>Развитие сайта</li></ul>
-     <a class="text-link" href="https://vtrendestudio.ru/" target="_blank" rel="noopener">Посмотреть сайт →</a>
     </div>
    </article>
   </div>
@@ -717,15 +712,38 @@ footer a:hover{color:#fff}
   mmenu.querySelectorAll('[data-mclose]').forEach(function(a){ a.addEventListener('click', closeMenu); });
   document.getElementById('mcloseX').addEventListener('click', closeMenu);
 
-  /* кейсы: автоскролл при появлении в зоне видимости */
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){
-      es.forEach(function(e){ e.target.classList.toggle('play', e.isIntersecting); });
-    }, {threshold:.25});
-    document.querySelectorAll('.shotwin').forEach(function(w){ io.observe(w); });
-  } else {
-    document.querySelectorAll('.shotwin').forEach(function(w){ w.classList.add('play'); });
-  }
+  /* кейсы: скролл скринов — на десктопе при наведении, на мобиле при появлении в экране */
+  var canHover = window.matchMedia('(hover:hover)').matches;
+  document.querySelectorAll('.shotwin').forEach(function(win){
+    var img = win.querySelector('img');
+    if(!img) return;
+    var pos = 0, dir = 1, hover = false, seen = false, last = 0;
+    var SPEED = 90; /* px/сек */
+    function maxPos(){ return Math.max(0, img.naturalHeight * (win.clientWidth / img.naturalWidth) - win.clientHeight); }
+    win.addEventListener('pointerenter', function(){ hover = true; win.classList.add('play'); });
+    win.addEventListener('pointerleave', function(){ hover = false; if(!seen) win.classList.remove('play'); });
+    img.addEventListener('load', function(){ pos = 0; });
+    function step(ts){
+      if(!last) last = ts;
+      var dt = (ts - last) / 1000; last = ts;
+      var active = hover || (!canHover && seen);
+      if(active && img.complete){
+        pos += dir * SPEED * dt;
+        var m = maxPos();
+        if(pos >= m){ pos = m; dir = -1; }
+        if(pos <= 0){ pos = 0; dir = 1; }
+        img.style.transform = 'translateY(' + (-pos) + 'px)';
+      }
+      requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(es){
+        es.forEach(function(e){ seen = e.isIntersecting; win.classList.toggle('play', e.isIntersecting); });
+      }, {threshold:.3});
+      io.observe(win);
+    } else { seen = true; }
+  });
 
   /* cookie */
   var cbar = document.getElementById('cookieBar');
