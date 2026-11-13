@@ -73,7 +73,7 @@ h1 span{color:#5a9aff}
 .hero-visual{position:relative;min-height:520px;display:flex;justify-content:flex-end;align-items:center;padding-right:6px}
 .phone-img{max-width:min(640px,100%);height:auto;border-radius:24px;box-shadow:0 34px 70px rgba(0,5,25,.55);animation:float 6s ease-in-out infinite;z-index:2;position:relative}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.live-card{position:absolute;right:calc(min(640px,100%)/2 + 112px);top:50%;transform:translateY(-50%);width:225px;z-index:3;
+.live-card{position:absolute;right:calc(min(640px,100%)/2 + 185px);top:50%;transform:translateY(-50%);width:225px;z-index:3;
   background:rgba(255,255,255,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border:1px solid rgba(255,255,255,.22);border-radius:16px;padding:14px 16px;
   box-shadow:0 18px 44px rgba(0,5,25,.45), inset 0 1px 0 rgba(255,255,255,.25)}
@@ -98,12 +98,20 @@ h1 span{color:#5a9aff}
 .journey-icon{width:50px;height:50px;margin:0 auto 9px;border-radius:50%;border:1px solid rgba(110,164,255,.6);display:grid;place-items:center;color:#8ebaff;font-size:24px}
 .jarrow{color:#5a9aff;font-size:28px;font-weight:800;flex:none;opacity:.85}
 @media(max-width:760px){
-  .journey{flex-direction:column;align-items:stretch;gap:10px;padding:18px}
-  .journey-title{flex:auto;text-align:center}
-  .jstep{display:flex;align-items:center;text-align:left;gap:14px}
-  .journey-icon{margin:0;flex:none}
-  .jarrow{transform:rotate(90deg);align-self:center}
+  .journey{flex-direction:column;align-items:stretch;gap:12px;padding:20px 18px}
+  .journey-title{flex:auto;text-align:center;font-size:16px}
+  .jstep{display:flex;align-items:center;text-align:left;gap:16px;font-size:15px;font-weight:650;padding:10px 12px;background:rgba(255,255,255,.05);border-radius:13px}
+  .journey-icon{margin:0;flex:none;width:46px;height:46px;font-size:22px}
+  .jarrow{transform:rotate(90deg);align-self:center;font-size:24px}
 }
+
+/* появление при скролле */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.shotwin .restart{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:4;width:56px;height:56px;border-radius:50%;border:0;background:rgba(36,99,245,.92);color:#fff;font-size:26px;cursor:pointer;box-shadow:0 14px 34px rgba(7,18,40,.45);display:none}
+.shotwin .restart:hover{background:#3987ff}
+.shotwin.at-end .restart{display:block;animation:mIn .25s ease both}
 
 /* SECTIONS */
 section{padding:76px 0}
@@ -163,7 +171,7 @@ h2{font-size:clamp(28px,3vw,39px);line-height:1.12;letter-spacing:-.035em;margin
 .support-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .support-item{padding:17px 12px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
 .support-item b{display:block;color:#2867f5;font-size:23px;margin-bottom:8px}
-.support-item span{font-size:11px;color:#53627e}
+.support-item span{font-size:12.5px;color:#53627e;line-height:1.4}
 
 /* ═══ ОТЧЁТ: лист бумаги ═══ */
 .report-sec{background:var(--pale)}
@@ -293,7 +301,7 @@ footer a:hover{color:#fff}
 @media(max-width:960px){
  .hero-grid{grid-template-columns:1fr;gap:28px}
  .hero-visual{min-height:auto;flex-direction:column-reverse;gap:22px;padding:20px 0;justify-content:center}
- .live-card{position:static;width:min(300px,100%)}
+ .live-card{position:static;transform:none;width:min(300px,100%);order:2;margin:0 auto}
  .case-grid{grid-template-columns:1fr}
  .support{grid-template-columns:1fr}
  .final-grid{grid-template-columns:1fr;gap:30px}
@@ -459,14 +467,14 @@ footer a:hover{color:#fff}
   <p class="lead">Реальные сайты. Наведите курсор — сайт прокрутится вниз; на телефоне прокручивается сам, когда блок на экране.</p>
   <div class="case-grid">
    <article class="case">
-    <div class="shotwin"><img src="assets/img/cosmo/case-zdorovaya.jpg" alt="Сайт «Здоровая красота»" loading="lazy"><span class="hint">Наведите, чтобы прокрутить ↓</span></div>
+    <div class="shotwin"><img src="assets/img/cosmo/case-zdorovaya.jpg" alt="Сайт «Здоровая красота»" loading="lazy"><span class="hint">Наведите, чтобы прокрутить ↓</span><button class="restart" type="button" aria-label="Прокрутить заново">↻</button></div>
     <div>
      <h3>«Здоровая красота»</h3><p>Клиника косметологии · Иркутск</p>
      <ul><li>Структура сайта и страницы процедур</li><li>SEO-оптимизация</li><li>Формы записи и интеграция с Dikidi</li><li>Удобное обновление прайса</li></ul>
     </div>
    </article>
    <article class="case">
-    <div class="shotwin"><img src="assets/img/cosmo/case-vtrende.jpg" alt="Сайт Vtrende" loading="lazy"><span class="hint">Наведите, чтобы прокрутить ↓</span></div>
+    <div class="shotwin"><img src="assets/img/cosmo/case-vtrende.jpg" alt="Сайт Vtrende" loading="lazy"><span class="hint">Наведите, чтобы прокрутить ↓</span><button class="restart" type="button" aria-label="Прокрутить заново">↻</button></div>
     <div>
      <h3>Vtrende</h3><p>Сеть студий красоты</p>
      <ul><li>Каталог услуг и мастеров</li><li>Структура под масштабирование на филиалы</li><li>Развитие сайта</li></ul>
@@ -566,7 +574,7 @@ footer a:hover{color:#fff}
  <div class="container cl-flex">
   <div>
    <div class="section-label">Бесплатно</div>
-   <h2>Чек-лист проверки сайта<br>косметологической клиники</h2>
+   <h2>Бесплатный чек-ап клиники,<br>чтобы не было неожиданных писем<br>от проверяющих органов</h2>
    <div class="cl-num">57</div>
    <ul class="cl-list">
     <li>Техническое состояние и скорость загрузки</li>
@@ -579,8 +587,8 @@ footer a:hover{color:#fff}
   </div>
   <div class="cl-card">
    <h3>Получить чек-лист на 57 пунктов</h3>
-   <p>Файлом с пояснениями к каждому пункту — проверите свой сайт за один вечер. Бесплатно, сразу после клика.</p>
-   <a class="btn" href="assets/img/cosmo/checklist.docx" download="Чек-лист для проверки косметологической клиники.docx">Скачать чек-лист →</a>
+   <p>Файлом с пояснениями к каждому пункту — проверите свою клинику за один вечер. Бесплатно.</p>
+   <a class="btn" href="#" id="clBtn">Забрать чек-лист →</a>
   </div>
  </div>
 </section>
@@ -609,6 +617,7 @@ footer a:hover{color:#fff}
    <div class="section-label">Первичная консультация</div>
    <h2>Покажу, как ваш сайт может привлекать больше записей</h2>
    <p>Разберу сайт вашей клиники, посмотрю его видимость в поиске и покажу, какие возможности для привлечения пациентов сейчас упускаются. Бесплатно, без обязательств.</p>
+   <p style="margin-top:10px;font-size:13px;color:#9db8e8">Вы можете просто отправить свой сайт — я сам свяжусь с вами с готовым первичным разбором.</p>
    <a class="btn" href="https://t.me/a_dianov14" target="_blank" rel="noopener">Написать в Telegram →</a>
   </div>
   <form class="form" id="finalForm" novalidate>
@@ -631,7 +640,7 @@ footer a:hover{color:#fff}
 <footer>
  <div class="container footer-row">
   <a class="logo" href="https://diasite.ru/">Di<em>ASITE</em><small>Разработка и продвижение</small></a>
-  <nav><a href="#services">Услуги</a><a href="#cases">Кейсы</a><a href="#faq">FAQ</a><a href="#contact">Контакты</a></nav>
+  <nav><a href="#services">Услуги</a><a href="#cases">Кейсы</a><a href="#faq">FAQ</a><a href="#contact">Контакты</a><a href="/privacy/" style="margin-left:8px">Политика конфиденциальности</a></nav>
   <span>© 2026 DiASITE · Алексей Дианов · <a href="tel:+79834075940" style="color:#fff">+7 (983) 407-59-40</a></span>
  </div>
 </footer>
@@ -679,6 +688,65 @@ footer a:hover{color:#fff}
  </div>
 </div>
 
+<!-- модалка: создание сайта -->
+<div class="modal" id="devModal" aria-hidden="true">
+ <div class="modal-box">
+  <button class="mclose" data-close aria-label="Закрыть">✕</button>
+  <div class="mform">
+   <h3>Обсудить создание сайта</h3>
+   <p class="msub">Расскажите о клинике — предложу структуру, сроки и стоимость запуска.</p>
+   <form data-mailform data-subject="Заявка: создание сайта">
+    <div class="fgroup"><label>Как могу обращаться?<i>*</i></label><input type="text" name="Имя" required placeholder="Имя"></div>
+    <div class="fgroup"><label>Телефон или Telegram<i>*</i></label><input type="text" name="Контакт" required placeholder="+7 ... или @username"></div>
+    <div class="fgroup"><label>Что важно учесть?</label><input type="text" name="Комментарий" placeholder="Например: нет сайта, есть только Инстаграм"></div>
+    <label class="consent"><input type="checkbox" required><span>Согласен с <a href="/privacy/" target="_blank">политикой конфиденциальности</a></span></label>
+    <button class="btn" type="submit">Отправить →</button>
+    <p class="mlater">Свяжусь в этот же день ✦</p>
+   </form>
+  </div>
+  <div class="mthanks"><div class="ok">✓</div><b>Заявка принята</b><p>Свяжусь с вами сегодня и обсудим сайт.</p></div>
+ </div>
+</div>
+
+<!-- модалка: продвижение -->
+<div class="modal" id="seoModal" aria-hidden="true">
+ <div class="modal-box">
+  <button class="mclose" data-close aria-label="Закрыть">✕</button>
+  <div class="mform">
+   <h3>Обсудить продвижение</h3>
+   <p class="msub">Посмотрю ваш сайт и предложу план продвижения после бесплатного аудита.</p>
+   <form data-mailform data-subject="Заявка: продвижение">
+    <div class="fgroup"><label>Ссылка на сайт</label><input type="url" name="Сайт" placeholder="например, klinika.ru"></div>
+    <div class="fgroup"><label>Как могу обращаться?<i>*</i></label><input type="text" name="Имя" required placeholder="Имя"></div>
+    <div class="fgroup"><label>Телефон или Telegram<i>*</i></label><input type="text" name="Контакт" required placeholder="+7 ... или @username"></div>
+    <label class="consent"><input type="checkbox" required><span>Согласен с <a href="/privacy/" target="_blank">политикой конфиденциальности</a></span></label>
+    <button class="btn" type="submit">Отправить →</button>
+    <p class="mlater">Свяжусь в этот же день ✦</p>
+   </form>
+  </div>
+  <div class="mthanks"><div class="ok">✓</div><b>Заявка принята</b><p>Свяжусь с вами сегодня и договоримся об аудите.</p></div>
+ </div>
+</div>
+
+<!-- модалка: чек-лист -->
+<div class="modal" id="clModal" aria-hidden="true">
+ <div class="modal-box">
+  <button class="mclose" data-close aria-label="Закрыть">✕</button>
+  <div class="mform">
+   <h3>Куда отправить файл?</h3>
+   <p class="msub">Оставьте контакт — пришлю чек-лист на 57 пунктов с пояснениями. Бесплатно.</p>
+   <form data-mailform data-subject="Заявка: чек-лист">
+    <div class="fgroup"><label>Как могу обращаться?<i>*</i></label><input type="text" name="Имя" required placeholder="Имя"></div>
+    <div class="fgroup"><label>Куда отправить? (Telegram, MAX, телефон или e-mail)<i>*</i></label><input type="text" name="Контакт" required placeholder="@username / +7 ... / почта"></div>
+    <label class="consent"><input type="checkbox" required><span>Согласен с <a href="/privacy/" target="_blank">политикой конфиденциальности</a></span></label>
+    <button class="btn" type="submit">Отправить →</button>
+    <p class="mlater">Пришлю файл в этот же день ✦</p>
+   </form>
+  </div>
+  <div class="mthanks"><div class="ok">✓</div><b>Принято</b><p>Отправлю чек-лист сегодня на указанный контакт.</p></div>
+ </div>
+</div>
+
 <script>
 (function(){
   var MAILTO = 'aleksey.dianov.1996@gmail.com';
@@ -716,22 +784,25 @@ footer a:hover{color:#fff}
   document.querySelectorAll('.shotwin').forEach(function(win){
     var img = win.querySelector('img');
     if(!img) return;
-    var pos = 0, dir = 1, hover = false, seen = false, last = 0;
+    var pos = 0, hover = false, seen = false, last = 0;
     var SPEED = 90; /* px/сек */
     function maxPos(){ return Math.max(0, img.naturalHeight * (win.clientWidth / img.naturalWidth) - win.clientHeight); }
     win.addEventListener('pointerenter', function(){ hover = true; win.classList.add('play'); });
     win.addEventListener('pointerleave', function(){ hover = false; if(!seen) win.classList.remove('play'); });
-    img.addEventListener('load', function(){ pos = 0; });
+    img.addEventListener('load', function(){ pos = 0; win.classList.remove('at-end'); });
+    var restart = win.querySelector('.restart');
+    if(restart) restart.addEventListener('click', function(){ pos = 0; win.classList.remove('at-end'); });
     function step(ts){
       if(!last) last = ts;
       var dt = (ts - last) / 1000; last = ts;
       var active = hover || (!canHover && seen);
       if(active && img.complete){
-        pos += dir * SPEED * dt;
         var m = maxPos();
-        if(pos >= m){ pos = m; dir = -1; }
-        if(pos <= 0){ pos = 0; dir = 1; }
-        img.style.transform = 'translateY(' + (-pos) + 'px)';
+        if(pos < m){
+          pos = Math.min(m, pos + SPEED * dt);
+          img.style.transform = 'translateY(' + (-pos) + 'px)';
+          if(pos >= m) win.classList.add('at-end');
+        }
       }
       requestAnimationFrame(step);
     }
@@ -742,6 +813,38 @@ footer a:hover{color:#fff}
       }, {threshold:.3});
       io.observe(win);
     } else { seen = true; }
+  });
+
+  /* появление элементов при скролле */
+  var revealEls = document.querySelectorAll('.card,.step-card,.source,.case,.support-item,.price-card,.cl-card,.paper,.report-img,.about-photo,.journey,.live-card');
+  revealEls.forEach(function(el){ el.classList.add('reveal'); });
+  if('IntersectionObserver' in window){
+    var rio = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rio.unobserve(e.target); } });
+    }, {threshold:.12});
+    revealEls.forEach(function(el){ rio.observe(el); });
+  } else revealEls.forEach(function(el){ el.classList.add('in'); });
+
+  /* универсальные формы модалок → на почту */
+  document.querySelectorAll('form[data-mailform]').forEach(function(f){
+    f.addEventListener('submit', function(e){
+      e.preventDefault();
+      var ok = true, data = {};
+      f.querySelectorAll('input[name]').forEach(function(inp){
+        if(inp.required && !inp.value.trim()){ inp.style.borderColor = '#d23445'; ok = false; }
+        else inp.style.borderColor = '';
+        data[inp.name] = inp.value.trim() || '—';
+      });
+      var agree = f.querySelector('input[type=checkbox]');
+      if(agree && !agree.checked){ agree.parentElement.style.color = '#d23445'; ok = false; }
+      else if(agree) agree.parentElement.style.color = '';
+      if(!ok) return;
+      var btn = f.querySelector('button'); btn.disabled = true; btn.textContent = 'Отправляю…';
+      sendLead(data, f.dataset.subject).catch(function(){}).finally(function(){
+        f.closest('.mform').style.display = 'none';
+        f.closest('.modal-box').querySelector('.mthanks').style.display = 'block';
+      });
+    });
   });
 
   /* cookie */
@@ -761,9 +864,10 @@ footer a:hover{color:#fff}
   document.addEventListener('keydown', function(e){
     if(e.key==='Escape'){ document.querySelectorAll('.modal.open').forEach(closeModal); closeMenu(); }
   });
-  ['leadBtn','track1Btn','track2Btn','mContactBtn'].forEach(function(id){
+  var modalTarget = { leadBtn:'leadModal', mContactBtn:'leadModal', track1Btn:'devModal', track2Btn:'seoModal', clBtn:'clModal' };
+  Object.keys(modalTarget).forEach(function(id){
     var el = document.getElementById(id);
-    if(el) el.addEventListener('click', function(e){ e.preventDefault(); closeMenu(); openModal('leadModal'); });
+    if(el) el.addEventListener('click', function(e){ e.preventDefault(); closeMenu(); openModal(modalTarget[id]); });
   });
   document.getElementById('contactBtn').addEventListener('click', function(e){ e.preventDefault(); openModal('contactModal'); });
 
